@@ -1,0 +1,7 @@
+# By default, GitHub doesn't show query ?ts=2 in URL.
+# 2 tab indentation
+[*]
+indent_style = tab
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
