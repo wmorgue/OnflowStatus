@@ -1,0 +1,43 @@
+//
+//  MockData.swift
+//  Apple System Status
+//
+//  Created by Nikita Rossik on 6/16/22.
+//
+
+import Foundation
+
+enum MockData {
+	static var events: [Event] {
+		[Event(
+			usersAffected: "Затронуты некоторые пользователи",
+			epochStartDate: 1_647_880_020_000,
+			epochEndDate: nil,
+			messageID: "2000001303",
+			statusType: "Outage",
+			datePosted: "21.03.2022 17:58 GMT",
+			startDate: "21.03.2022 16:27 GMT",
+			endDate: nil,
+			affectedServices: [
+				"iCloud Drive",
+				"Веб-приложения iCloud (iCloud.com)",
+				"Календарь iCloud",
+				"Почта iCloud",
+				"Связка ключей iCloud",
+				"Учетная запись и вход в iCloud",
+			],
+			eventStatus: "ongoing",
+			message: "Возможно, нет доступа к календарям из веб-приложения «Календарь» на icloud.com."
+		)]
+	}
+
+	static var servicesJSON: [Services] {
+		let previewDataURL = Bundle.main.url(forResource: "system_status_ru", withExtension: "json")!
+		let jsonDecoder = JSONDecoder()
+
+		let data = try! Data(contentsOf: previewDataURL)
+		let apiResponse = try! jsonDecoder.decode(SupportStatus.self, from: data)
+
+		return apiResponse.services
+	}
+}
