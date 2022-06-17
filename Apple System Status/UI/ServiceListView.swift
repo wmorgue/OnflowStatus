@@ -8,18 +8,25 @@
 import SwiftUI
 
 struct ServiceListView: View {
+	@State private var showingSheet: Bool = false
+
 	let services: [Services]
 
 	var body: some View {
 		NavigationStack {
 			List(services) { service in
-				NavigationLink(destination: Text(service.serviceName)) {
-					ServiceCellView(service)
-				}
+				ServiceCellView(service)
+					.onTapGesture {
+						guard service.events!.isEmpty else {
+							showingSheet.toggle()
+							return
+						}
+					}
+					.sheet(isPresented: $showingSheet) {
+							ServiceSheetView(service.serviceName, event: service.events!)
+							.presentationDetents([.medium, .large])
+					}
 			}
-//						.navigationDestination(for: Services.self) { s in
-//								Text("Detail: \(s)")
-//						}
 			.navigationTitle("Support")
 		}
 	}

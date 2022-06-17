@@ -11,15 +11,18 @@ struct ServiceCellView: View {
 
 	let service: Services
 
-	internal init(_ service: Services) {
+	init(_ service: Services) {
 		self.service = service
 	}
 
 	var body: some View {
 		Label {
 			Text(service.serviceName)
+				.lineLimit(1)
+				.minimumScaleFactor(0.8)
+				.foregroundColor(service.events?.isEmpty ?? false ? .primary : .blue)
 		} icon: {
-			Image(systemName: "icloud")
+			Image(systemName: "circle.dotted")
 				.foregroundColor(.green)
 		}
 	}
