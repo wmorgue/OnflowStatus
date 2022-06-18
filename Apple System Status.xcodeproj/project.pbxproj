@@ -7,18 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7307BE78285C9FA70090E9FA /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 7307BE77285C9FA70090E9FA /* Get */; };
+		7307BE7C285CA1A60090E9FA /* ServiceListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7307BE7B285CA1A60090E9FA /* ServiceListModel.swift */; };
 		7311F833285B24C000EF174E /* Apple_System_StatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F832285B24C000EF174E /* Apple_System_StatusApp.swift */; };
 		7311F837285B24C400EF174E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7311F836285B24C400EF174E /* Assets.xcassets */; };
 		7311F83A285B24C400EF174E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7311F839285B24C400EF174E /* Preview Assets.xcassets */; };
 		7311F841285B256200EF174E /* Support Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F840285B256200EF174E /* Support Status.swift */; };
 		7311F843285B261400EF174E /* NavigationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F842285B261400EF174E /* NavigationTabView.swift */; };
 		7311F845285B296500EF174E /* ServiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F844285B296500EF174E /* ServiceListView.swift */; };
+		73D07C15285BA57C00F3B955 /* ServiceSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D07C14285BA57C00F3B955 /* ServiceSheetView.swift */; };
 		73E65E12285B2FA00012AC0F /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E65E11285B2FA00012AC0F /* MockData.swift */; };
 		73E65E15285B30AB0012AC0F /* ServiceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E65E14285B30AB0012AC0F /* ServiceCellView.swift */; };
 		73E65E17285B33480012AC0F /* system_status_ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E65E16285B33480012AC0F /* system_status_ru.json */; };
+		73EE5C67285C891600AA9D2B /* AffectedServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EE5C66285C891600AA9D2B /* AffectedServicesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7307BE7B285CA1A60090E9FA /* ServiceListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListModel.swift; sourceTree = "<group>"; };
 		7311F82F285B24C000EF174E /* Apple System Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple System Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7311F832285B24C000EF174E /* Apple_System_StatusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple_System_StatusApp.swift; sourceTree = "<group>"; };
 		7311F836285B24C400EF174E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -26,9 +31,11 @@
 		7311F840285B256200EF174E /* Support Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Support Status.swift"; sourceTree = "<group>"; };
 		7311F842285B261400EF174E /* NavigationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabView.swift; sourceTree = "<group>"; };
 		7311F844285B296500EF174E /* ServiceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListView.swift; sourceTree = "<group>"; };
+		73D07C14285BA57C00F3B955 /* ServiceSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSheetView.swift; sourceTree = "<group>"; };
 		73E65E11285B2FA00012AC0F /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		73E65E14285B30AB0012AC0F /* ServiceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCellView.swift; sourceTree = "<group>"; };
 		73E65E16285B33480012AC0F /* system_status_ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = system_status_ru.json; sourceTree = "<group>"; };
+		73EE5C66285C891600AA9D2B /* AffectedServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectedServicesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7307BE78285C9FA70090E9FA /* Get in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +92,7 @@
 			children = (
 				73E65E11285B2FA00012AC0F /* MockData.swift */,
 				7311F840285B256200EF174E /* Support Status.swift */,
+				7307BE7B285CA1A60090E9FA /* ServiceListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -94,6 +103,8 @@
 				7311F842285B261400EF174E /* NavigationTabView.swift */,
 				7311F844285B296500EF174E /* ServiceListView.swift */,
 				73E65E14285B30AB0012AC0F /* ServiceCellView.swift */,
+				73D07C14285BA57C00F3B955 /* ServiceSheetView.swift */,
+				73EE5C66285C891600AA9D2B /* AffectedServicesView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -114,6 +125,9 @@
 			dependencies = (
 			);
 			name = "Apple System Status";
+			packageProductDependencies = (
+				7307BE77285C9FA70090E9FA /* Get */,
+			);
 			productName = "Apple System Status";
 			productReference = 7311F82F285B24C000EF174E /* Apple System Status.app */;
 			productType = "com.apple.product-type.application";
@@ -142,6 +156,9 @@
 				Base,
 			);
 			mainGroup = 7311F826285B24C000EF174E;
+			packageReferences = (
+				7307BE76285C9FA70090E9FA /* XCRemoteSwiftPackageReference "Get" */,
+			);
 			productRefGroup = 7311F830285B24C000EF174E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -171,9 +188,12 @@
 			files = (
 				7311F841285B256200EF174E /* Support Status.swift in Sources */,
 				73E65E12285B2FA00012AC0F /* MockData.swift in Sources */,
+				7307BE7C285CA1A60090E9FA /* ServiceListModel.swift in Sources */,
 				7311F845285B296500EF174E /* ServiceListView.swift in Sources */,
+				73D07C15285BA57C00F3B955 /* ServiceSheetView.swift in Sources */,
 				7311F843285B261400EF174E /* NavigationTabView.swift in Sources */,
 				73E65E15285B30AB0012AC0F /* ServiceCellView.swift in Sources */,
+				73EE5C67285C891600AA9D2B /* AffectedServicesView.swift in Sources */,
 				7311F833285B24C000EF174E /* Apple_System_StatusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,8 +329,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -338,8 +358,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,6 +395,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7307BE76285C9FA70090E9FA /* XCRemoteSwiftPackageReference "Get" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Get";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7307BE77285C9FA70090E9FA /* Get */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7307BE76285C9FA70090E9FA /* XCRemoteSwiftPackageReference "Get" */;
+			productName = Get;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7311F827285B24C000EF174E /* Project object */;
 }
