@@ -13,7 +13,7 @@ struct NavigationTabView: View {
 		TabView {
 			// MARK: - Support status
 
-			Text("Support status")
+			ServiceListView()
 				.tabItem {
 					Label("Support", systemImage: "gear.badge.checkmark")
 				}

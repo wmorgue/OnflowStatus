@@ -20,7 +20,7 @@ struct ServiceCellView: View {
 			Text(service.serviceName)
 				.lineLimit(1)
 				.minimumScaleFactor(0.8)
-				.foregroundColor(service.events?.isEmpty ?? false ? .primary : .blue)
+				.foregroundColor(service.events.isEmpty ? .primary : .blue)
 		} icon: {
 			Image(systemName: "circle.dotted")
 				.foregroundColor(.green)

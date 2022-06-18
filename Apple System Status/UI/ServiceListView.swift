@@ -8,25 +8,22 @@
 import SwiftUI
 
 struct ServiceListView: View {
-	@State private var showingSheet: Bool = false
 
-	let services: [Services]
+	@StateObject var model = ServiceListModel()
 
 	var body: some View {
 		NavigationStack {
-			List(services) { service in
+			List(model.services) { service in
 				ServiceCellView(service)
-					.onTapGesture {
-						guard service.events!.isEmpty else {
-							showingSheet.toggle()
-							return
-						}
-					}
-					.sheet(isPresented: $showingSheet) {
-							ServiceSheetView(service.serviceName, event: service.events!)
-							.presentationDetents([.medium, .large])
-					}
+//										.sheet(isPresented: $model.showingSheet) {
+//												Text(service.serviceName)
+					////												ServiceSheetView(service.serviceName, event: service.events)
+//														.presentationDetents([.medium, .large])
+//										}
+					.onTapGesture { model.showSheet(for: service) }
 			}
+			.task { await model.getServices() }
+			.refreshable { await model.getServices() }
 			.navigationTitle("Support")
 		}
 	}
@@ -34,6 +31,6 @@ struct ServiceListView: View {
 
 struct StatusListView_Previews: PreviewProvider {
 	static var previews: some View {
-		ServiceListView(services: MockData.servicesJSON)
+		ServiceListView()
 	}
 }
