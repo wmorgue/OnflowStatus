@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Apple_System_StatusApp: App {
+
+	@StateObject
+	var model = ServiceListModel()
+
 	var body: some Scene {
 		WindowGroup {
-			NavigationTabView()
+			NavigationTabView(model: model)
 		}
 	}
 }

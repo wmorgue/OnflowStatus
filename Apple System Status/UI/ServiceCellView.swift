@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ServiceCellView: View {
 
-	let service: Services
+	var service: Services
 
 	init(_ service: Services) {
 		self.service = service

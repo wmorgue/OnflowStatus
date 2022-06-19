@@ -9,11 +9,14 @@ import SwiftUI
 
 struct NavigationTabView: View {
 
+	@ObservedObject
+	var model: ServiceListModel
+
 	var body: some View {
 		TabView {
 			// MARK: - Support status
 
-			ServiceListView()
+			ServiceListView(model: model)
 				.tabItem {
 					Label("Support", systemImage: "gear.badge.checkmark")
 				}
@@ -36,7 +39,16 @@ struct NavigationTabView: View {
 }
 
 struct TabView_Previews: PreviewProvider {
+	struct Preview: View {
+		@StateObject
+		private var model = ServiceListModel()
+
+		var body: some View {
+			NavigationTabView(model: model)
+		}
+	}
+
 	static var previews: some View {
-		NavigationTabView()
+		Preview()
 	}
 }

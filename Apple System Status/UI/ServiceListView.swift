@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ServiceListView: View {
 
-	@StateObject var model = ServiceListModel()
+	@ObservedObject
+	var model: ServiceListModel
 
 	var body: some View {
 		NavigationStack {
 			List(model.services) { service in
 				ServiceCellView(service)
-//										.sheet(isPresented: $model.showingSheet) {
-//												Text(service.serviceName)
-					////												ServiceSheetView(service.serviceName, event: service.events)
-//														.presentationDetents([.medium, .large])
-//										}
+					.sheet(isPresented: $model.showingSheet) {
+						ServiceSheetView(model: model)
+							.presentationDetents([.medium, .large])
+					}
 					.onTapGesture { model.showSheet(for: service) }
 			}
 			.task { await model.getServices() }
@@ -30,7 +30,16 @@ struct ServiceListView: View {
 }
 
 struct StatusListView_Previews: PreviewProvider {
+	struct Preview: View {
+		@StateObject
+		private var model = ServiceListModel.preview
+
+		var body: some View {
+			ServiceListView(model: model)
+		}
+	}
+
 	static var previews: some View {
-		ServiceListView()
+		Preview()
 	}
 }
