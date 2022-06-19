@@ -16,17 +16,19 @@ final class ServiceListModel: ObservableObject {
 
 	@Published
 	var showingSheet: Bool = false
+
+	private let client = APIClient(baseURL: URL(string: "https://www.apple.com/support/systemstatus/data"))
 }
 
 private extension Logger {
 	static let serviceModel = Logger(
 		subsystem: Bundle.main.bundleIdentifier!,
-		category: String(describing: Self.self)
+		category: String(describing: ServiceListModel.self)
 	)
 }
 
 extension ServiceListModel {
-	static let client = APIClient(baseURL: URL(string: "https://www.apple.com/support/systemstatus/data"))
+	static let preview = ServiceListModel()
 
 	func showSheet(for service: Services) {
 		guard service.events.isEmpty else {
@@ -37,7 +39,7 @@ extension ServiceListModel {
 
 	func getServices(for language: String = "en_US") async {
 		do {
-			let status: SupportStatus = try await Self.client.send(.get("/system_status_\(language).js")).value
+			let status: SupportStatus = try await client.send(.get("/system_status_\(language).js")).value
 			#if targetEnvironment(simulator)
 				//	dump(status)
 			#endif
