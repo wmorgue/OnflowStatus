@@ -11,7 +11,6 @@ struct ServiceSheetView: View {
 
 	@ObservedObject
 	var model: ServiceListModel
-	//	var serviceName: String
 
 	var body: some View {
 		VStack {
@@ -33,6 +32,8 @@ struct ServiceSheetView: View {
 				// AffectedServices View
 			}
 		}
+//			 Only in preview
+		.task { await model.getServices() }
 	}
 }
 
