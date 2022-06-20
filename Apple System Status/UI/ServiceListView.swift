@@ -15,7 +15,7 @@ struct ServiceListView: View {
 	var body: some View {
 		NavigationStack {
 			List(model.services) { service in
-				ServiceCellView(service)
+				ServiceRow(service)
 					.sheet(isPresented: $model.showingSheet) {
 						ServiceSheetView(model: model)
 							.presentationDetents([.medium, .large])

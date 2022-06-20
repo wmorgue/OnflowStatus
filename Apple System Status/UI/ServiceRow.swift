@@ -1,5 +1,5 @@
 //
-//  ServiceCellView.swift
+//  ServiceRow.swift
 //  Apple System Status
 //
 //  Created by Nikita Rossik on 6/16/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ServiceCellView: View {
+struct ServiceRow: View {
 
 	var service: Services
 
@@ -30,6 +30,6 @@ struct ServiceCellView: View {
 
 struct ServiceCellView_Previews: PreviewProvider {
 	static var previews: some View {
-		ServiceCellView(MockData.servicesJSON.first!)
+		ServiceRow(MockData.servicesJSON.first!)
 	}
 }
