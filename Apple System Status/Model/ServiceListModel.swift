@@ -48,4 +48,14 @@ extension ServiceListModel {
 			Logger.serviceModel.error("\(error)")
 		}
 	}
+
+	func relativeStartDate(from startDate: String) -> String {
+		let strategy = Date.ParseStrategy(format: "\(month: .twoDigits)/\(day: .twoDigits)/\(year: .defaultDigits) \(hour: .twoDigits(clock: .twelveHour, hourCycle: .zeroBased)):\(minute: .twoDigits) PDT", locale: Locale(identifier: "en_US"), timeZone: .current)
+		guard let date = try? Date(startDate, strategy: strategy) else { return Date.now.formatted() }
+
+		let formatter = RelativeDateTimeFormatter()
+		formatter.unitsStyle = .full
+
+		return formatter.localizedString(for: date, relativeTo: .now)
+	}
 }
