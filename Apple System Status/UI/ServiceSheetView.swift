@@ -13,26 +13,34 @@ struct ServiceSheetView: View {
 	var model: ServiceListModel
 
 	var body: some View {
-		VStack {
-			ForEach(model.services) { service in
-				ForEach(service.events) { event in
+		List(model.services) { service in
+			ForEach(service.events) { event in
+				Section("Status") {
+					// MARK: - Service name
+
 					HStack {
-						Text("\(service.serviceName)  -")
-						Text(event.eventStatus.capitalized)
+						Text(service.serviceName)
+						Spacer()
+						Image(systemName: "checkmark.circle.fill")
 							.foregroundColor(event.eventStatus.contains("ongoing") ? .orange : .green)
 					}
-					.bold()
-					.padding(.bottom)
 
-					VStack(alignment: .leading) {
-						Text(event.usersAffected)
-						Text(event.message)
+					// MARK: - Relative date started
+
+					HStack {
+						Text("Event started")
+						Spacer()
+						Text(model.relativeStartDate(from: event.startDate))
+							.foregroundColor(.secondary)
 					}
 				}
-				// AffectedServices View
+				Section("Affected services") {
+					HStack {
+						//												Text(event.affectedServices)
+					}
+				}
 			}
 		}
-//			 Only in preview
 		.task { await model.getServices() }
 	}
 }
