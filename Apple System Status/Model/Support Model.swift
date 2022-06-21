@@ -10,6 +10,9 @@ import Foundation
 // Support Status
 // https://www.apple.com/support/systemstatus/data/system_status_en_US.js
 
+// Developer Status
+// https://www.apple.com/support/systemstatus/data/developer/system_status_en_US.js
+
 struct SupportStatus {
 	var services: [Services]
 }
