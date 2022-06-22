@@ -15,21 +15,18 @@ struct NavigationTabView: View {
 	var body: some View {
 		TabView {
 			// MARK: - Support status
-
 			ServiceListView(model: model)
 				.tabItem {
 					Label("Support", systemImage: "gear.badge.checkmark")
 				}
 
 			// MARK: - Developer status
-
 			Text("Developer status")
 				.tabItem {
 					Label("Developer", systemImage: "hammer.circle")
 				}
 
 			// MARK: - Setting
-
 			Text("Settings")
 				.tabItem {
 					Label("Settings", systemImage: "gear.circle")

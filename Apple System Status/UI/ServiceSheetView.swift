@@ -17,7 +17,6 @@ struct ServiceSheetView: View {
 			ForEach(service.events) { event in
 				Section("Status") {
 					// MARK: - Service name
-
 					HStack {
 						Text(service.serviceName)
 						Spacer()
@@ -26,7 +25,6 @@ struct ServiceSheetView: View {
 					}
 
 					// MARK: - Relative date started
-
 					HStack {
 						Text("Event started")
 						Spacer()
@@ -34,14 +32,24 @@ struct ServiceSheetView: View {
 							.foregroundColor(.secondary)
 					}
 				}
-				Section("Affected services") {
+				// MARK: - Message to user
+				Section {
 					HStack {
-						//												Text(event.affectedServices)
+						Text(event.message)
+					}
+				}
+				// MARK: - Affected services
+				if let affectedServices: [String] = event.affectedServices {
+					Section("Affected services") {
+						HStack {
+							ForEach(affectedServices, id: \.self) { affected in
+								Text(affected)
+							}
+						}
 					}
 				}
 			}
 		}
-		.task { await model.getServices() }
 	}
 }
 
@@ -50,6 +58,7 @@ struct ServiceSheetView_Previews: PreviewProvider {
 		@StateObject var model = ServiceListModel()
 		var body: some View {
 			ServiceSheetView(model: model)
+				.task { await model.getServices() }
 		}
 	}
 
