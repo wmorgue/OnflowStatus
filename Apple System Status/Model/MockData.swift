@@ -40,4 +40,24 @@ enum MockData {
 
 		return apiResponse.services
 	}
+
+	static var developerService: Services {
+		Services(
+			serviceName: "Developer ID Notary Service",
+			redirectUrl: "https://developer.apple.com/contact/",
+			events: [Event(
+				usersAffected: "Some users were affected",
+				epochStartDate: 1_654_879_800_000,
+				epochEndDate: 1_654_906_200_000,
+				messageID: "2000001488",
+				statusType: "Issue",
+				datePosted: "06/12/2022 06:00 PDT",
+				startDate: "06/10/2022 09:50 PDT",
+				endDate: "06/10/2022 17:10 PDT",
+				affectedServices: nil,
+				eventStatus: "resolved",
+				message: "Users may have experienced issues with the service."
+			)]
+		)
+	}
 }
