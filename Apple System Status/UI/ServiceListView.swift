@@ -18,8 +18,8 @@ struct ServiceListView: View {
 				ServiceRow(service)
 					.onTapGesture { model.showSheet(for: service) }
 			}
-			.task { await model.getServices() }
-			.refreshable { await model.getServices() }
+			.task { await model.getSupportServices() }
+			.refreshable { await model.getSupportServices() }
 			.navigationTitle("Support")
 			.sheet(isPresented: $model.showingSheet) {
 				ServiceSheetView(model: model)

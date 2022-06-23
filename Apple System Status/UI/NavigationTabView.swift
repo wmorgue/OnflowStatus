@@ -21,7 +21,7 @@ struct NavigationTabView: View {
 				}
 
 			// MARK: - Developer status
-			Text("Developer status")
+			DeveloperListView(model: model)
 				.tabItem {
 					Label("Developer", systemImage: "hammer.circle")
 				}

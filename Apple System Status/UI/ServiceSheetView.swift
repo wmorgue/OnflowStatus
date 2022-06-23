@@ -58,7 +58,7 @@ struct ServiceSheetView_Previews: PreviewProvider {
 		@StateObject var model = ServiceListModel()
 		var body: some View {
 			ServiceSheetView(model: model)
-				.task { await model.getServices() }
+				.task { await model.getSupportServices() }
 		}
 	}
 
