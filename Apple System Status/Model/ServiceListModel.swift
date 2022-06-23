@@ -33,7 +33,7 @@ private extension Logger {
 extension ServiceListModel {
 	static let preview = ServiceListModel()
 
-	func debugDump<T>(_ value: T) -> T {
+		func debugDump<T>(_ value: T) -> Void {
 		#if targetEnvironment(simulator)
 			dump(value, indent: 2)
 		#endif
@@ -67,6 +67,7 @@ extension ServiceListModel {
 			let status: SupportStatus = try await client.send(.get("/system_status_\(language).js")).value
 			//						debugDump(status)
 			services = status.services
+				dump(services)
 		} catch {
 			Logger.serviceModel.error("\(error)")
 		}
