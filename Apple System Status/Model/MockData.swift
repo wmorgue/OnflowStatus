@@ -44,7 +44,7 @@ enum MockData {
 	static var developerService: Services {
 		Services(
 			serviceName: "Developer ID Notary Service",
-			redirectUrl: "https://developer.apple.com/contact/",
+			redirectUrl: nil,
 			events: [Event(
 				usersAffected: "Some users were affected",
 				epochStartDate: 1_654_879_800_000,

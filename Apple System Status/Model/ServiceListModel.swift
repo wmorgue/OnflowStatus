@@ -49,12 +49,23 @@ extension ServiceListModel {
 	/*
 	 1. Responce status = 200
 	 2. The request timed out
+	 3. Split method's below to ServiceAPI
 	 */
 
 	func getSupportServices(for language: String = "en_US") async {
+		let statusCode = try? await client
+			.send(.get("/system_status_\(language).js"))
+			.statusCode
+
+		guard statusCode == 200 else {
+			// showing view with retry button insdead a alert with try again button
+			Logger.serviceModel.info("The server responded with an error. Status code: \(statusCode.debugDescription)")
+			return
+		}
+
 		do {
 			let status: SupportStatus = try await client.send(.get("/system_status_\(language).js")).value
-//						debugDump(status)
+			//						debugDump(status)
 			services = status.services
 		} catch {
 			Logger.serviceModel.error("\(error)")
@@ -79,7 +90,7 @@ extension ServiceListModel {
 
 			let status: SupportStatus = try! JSONDecoder().decode(SupportStatus.self, from: callbackResultData)
 
-//						debugDump(status)
+			//						debugDump(status)
 			developers = status.services
 		} catch {
 			Logger.serviceModel.error("\(error)")
