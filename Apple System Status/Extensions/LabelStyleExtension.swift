@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReversedLabel: LabelStyle {
 	/// Spacer modifier between title and icon
-	var withSpacer: Bool = false
+	var withSpacer: Bool = true
 
 	func makeBody(configuration: Configuration) -> some View {
 		HStack {
