@@ -10,26 +10,50 @@ import SwiftUI
 struct DeveloperRow: View {
 
 	var service: Services
+	@Environment(\.openURL) private var openURL
 
-	var body: some View {
-		let serviceName = Text(service.serviceName)
-
-		Label {
-			if let link = service.redirectUrl {
-				Link(destination: URL(string: link)!) {
-					serviceName
-				}
-			} else {
-				serviceName
-			}
-		} icon: {
-			if service.redirectUrl != nil {
-				Image(systemName: "link")
+	fileprivate func openUnwrapURL() {
+		if let link = service.redirectUrl {
+			if let url = URL(string: link) {
+				openURL(url)
 			}
 		}
-		.labelStyle(.reversed)
+	}
+
+	var body: some View {
+
+		Button {
+			openUnwrapURL()
+		} label: {
+			HStack {
+				Image(systemName: "circle.dotted")
+					.foregroundColor(service.events.isEmpty ? .green : .orange)
+
+				Label(service.serviceName, systemImage: "link")
+					.foregroundColor(service.redirectUrl != nil ? .blue : .primary)
+					.lineLimit(1)
+					.minimumScaleFactor(0.9)
+					.labelStyle(.reversed)
+			}
+		}
 	}
 }
+
+// try refactor later
+//		Label {
+//			if let link = service.redirectUrl {
+//					Link(destination: URL(string: service.redirectUrl!)!) {
+//					serviceName
+//				}
+//			} else {
+//				serviceName
+//			}
+//		} icon: {
+//			if service.redirectUrl != nil {
+//				Image(systemName: "link")
+//			}
+//		}
+//		.labelStyle(.reversed)
 
 struct DeveloperRow_Previews: PreviewProvider {
 	static var previews: some View {
