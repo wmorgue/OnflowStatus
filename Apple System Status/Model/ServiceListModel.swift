@@ -15,6 +15,9 @@ final class ServiceListModel: ObservableObject {
 	var services: [Services] = []
 
 	@Published
+	var developers: [Services] = []
+
+	@Published
 	var showingSheet: Bool = false
 
 	private let client = APIClient(baseURL: URL(string: "https://www.apple.com/support/systemstatus/data"))
@@ -30,6 +33,12 @@ private extension Logger {
 extension ServiceListModel {
 	static let preview = ServiceListModel()
 
+	func debugDump<T>(_ value: T) -> T {
+		#if targetEnvironment(simulator)
+			dump(value, indent: 2)
+		#endif
+	}
+
 	func showSheet(for service: Services) {
 		guard service.events.isEmpty else {
 			showingSheet.toggle()
@@ -37,13 +46,41 @@ extension ServiceListModel {
 		}
 	}
 
-	func getServices(for language: String = "en_US") async {
+	/*
+	 1. Responce status = 200
+	 2. The request timed out
+	 */
+
+	func getSupportServices(for language: String = "en_US") async {
 		do {
 			let status: SupportStatus = try await client.send(.get("/system_status_\(language).js")).value
-			#if targetEnvironment(simulator)
-				//	dump(status)
-			#endif
+//						debugDump(status)
 			services = status.services
+		} catch {
+			Logger.serviceModel.error("\(error)")
+		}
+	}
+
+	func getDeveloperServices(for language: String = "en_US") async {
+		do {
+			// Return a JSON-P with callback so we need to remove a garbage
+			var callbackResult: String = try await client.send(.get("/developer/system_status_\(language).js")).value
+			callbackResult.removeFirst(13)
+			callbackResult.removeLast(3)
+
+			let callbackResultData = callbackResult.data(using: .utf8)!
+
+			let isValidObject: Bool = JSONSerialization.isValidJSONObject(callbackResult)
+
+			guard !isValidObject else {
+				Logger.serviceModel.error("Invalid JSON: \(#function)")
+				return
+			}
+
+			let status: SupportStatus = try! JSONDecoder().decode(SupportStatus.self, from: callbackResultData)
+
+//						debugDump(status)
+			developers = status.services
 		} catch {
 			Logger.serviceModel.error("\(error)")
 		}
