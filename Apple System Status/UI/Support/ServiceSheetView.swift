@@ -21,7 +21,7 @@ struct ServiceSheetView: View {
 						Text(service.serviceName)
 						Spacer()
 						Image(systemName: "checkmark.circle.fill")
-							.foregroundColor(event.eventStatus.contains("ongoing") ? .orange : .green)
+							.foregroundColor(event.eventStatus.elementsEqual("ongoing") ? .orange : .green)
 					}
 
 					// MARK: - Relative date started
@@ -42,9 +42,7 @@ struct ServiceSheetView: View {
 				if let affectedServices: [String] = event.affectedServices {
 					Section("Affected services") {
 						HStack {
-							ForEach(affectedServices, id: \.self) { affected in
-								Text(affected)
-							}
+							Text(String.affectedSeparator(affectedServices))
 						}
 					}
 				}

@@ -23,7 +23,7 @@ struct ServiceRow: View {
 				.foregroundColor(service.events.isEmpty ? .primary : .blue)
 		} icon: {
 			Image(systemName: "circle.dotted")
-				.foregroundColor(.green)
+				.foregroundColor(service.events.isEmpty ? .green : .orange)
 		}
 	}
 }
