@@ -32,13 +32,13 @@ enum MockData {
 	}
 
 	static var servicesJSON: [Services] {
-		let previewDataURL = Bundle.main.url(forResource: "system_status_ru", withExtension: "json")!
+		guard let url = Bundle.main.url(forResource: "system_status_ru", withExtension: "json"),
+		      let data = try? Data(contentsOf: url) else { return [] }
+
 		let jsonDecoder = JSONDecoder()
+		let apiResponse = try? jsonDecoder.decode(SupportStatus.self, from: data)
 
-		let data = try! Data(contentsOf: previewDataURL)
-		let apiResponse = try! jsonDecoder.decode(SupportStatus.self, from: data)
-
-		return apiResponse.services
+		return apiResponse?.services ?? []
 	}
 
 	static var developerService: Services {
