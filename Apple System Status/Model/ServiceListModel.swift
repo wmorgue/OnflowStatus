@@ -46,12 +46,6 @@ extension ServiceListModel {
 		}
 	}
 
-	/*
-	 1. Responce status = 200
-	 2. The request timed out
-	 3. Split method's below to ServiceAPI
-	 */
-
 	func getSupportServices(for language: String = "en_US") async {
 		let statusCode = try? await client
 			.send(.get("/system_status_\(language).js"))
@@ -89,7 +83,6 @@ extension ServiceListModel {
 			}
 
 			let status: SupportStatus = try! JSONDecoder().decode(SupportStatus.self, from: callbackResultData)
-
 			//						debugDump(status)
 			developers = status.services
 		} catch {
