@@ -31,6 +31,12 @@ struct ServiceSheetView: View {
 						Text(model.relativeStartDate(from: event.startDate))
 							.foregroundColor(.secondary)
 					}
+					HStack {
+						Text("Resolution")
+						Spacer()
+						Text(event.eventStatus.capitalized)
+							.foregroundColor(.secondary)
+					}
 				}
 				// MARK: - Message to user
 				Section {
