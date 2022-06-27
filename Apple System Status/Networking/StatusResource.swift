@@ -21,49 +21,69 @@ private enum RequestConstant {
 }
 
 enum RequestPath {
-	case status
+	case support
 	case developer
 
 	var path: String {
 		switch self {
-		case .status: return "/system_status_"
+		case .support: return "/system_status_"
 		case .developer: return "/developer/system_status_"
 		}
 	}
 }
 
 struct StatusResource {
-	private init() {}
-	static var shared = StatusResource()
-
-	var host = APIClient(baseURL: URL(string: "https://www.apple.com/support/systemstatus/data")) {
+	private var host = APIClient(baseURL: URL(string: "https://www.apple.com/support/systemstatus/data")) {
 		$0.sessionConfiguration.timeoutIntervalForRequest = RequestConstant.timeoutInterval
 	}
 
-	var requestPath: RequestPath = .status
+	var requestPath: RequestPath = .support
 	var locale: String = Locale.current.identifier
 }
 
 extension StatusResource {
-	func performRequest(_ requestPath: RequestPath) async throws -> Request<[Services]> {
-		let request: Request<[Services]> = .get(requestPath.path + locale + RequestConstant.requestPathExtension)
+	private func debugDump<T>(_ value: T) -> Void {
+		#if targetEnvironment(simulator)
+			dump(value, indent: 2)
+		#endif
+	}
+
+	func performRequest(_ requestPath: RequestPath) async throws -> Request<SupportStatus> {
+		let request: Request<SupportStatus> = .get(requestPath.path + locale + RequestConstant.requestPathExtension)
 		return request
 	}
 
-	func fetchServices() async throws -> [Services] {
-		let services = try await host.send(performRequest(.status))
+	func performCallbackRequest(_ requestPath: RequestPath) async throws -> Request<Data> {
+		let request: Request<Data> = .get(requestPath.path + locale + RequestConstant.requestPathExtension)
+		return request
+	}
 
-		guard services.statusCode == 200 else {
-			Logger.statusResource.error("Request status code invalid: \(services.statusCode!, privacy: .private)")
+	func fetchSupportServices() async throws -> [Services] {
+		let supportStatus = try await host.send(performRequest(.support))
+
+		guard supportStatus.statusCode == 200 else {
+			Logger.statusResource.error("Request status code invalid: \(supportStatus.statusCode!, privacy: .private)")
+			return []
+		}
+		return supportStatus.value.services
+	}
+
+	func fetchDeveloperServices() async throws -> [Services] {
+		var callbackResult: Data = try await host.send(performCallbackRequest(.developer)).data
+		callbackResult.removeFirst(13)
+		callbackResult.removeLast(2)
+
+//		print(callbackResult)
+//		let resultData = callbackResult.data(using: .utf8)!
+
+		let isValidObject: Bool = JSONSerialization.isValidJSONObject(callbackResult)
+
+		guard !isValidObject else {
+			Logger.statusResource.error("Invalid JSON: \(#function)")
 			return []
 		}
 
-//			guard services.request.timeoutInterval == 5 else {
-//					// show some alert
-//					Logger.statusResource.error("Request time out: \(services.request.timeoutInterval, privacy: .private)")
-//					return []
-//			}
-
-		return services.value
+		let status: SupportStatus = try JSONDecoder().decode(SupportStatus.self, from: callbackResult)
+		return status.services
 	}
 }
