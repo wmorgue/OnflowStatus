@@ -21,8 +21,6 @@ final class ServiceListModel: ObservableObject {
 
 	@Published
 	var showingSheet: Bool = false
-
-	//	private let client = APIClient(baseURL: URL(string: "https://www.apple.com/support/systemstatus/data"))
 }
 
 private extension Logger {
@@ -58,21 +56,7 @@ extension ServiceListModel {
 		}
 	}
 
-//	enum LocaleTimeZone: String {
-//		case PDT
-//		case GMT
-//	}
-
-//	func matchNetworkTimezone(_ locale: String) -> String {
-//		switch locale.elementsEqual("en_US") {
-//			case true: return "PDT"
-//			case false: return "GMT"
-//		}
-//	}
-
 	func relativeStartDate(from startDate: String) -> String {
-//		let timezoneLocale: String = matchNetworkTimezone(networking.locale)
-
 		let strategy = Date.ParseStrategy(format: "\(month: .twoDigits)/\(day: .twoDigits)/\(year: .defaultDigits) \(hour: .twoDigits(clock: .twelveHour, hourCycle: .zeroBased)):\(minute: .twoDigits) PDT", locale: Locale(identifier: networking.locale), timeZone: .current)
 		guard let date = try? Date(startDate, strategy: strategy) else { return Date.now.formatted() }
 
