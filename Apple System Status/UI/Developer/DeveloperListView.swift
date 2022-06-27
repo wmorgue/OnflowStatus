@@ -16,8 +16,8 @@ struct DeveloperListView: View {
 			List(model.developers) { dev in
 				DeveloperRow(service: dev)
 			}
-			.task { await model.getDeveloperServices() }
-			.refreshable { await model.getDeveloperServices() }
+			.task { await model.fetchDeveloper() }
+			.refreshable { await model.fetchDeveloper() }
 			.navigationTitle("Developer")
 		}
 	}
