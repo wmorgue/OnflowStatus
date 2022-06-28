@@ -1,5 +1,5 @@
 //
-//  DeveloperListView.swift
+//  DeveloperList.swift
 //  Apple System Status
 //
 //  Created by Nikita Rossik on 6/22/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DeveloperListView: View {
+struct DeveloperList: View {
 	@ObservedObject
 	var model: ServiceListModel
 
@@ -23,7 +23,7 @@ struct DeveloperListView: View {
 	}
 }
 
-struct DeveloperListView_Previews: PreviewProvider {
+struct DeveloperList_Previews: PreviewProvider {
 	struct Preview: View {
 		@StateObject
 		private var model = ServiceListModel.preview

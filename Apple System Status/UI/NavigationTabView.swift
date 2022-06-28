@@ -25,7 +25,7 @@ struct NavigationTabView: View {
 				.tag(0)
 
 			// MARK: - Developer status
-			DeveloperListView(model: model)
+			DeveloperList(model: model)
 				.tabItem {
 					Label("Developer", systemImage: "hammer")
 				}
