@@ -20,21 +20,21 @@ struct NavigationTabView: View {
 			// MARK: - Support status
 			ServiceListView(model: model)
 				.tabItem {
-					Label("Support", systemImage: "gear.badge.checkmark")
+					Label("Support", systemImage: "rectangle.stack")
 				}
 				.tag(0)
 
 			// MARK: - Developer status
 			DeveloperListView(model: model)
 				.tabItem {
-					Label("Developer", systemImage: "hammer.circle")
+					Label("Developer", systemImage: "hammer")
 				}
 				.tag(1)
 
 			// MARK: - Setting
-			Text("Settings")
+			SettingsView()
 				.tabItem {
-					Label("Settings", systemImage: "gear.circle")
+					Label("Settings", systemImage: "gear")
 				}
 				.tag(2)
 		}
