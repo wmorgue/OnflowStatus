@@ -11,15 +11,30 @@ struct DeveloperList: View {
 	@ObservedObject
 	var model: ServiceListModel
 
+	@State
+	private var searchText: String = ""
+
+//	@State
+//	var availableService: Services?
+
 	var body: some View {
 		NavigationStack {
-			List(model.developers) { dev in
+			List(filteredServices) { dev in
+//				DevRow(service: dev)
 				DeveloperRow(service: dev)
 			}
+			.scrollIndicators(.never)
+			.searchable(text: $searchText, prompt: Text("Enter service name"))
 			.task { await model.fetchDeveloper() }
 			.refreshable { await model.fetchDeveloper() }
 			.navigationTitle("Developer")
 		}
+	}
+}
+
+extension DeveloperList {
+	var filteredServices: [Services] {
+		searchText.isEmpty ? model.developers : model.developers.filter { $0.matches(searchText: searchText) }
 	}
 }
 

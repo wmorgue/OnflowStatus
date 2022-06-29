@@ -12,20 +12,31 @@ struct ServiceListView: View {
 	@ObservedObject
 	var model: ServiceListModel
 
+	@State
+	private var searchText: String = ""
+
 	var body: some View {
 		NavigationStack {
-			List(model.services) { service in
+			List(filteredServices) { service in
 				ServiceRow(service)
 					.onTapGesture { model.showSheet(for: service) }
 			}
+			.scrollIndicators(.never)
 			.task { await model.fetchSupport() }
 			.refreshable { await model.fetchSupport() }
-			.navigationTitle("Support")
+			.searchable(text: $searchText, prompt: Text("Enter service name"))
 			.sheet(isPresented: $model.showingSheet) {
 				ServiceSheetView(model: model)
 					.presentationDetents([.medium, .large])
 			}
+			.navigationTitle("Support")
 		}
+	}
+}
+
+extension ServiceListView {
+	var filteredServices: [Services] {
+		searchText.isEmpty ? model.services : model.services.filter { $0.matches(searchText: searchText) }
 	}
 }
 
