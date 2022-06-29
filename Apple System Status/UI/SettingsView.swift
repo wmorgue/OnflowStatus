@@ -9,17 +9,17 @@ import SwiftUI
 
 struct SettingsView: View {
 	@State
-	private var isEnableNotification = false
+	private var isCompactStyle = false
 
 	private let mailToDeveloper = URL(string: "mailto:maybequantumbit@icloud.com")!
 
 	private let telegramDeveloper = URL(string: "https://t.me/maybequantum")!
 
 	var body: some View {
-		NavigationView {
+		NavigationStack {
 			List {
-				Section("Notification") {
-					Toggle("Enable notifications", isOn: $isEnableNotification)
+				Section("Compact view") {
+					Toggle("Enable compact style", isOn: $isCompactStyle)
 				}
 
 				Section("Send feedback via") {
@@ -41,8 +41,15 @@ struct SettingsView: View {
 					}
 				}
 			}
-			.navigationTitle(Text(Date.now, format: .dateTime.day().month()))
+			.scrollIndicators(.never)
+			.navigationTitle(navigationText)
 		}
+	}
+}
+
+private extension SettingsView {
+	var navigationText: Text {
+		Text(Date.now, format: .dateTime.day().month())
 	}
 }
 
