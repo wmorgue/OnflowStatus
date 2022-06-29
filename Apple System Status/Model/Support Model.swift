@@ -45,6 +45,14 @@ extension Event: Decodable {}
 
 extension Services: Identifiable {
 	var id: String { serviceName }
+
+	func matches(searchText: String) -> Bool {
+		if id.localizedCaseInsensitiveContains(searchText) {
+			return true
+		}
+		// Search service...
+		return false
+	}
 }
 
 extension Event: Identifiable {
