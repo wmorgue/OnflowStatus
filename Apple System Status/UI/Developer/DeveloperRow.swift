@@ -7,6 +7,27 @@
 
 import SwiftUI
 
+struct DevRow: View {
+
+	var service: Services
+
+	init(_ service: Services) {
+		self.service = service
+	}
+
+	var body: some View {
+		Label {
+			Text(service.serviceName)
+				.lineLimit(1)
+				.minimumScaleFactor(0.8)
+				.foregroundColor(service.events.isEmpty ? .primary : .blue)
+		} icon: {
+			Image(systemName: "circle.dotted")
+				.foregroundColor(service.events.isEmpty ? .green : .orange)
+		}
+	}
+}
+
 struct DeveloperRow: View {
 
 	var service: Services
@@ -57,6 +78,7 @@ struct DeveloperRow: View {
 
 struct DeveloperRow_Previews: PreviewProvider {
 	static var previews: some View {
+//		DevRow(MockData.developerService)
 		DeveloperRow(service: MockData.developerService)
 	}
 }
