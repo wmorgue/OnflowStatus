@@ -18,7 +18,7 @@ struct NavigationTabView: View {
 	var body: some View {
 		TabView(selection: $selectedTab) {
 			// MARK: - Support status
-			ServiceListView(model: model)
+			ServicesView(model: model)
 				.tabItem {
 					Label("Support", systemImage: "rectangle.stack")
 				}
@@ -32,7 +32,7 @@ struct NavigationTabView: View {
 				.tag(1)
 
 			// MARK: - Setting
-			SettingsView()
+			SettingsView(model: model)
 				.tabItem {
 					Label("Settings", systemImage: "gear")
 				}

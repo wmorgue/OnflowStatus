@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct SettingsView: View {
-	@State
-	private var isCompactStyle = false
+	@ObservedObject
+	var model: ServiceListModel
 
 	var body: some View {
 		NavigationStack {
 			List {
 				Section("Compact view") {
-					Toggle("Enable compact style", isOn: $isCompactStyle)
-						.disabled(true)
+					Toggle("Enable compact style", isOn: $model.isCompactView)
 				}
 
 				Section("Support") {
@@ -52,6 +51,6 @@ private extension SettingsView {
 
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsView()
+		SettingsView(model: ServiceListModel())
 	}
 }
