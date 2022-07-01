@@ -7,6 +7,32 @@
 
 import SwiftUI
 
+struct ServicesView: View {
+
+	@ObservedObject
+	var model: ServiceListModel
+
+	var body: some View {
+		switch model.isCompactView {
+		case true: CompactServiceView()
+		case false: ServiceListView(model: model)
+		}
+	}
+}
+
+struct CompactServiceView: View {
+	var body: some View {
+		Label {
+			Text("All services are operating normally.")
+				.lineLimit(1)
+				.minimumScaleFactor(0.8)
+		} icon: {
+			Image(systemName: "circle.dotted")
+				.foregroundColor(.green)
+		}
+	}
+}
+
 struct ServiceListView: View {
 
 	@ObservedObject
