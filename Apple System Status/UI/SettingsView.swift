@@ -11,27 +11,24 @@ struct SettingsView: View {
 	@State
 	private var isCompactStyle = false
 
-	private let mailToDeveloper = URL(string: "mailto:maybequantumbit@icloud.com")!
-
-	private let telegramDeveloper = URL(string: "https://t.me/maybequantum")!
-
 	var body: some View {
 		NavigationStack {
 			List {
 				Section("Compact view") {
 					Toggle("Enable compact style", isOn: $isCompactStyle)
+						.disabled(true)
 				}
 
-				Section("Send feedback via") {
-					Link(destination: mailToDeveloper) {
+				Section("Support") {
+					Link(destination: DeveloperContact.mail) {
 						HStack {
-							Text("E-mail")
+							Text("Contact Support")
 							Spacer()
 							Image(systemName: "paperclip.badge.ellipsis")
 								.imageScale(.large)
 						}
 					}
-					Link(destination: telegramDeveloper) {
+					Link(destination: DeveloperContact.telegram) {
 						HStack {
 							Text("Telegram")
 							Spacer()
