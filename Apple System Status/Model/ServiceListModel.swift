@@ -8,6 +8,7 @@
 import Foundation
 import Get
 import OSLog
+import SwiftUI
 
 @MainActor
 final class ServiceListModel: ObservableObject {
@@ -21,6 +22,9 @@ final class ServiceListModel: ObservableObject {
 
 	@Published
 	var showingSheet: Bool = false
+
+	@AppStorage("isCompactView")
+	var isCompactView: Bool = true
 }
 
 private extension Logger {
@@ -39,6 +43,14 @@ extension ServiceListModel {
 			return
 		}
 	}
+
+//	func showCompactView(for service: Services) {
+//		if service.events.isEmpty {
+//			isCompactView = true
+//		} else {
+//			isCompactView = false
+//		}
+//	}
 
 	func fetchSupport() async {
 		do {
