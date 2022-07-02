@@ -22,13 +22,19 @@ struct ServicesView: View {
 
 struct CompactServiceView: View {
 	var body: some View {
-		Label {
-			Text("All services are operating normally.")
-				.lineLimit(1)
-				.minimumScaleFactor(0.8)
-		} icon: {
-			Image(systemName: "circle.dotted")
-				.foregroundColor(.green)
+		NavigationStack {
+			VStack {
+				Image(systemName: "checkmark.circle")
+					.font(.system(size: 48))
+					.imageScale(.large)
+					.foregroundColor(.green)
+
+				Text("All services are operating normally.")
+					.font(.title3)
+					.minimumScaleFactor(0.8)
+			}
+			.navigationTitle("Support")
+			.navigationBarTitleDisplayMode(.inline)
 		}
 	}
 }
