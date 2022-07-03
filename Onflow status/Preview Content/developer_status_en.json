@@ -1,0 +1,235 @@
+{
+  "drMessage": null,
+  "drpost": false,
+  "services": [
+    {
+      "redirectUrl": "https://developer.apple.com/account/",
+      "events": [],
+      "serviceName": "Account"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/notifications/",
+      "events": [],
+      "serviceName": "APNS"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/notifications/",
+      "events": [],
+      "serviceName": "APNS Sandbox"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/documentation/devicecheck",
+      "events": [],
+      "serviceName": "App Attest"
+    },
+    {
+      "redirectUrl": null,
+      "events": [],
+      "serviceName": "App Store - In-App Purchases"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/documentation/appstorereceipts/verifyreceipt",
+      "events": [],
+      "serviceName": "App Store - Receipt Verification"
+    },
+    {
+      "redirectUrl": " https://developer.apple.com/documentation/storekit/in-app_purchase/testing_in-app_purchases_with_sandbox",
+      "events": [],
+      "serviceName": "App Store - Sandbox"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/documentation/appstoreserverapi",
+      "events": [],
+      "serviceName": "App Store - Server APIs"
+    },
+    {
+      "redirectUrl": " https://developer.apple.com/documentation/appstoreservernotifications",
+      "events": [],
+      "serviceName": "App Store - Server Notifications"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/testflight/",
+      "events": [],
+      "serviceName": "App Store - TestFlight"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/app-store/app-updates/",
+      "events": [],
+      "serviceName": "App Store Automatic App Updates"
+    },
+    {
+      "redirectUrl": "https://appstoreconnect.apple.com ",
+      "events": [],
+      "serviceName": "App Store Connect"
+    },
+    {
+      "redirectUrl": null,
+      "events": [],
+      "serviceName": "App Store Connect - App Processing "
+    },
+    {
+      "redirectUrl": null,
+      "events": [],
+      "serviceName": "App Store Connect - App Upload"
+    },
+    {
+      "redirectUrl": "https://appstoreconnect.apple.com/analytics",
+      "events": [],
+      "serviceName": "App Store Connect Analytics"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/app-store-connect/api/",
+      "events": [],
+      "serviceName": "App Store Connect API"
+    },
+    {
+      "redirectUrl": "https://forums.developer.apple.com",
+      "events": [],
+      "serviceName": "Apple Developer Forums"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/maps/",
+      "events": [],
+      "serviceName": "Apple Maps API"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/musickit/",
+      "events": [],
+      "serviceName": "Apple Music API"
+    },
+    {
+      "redirectUrl": null,
+      "events": [],
+      "serviceName": "Apple News API"
+    },
+    {
+      "redirectUrl": " https://applepaydemo.apple.com",
+      "events": [],
+      "serviceName": "Apple Pay Developer | Apple Pay Demo"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/apple-pay/",
+      "events": [],
+      "serviceName": "Apple Pay Production Instance"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/apple-pay/sandbox-testing/",
+      "events": [],
+      "serviceName": "Apple Pay Sandbox Instance"
+    },
+    {
+      "redirectUrl": null,
+      "events": [],
+      "serviceName": "Apple Podcasts Connect"
+    },
+    {
+      "redirectUrl": null,
+      "events": [],
+      "serviceName": "Back to My Mac"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/account/",
+      "events": [],
+      "serviceName": "Certificates, Identifiers & Profiles"
+    },
+    {
+      "redirectUrl": "https://icloud.developer.apple.com/dashboard",
+      "events": [],
+      "serviceName": "CloudKit Console"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/icloud/cloudkit/",
+      "events": [],
+      "serviceName": "CloudKit Database"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/account/?view=support",
+      "events": [],
+      "serviceName": "Code-level Support"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/contact/",
+      "events": [],
+      "serviceName": "Contact Us"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/reference",
+      "events": [],
+      "serviceName": "Developer Documentation"
+    },
+    {
+      "redirectUrl": null,
+      "events": [
+        {
+          "usersAffected": "Some users were affected",
+          "epochStartDate": 1654879800000,
+          "epochEndDate": 1654906200000,
+          "messageId": "2000001488",
+          "statusType": "Issue",
+          "datePosted": "06/12/2022 06:00 PDT",
+          "startDate": "06/10/2022 09:50 PDT",
+          "endDate": "06/10/2022 17:10 PDT",
+          "affectedServices": null,
+          "eventStatus": "resolved",
+          "message": "Users may have experienced issues with the service."
+        }
+      ],
+      "serviceName": "Developer ID Notary Service"
+    },
+    {
+      "redirectUrl": "https://bugreport.apple.com/",
+      "events": [],
+      "serviceName": "Feedback Assistant"
+    },
+    {
+      "redirectUrl": "https://maps.developer.apple.com",
+      "events": [],
+      "serviceName": "MapKit JS Dashboard"
+    },
+    {
+      "redirectUrl": null,
+      "events": [],
+      "serviceName": "MFi Portal"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/news-publisher/",
+      "events": [],
+      "serviceName": "News Publisher"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/enroll/",
+      "events": [],
+      "serviceName": "Program Enrollment and Renewals"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/download/",
+      "events": [],
+      "serviceName": "Software Downloads"
+    },
+    {
+      "redirectUrl": null,
+      "events": [],
+      "serviceName": "Tap to Pay on iPhone"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/videos/",
+      "events": [],
+      "serviceName": "Videos"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/weatherkit/",
+      "events": [],
+      "serviceName": "WeatherKit"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/xcode/",
+      "events": [],
+      "serviceName": "Xcode Automatic Configuration"
+    },
+    {
+      "redirectUrl": "https://developer.apple.com/xcode-cloud/",
+      "events": [],
+      "serviceName": "Xcode Cloud"
+    }
+  ]
+}
