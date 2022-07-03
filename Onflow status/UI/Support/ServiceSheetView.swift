@@ -10,7 +10,7 @@ import SwiftUI
 struct ServiceSheetView: View {
 
 	@ObservedObject
-	var model: ServiceListModel
+	var model: ServiceViewModel
 
 	var body: some View {
 		List(model.services) { service in
@@ -59,7 +59,7 @@ struct ServiceSheetView: View {
 
 struct ServiceSheetView_Previews: PreviewProvider {
 	struct Preview: View {
-		@StateObject var model = ServiceListModel()
+		@StateObject var model = ServiceViewModel()
 		var body: some View {
 			ServiceSheetView(model: model)
 				.task { await model.fetchSupport() }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
 	@ObservedObject
-	var model: ServiceListModel
+	var model: ServiceViewModel
 
 	var body: some View {
 		NavigationStack {
@@ -51,6 +51,6 @@ private extension SettingsView {
 
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsView(model: ServiceListModel())
+		SettingsView(model: ServiceViewModel())
 	}
 }

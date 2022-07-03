@@ -1,5 +1,5 @@
 //
-//  ServiceListModel.swift
+//  ServiceViewModel.swift
 //  Onflow status
 //
 //  Created by Nikita Rossik on 6/17/22.
@@ -11,7 +11,7 @@ import OSLog
 import SwiftUI
 
 @MainActor
-final class ServiceListModel: ObservableObject {
+final class ServiceViewModel: ObservableObject {
 	let networking = StatusResource()
 
 	@Published
@@ -30,12 +30,12 @@ final class ServiceListModel: ObservableObject {
 private extension Logger {
 	static let serviceModel = Logger(
 		subsystem: Bundle.main.bundleIdentifier!,
-		category: String(describing: ServiceListModel.self)
+		category: String(describing: ServiceViewModel.self)
 	)
 }
 
-extension ServiceListModel {
-	static let preview = ServiceListModel()
+extension ServiceViewModel {
+	static let preview = ServiceViewModel()
 
 	func showSheet(for service: Services) {
 		guard service.events.isEmpty else {

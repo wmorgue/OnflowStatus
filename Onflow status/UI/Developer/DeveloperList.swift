@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DeveloperList: View {
 	@ObservedObject
-	var model: ServiceListModel
+	var model: ServiceViewModel
 
 	@State
 	private var searchText: String = ""
@@ -41,7 +41,7 @@ extension DeveloperList {
 struct DeveloperList_Previews: PreviewProvider {
 	struct Preview: View {
 		@StateObject
-		private var model = ServiceListModel.preview
+		private var model = ServiceViewModel.preview
 
 		var body: some View {
 			ServiceListView(model: model)

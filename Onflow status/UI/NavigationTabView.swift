@@ -10,7 +10,7 @@ import SwiftUI
 struct NavigationTabView: View {
 
 	@ObservedObject
-	var model: ServiceListModel
+	var model: ServiceViewModel
 
 	@AppStorage("selectedTab")
 	private var selectedTab: Int = 0
@@ -44,7 +44,7 @@ struct NavigationTabView: View {
 struct TabView_Previews: PreviewProvider {
 	struct Preview: View {
 		@StateObject
-		private var model = ServiceListModel()
+		private var model = ServiceViewModel()
 
 		var body: some View {
 			NavigationTabView(model: model)

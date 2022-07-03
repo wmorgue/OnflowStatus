@@ -11,7 +11,7 @@ import SwiftUI
 struct OnflowStatusApp: App {
 
 	@StateObject
-	var model = ServiceListModel()
+	var model = ServiceViewModel()
 
 	var body: some Scene {
 		WindowGroup {

@@ -10,7 +10,7 @@ import SwiftUI
 struct ServicesView: View {
 
 	@ObservedObject
-	var model: ServiceListModel
+	var model: ServiceViewModel
 
 	var body: some View {
 		switch model.isCompactView {
@@ -42,7 +42,7 @@ struct CompactServiceView: View {
 struct ServiceListView: View {
 
 	@ObservedObject
-	var model: ServiceListModel
+	var model: ServiceViewModel
 
 	@State
 	private var searchText: String = ""
@@ -75,7 +75,7 @@ extension ServiceListView {
 struct StatusListView_Previews: PreviewProvider {
 	struct Preview: View {
 		@StateObject
-		private var model = ServiceListModel.preview
+		private var model = ServiceViewModel.preview
 
 		var body: some View {
 			ServiceListView(model: model)
