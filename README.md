@@ -1,11 +1,11 @@
-# Apple System Status viewer
+# Onflow status
 
 Roadmap:
 
 - [x] Universal App icon `1024x1024` for Xcode 14.
 - [x] Search for service.
-- [ ] Compact view style in settings. What happen if 1 of services is not available?
-- [ ] Rename app name for TestFlight before upload.
+- [x] Compact view style in settings. What happen if 1 of services is not available?
+- [x] Rename app name for TestFlight before upload: `Onflow status`/`Reports status`/
 ---
 After compleate a steps above —> Archive and upload build to TestFlight.
 
