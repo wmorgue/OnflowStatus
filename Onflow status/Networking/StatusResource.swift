@@ -37,8 +37,9 @@ struct StatusResource {
 		$0.sessionConfiguration.timeoutIntervalForRequest = RequestConstant.timeoutInterval
 	}
 
-	var requestPath: RequestPath = .support
-	var locale: String = Locale.current.identifier
+	private var requestPath: RequestPath = .support
+	private(set) var locale: String = "en_US"
+//	private(set) var locale: String = Locale.current.identifier
 }
 
 extension StatusResource {
@@ -48,12 +49,12 @@ extension StatusResource {
 		#endif
 	}
 
-	func performRequest(_ requestPath: RequestPath) async throws -> Request<SupportStatus> {
+	private func performRequest(_ requestPath: RequestPath) async throws -> Request<SupportStatus> {
 		let request: Request<SupportStatus> = .get(requestPath.path + locale + RequestConstant.requestPathExtension)
 		return request
 	}
 
-	func performCallbackRequest(_ requestPath: RequestPath) async throws -> Request<Data> {
+	private func performCallbackRequest(_ requestPath: RequestPath) async throws -> Request<Data> {
 		let request: Request<Data> = .get(requestPath.path + locale + RequestConstant.requestPathExtension)
 		return request
 	}
