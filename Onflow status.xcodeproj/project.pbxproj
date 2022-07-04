@@ -40,6 +40,7 @@
 		7311F842285B261400EF174E /* NavigationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabView.swift; sourceTree = "<group>"; };
 		7311F844285B296500EF174E /* ServiceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListView.swift; sourceTree = "<group>"; };
 		733C6760286B981E005557A3 /* DeveloperSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSheet.swift; sourceTree = "<group>"; };
+		7345EB21287193CE005C5CA9 /* Onflow-status-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Onflow-status-Info.plist"; sourceTree = SOURCE_ROOT; };
 		734EE57F2865AA69002D6263 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		738CD8142868551000D379C2 /* StatusResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResource.swift; sourceTree = "<group>"; };
 		73A4A1DE286A18A80046499B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		7311F831285B24C000EF174E /* Onflow status */ = {
 			isa = PBXGroup;
 			children = (
+				7345EB21287193CE005C5CA9 /* Onflow-status-Info.plist */,
 				7311F832285B24C000EF174E /* OnflowStatusApp.swift */,
 				7311F836285B24C400EF174E /* Assets.xcassets */,
 				73C7EC9528623460007D94B0 /* Extensions */,
@@ -391,11 +393,11 @@
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Onflow-status-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Onflow status";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -426,11 +428,11 @@
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Onflow-status-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Onflow status";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
