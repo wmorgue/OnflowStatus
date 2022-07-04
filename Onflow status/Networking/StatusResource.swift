@@ -11,7 +11,7 @@ import OSLog
 
 private extension Logger {
 	static var statusResource: Logger {
-		Logger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: StatusResource.self))
+		Logger(subsystem: .bundleIdentifier, category: String(describing: StatusResource.self))
 	}
 }
 

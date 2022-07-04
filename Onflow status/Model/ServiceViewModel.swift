@@ -29,7 +29,7 @@ final class ServiceViewModel: ObservableObject {
 
 private extension Logger {
 	static let serviceModel = Logger(
-		subsystem: Bundle.main.bundleIdentifier!,
+		subsystem: .bundleIdentifier,
 		category: String(describing: ServiceViewModel.self)
 	)
 }
