@@ -35,7 +35,8 @@ struct DeveloperRow: View {
 
 	fileprivate func openUnwrapURL() {
 		if let link = service.redirectUrl {
-			if let url = URL(string: link) {
+			// sometimes links have a whitespace and you can't open a link.
+			if let url = URL(string: link.trim) {
 				openURL(url)
 			}
 		}

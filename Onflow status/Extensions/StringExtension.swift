@@ -17,4 +17,10 @@ extension String {
 			return services.joined(separator: ", ")
 		}
 	}
+
+	var trim: String { trimmingCharacters(in: .whitespacesAndNewlines) }
+
+	static var bundleIdentifier: String {
+		Bundle.main.bundleIdentifier ?? "ca.rossik.onflow-status"
+		}
 }
