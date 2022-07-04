@@ -7,7 +7,7 @@
 		<key>UIImageName</key>
 		<string>Onflow Launch Screen</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
-		<false/>
+		<true/>
 	</dict>
 </dict>
 </plist>

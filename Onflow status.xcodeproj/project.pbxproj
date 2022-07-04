@@ -91,7 +91,7 @@
 				7311F836285B24C400EF174E /* Assets.xcassets */,
 				73C7EC9528623460007D94B0 /* Extensions */,
 				7311F847285B2CF100EF174E /* Model */,
-				738CD8112868511100D379C2 /* Networking */,
+				738CD8112868511100D379C2 /* NetworkLayer */,
 				7311F838285B24C400EF174E /* Preview Content */,
 				73E65E13285B30800012AC0F /* UI */,
 			);
@@ -128,12 +128,12 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		738CD8112868511100D379C2 /* Networking */ = {
+		738CD8112868511100D379C2 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
 				738CD8142868551000D379C2 /* StatusResource.swift */,
 			);
-			path = Networking;
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 		73C7EC9528623460007D94B0 /* Extensions */ = {
