@@ -24,7 +24,7 @@ final class ServiceViewModel: ObservableObject {
 	var showingSheet: Bool = false
 
 	@AppStorage("isCompactView")
-	var isCompactView: Bool = true
+	var isCompactView: Bool = false
 }
 
 private extension Logger {
