@@ -55,7 +55,7 @@ enum MockData {
 				startDate: "06/10/2022 09:50 PDT",
 				endDate: "06/10/2022 17:10 PDT",
 				affectedServices: nil,
-				eventStatus: "resolved",
+				eventStatus: "completed",
 				message: "Users may have experienced issues with the service."
 			)]
 		)
