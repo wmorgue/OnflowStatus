@@ -18,7 +18,7 @@
 		734EE5802865AA69002D6263 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EE57F2865AA69002D6263 /* StringExtension.swift */; };
 		738CD8152868551000D379C2 /* StatusResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CD8142868551000D379C2 /* StatusResource.swift */; };
 		73A4A1DF286A18A80046499B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A4A1DE286A18A80046499B /* SettingsView.swift */; };
-		73A89C2228705ECC009AFF61 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 73A89C2128705ECC009AFF61 /* Get */; };
+		73AED67228738221000736A6 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 73AED67128738221000736A6 /* Get */; };
 		73C2D84F286EF3B3001899B7 /* DeveloperContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D84E286EF3B3001899B7 /* DeveloperContact.swift */; };
 		73C7EC9728623494007D94B0 /* LabelStyleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7EC9628623494007D94B0 /* LabelStyleExtension.swift */; };
 		73D07C15285BA57C00F3B955 /* ServiceSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D07C14285BA57C00F3B955 /* ServiceSheetView.swift */; };
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73A89C2228705ECC009AFF61 /* Get in Frameworks */,
+				73AED67228738221000736A6 /* Get in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +184,7 @@
 			);
 			name = "Onflow status";
 			packageProductDependencies = (
-				73A89C2128705ECC009AFF61 /* Get */,
+				73AED67128738221000736A6 /* Get */,
 			);
 			productName = "Onflow status";
 			productReference = 7311F82F285B24C000EF174E /* Onflow status.app */;
@@ -215,7 +215,7 @@
 			);
 			mainGroup = 7311F826285B24C000EF174E;
 			packageReferences = (
-				73A89C2028705ECC009AFF61 /* XCRemoteSwiftPackageReference "Get" */,
+				73AED67028738221000736A6 /* XCRemoteSwiftPackageReference "Get" */,
 			);
 			productRefGroup = 7311F830285B24C000EF174E /* Products */;
 			projectDirPath = "";
@@ -388,7 +388,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
@@ -404,7 +404,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.rossik.onflow-status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -423,7 +423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
@@ -439,7 +439,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.rossik.onflow-status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -475,20 +475,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		73A89C2028705ECC009AFF61 /* XCRemoteSwiftPackageReference "Get" */ = {
+		73AED67028738221000736A6 /* XCRemoteSwiftPackageReference "Get" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Get";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 0.8.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		73A89C2128705ECC009AFF61 /* Get */ = {
+		73AED67128738221000736A6 /* Get */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 73A89C2028705ECC009AFF61 /* XCRemoteSwiftPackageReference "Get" */;
+			package = 73AED67028738221000736A6 /* XCRemoteSwiftPackageReference "Get" */;
 			productName = Get;
 		};
 /* End XCSwiftPackageProductDependency section */
