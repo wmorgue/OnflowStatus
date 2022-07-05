@@ -22,5 +22,5 @@ extension String {
 
 	static var bundleIdentifier: String {
 		Bundle.main.bundleIdentifier ?? "ca.rossik.onflow-status"
-		}
+	}
 }
