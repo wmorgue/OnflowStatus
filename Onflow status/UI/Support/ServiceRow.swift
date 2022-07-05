@@ -23,8 +23,17 @@ struct ServiceRow: View {
 				.foregroundColor(service.events.isEmpty ? .primary : .blue)
 		} icon: {
 			Image(systemName: "circle.dotted")
-				.foregroundColor(service.events.isEmpty ? .green : .orange)
+				.foregroundColor(setCircleColor)
 		}
+	}
+}
+
+extension ServiceRow {
+	var setCircleColor: Color {
+		service
+			.events
+			.map(\.eventStatus)
+			.contains("resolved") || service.events.isEmpty ? .green : .orange
 	}
 }
 

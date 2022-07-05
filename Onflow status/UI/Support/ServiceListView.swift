@@ -78,7 +78,7 @@ struct StatusListView_Previews: PreviewProvider {
 		private var model = ServiceViewModel.preview
 
 		var body: some View {
-			ServiceListView(model: model)
+			ServicesView(model: model)
 		}
 	}
 
