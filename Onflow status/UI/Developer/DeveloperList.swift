@@ -15,16 +15,23 @@ struct DeveloperList: View {
 	private var searchText: String = ""
 
 //	@State
+//	private var showingDevSheet: Bool = false
+
+//	@State
 //	var availableService: Services?
 
 	var body: some View {
 		NavigationStack {
 			List(filteredServices) { dev in
-//				DevRow(service: dev)
 				DeveloperRow(service: dev)
+					.onTapGesture { model.showSheet(for: dev) }
 			}
 			.scrollIndicators(.never)
 			.searchable(text: $searchText, prompt: Text("Enter service name"))
+			.sheet(isPresented: $model.showingDevSheet) {
+				DeveloperSheet(model: model)
+					.presentationDetents([.medium, .large])
+			}
 			.task { await model.fetchDeveloper() }
 			.refreshable { await model.fetchDeveloper() }
 			.navigationTitle("Developer")
@@ -44,7 +51,7 @@ struct DeveloperList_Previews: PreviewProvider {
 		private var model = ServiceViewModel.preview
 
 		var body: some View {
-			ServiceListView(model: model)
+			DeveloperList(model: model)
 		}
 	}
 

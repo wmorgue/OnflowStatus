@@ -23,6 +23,9 @@ final class ServiceViewModel: ObservableObject {
 	@Published
 	var showingSheet: Bool = false
 
+	@Published
+	var showingDevSheet: Bool = false
+
 	@AppStorage("isCompactView")
 	var isCompactView: Bool = false
 }
@@ -42,6 +45,10 @@ extension ServiceViewModel {
 			showingSheet.toggle()
 			return
 		}
+	}
+
+	func setCircleColor(_ service: Services, text: String) -> Color {
+		service.events.map(\.eventStatus).contains(text) || service.events.isEmpty ? .green : .orange
 	}
 
 //	func showCompactView(for service: Services) {
