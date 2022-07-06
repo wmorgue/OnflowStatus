@@ -21,6 +21,9 @@ final class ServiceViewModel: ObservableObject {
 	var developers: [Services] = []
 
 	@Published
+	var showingAlert: Bool = false
+
+	@Published
 	var showingSheet: Bool = false
 
 	@Published
@@ -63,6 +66,7 @@ extension ServiceViewModel {
 		do {
 			services = try await networking.fetchSupportServices()
 		} catch {
+			showingAlert = true
 			Logger.serviceModel.error("\(error)")
 		}
 	}
@@ -71,6 +75,7 @@ extension ServiceViewModel {
 		do {
 			developers = try await networking.fetchDeveloperServices()
 		} catch {
+			showingAlert = true
 			Logger.serviceModel.error("\(error)")
 		}
 	}

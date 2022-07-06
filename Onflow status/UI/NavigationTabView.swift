@@ -23,6 +23,12 @@ struct NavigationTabView: View {
 					Label("Support", systemImage: "rectangle.stack")
 				}
 				.tag(0)
+				// TODO: Refactor
+				.alert("Network issue", isPresented: $model.showingAlert,
+				       actions: {
+				       	Button(action: { Task { await model.fetchSupport() }}) { Text("Try again") }
+				       },
+				       message: { Text("Can't load a support services") })
 
 			// MARK: - Developer status
 			DeveloperList(model: model)
