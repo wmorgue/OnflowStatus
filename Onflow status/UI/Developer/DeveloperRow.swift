@@ -30,11 +30,11 @@ struct DeveloperRow: View {
 				Image(systemName: "circle.dotted")
 					.foregroundColor(setCircleColor)
 
-				// ternary operator doesn't work
+				// ternary operator doesn't work in label style modifier
 				// https://useyourloaf.com/blog/adapting-swiftui-label-style/
 				if service.redirectUrl != nil {
 					Label(service.serviceName, systemImage: "link")
-						.foregroundColor(.blue)
+						.foregroundColor(.primary)
 						.lineLimit(1)
 						.minimumScaleFactor(0.9)
 						.labelStyle(.reversed)
