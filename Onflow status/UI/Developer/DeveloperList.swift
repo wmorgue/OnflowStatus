@@ -24,14 +24,14 @@ struct DeveloperList: View {
 		NavigationStack {
 			List(filteredServices) { dev in
 				DeveloperRow(service: dev)
-					.onTapGesture { model.showSheet(for: dev) }
+//					.onTapGesture { model.showSheet(for: dev) }
 			}
 			.scrollIndicators(.never)
 			.searchable(text: $searchText, prompt: Text("Enter service name"))
-			.sheet(isPresented: $model.showingDevSheet) {
-				DeveloperSheet(model: model)
-					.presentationDetents([.medium, .large])
-			}
+//			.sheet(isPresented: $model.showingDevSheet) {
+//				DeveloperSheet(model: model)
+//					.presentationDetents([.medium, .large])
+//			}
 			.task { await model.fetchDeveloper() }
 			.refreshable { await model.fetchDeveloper() }
 			.navigationTitle("Developer")
