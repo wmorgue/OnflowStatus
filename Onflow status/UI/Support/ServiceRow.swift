@@ -32,7 +32,7 @@ extension ServiceRow {
 	var setCircleColor: Color {
 		service
 			.events
-			.map(\.eventStatus)
+			.map(\.eventStatus.localizedLowercase)
 			.contains("resolved") || service.events.isEmpty ? .green : .orange
 	}
 }
