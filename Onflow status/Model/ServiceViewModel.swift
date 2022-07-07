@@ -24,6 +24,9 @@ final class ServiceViewModel: ObservableObject {
 	var showingAlert: Bool = false
 
 	@Published
+	var alertErrorMessage: String?
+
+	@Published
 	var showingSheet: Bool = false
 
 	@Published
@@ -51,22 +54,22 @@ extension ServiceViewModel {
 	}
 
 	func setCircleColor(_ service: Services, text: String) -> Color {
-		service.events.map(\.eventStatus).contains(text) || service.events.isEmpty ? .green : .orange
+		service
+			.events
+			.map(\.eventStatus.localizedLowercase)
+			.contains(text.lowercased()) || service.events.isEmpty ? .green : .orange
 	}
 
-//	func showCompactView(for service: Services) {
-//		if service.events.isEmpty {
-//			isCompactView = true
-//		} else {
-//			isCompactView = false
-//		}
-//	}
+	func tryCompactView(for service: Services, text: String) -> Bool {
+		service.events.isEmpty || service.events.map(\.eventStatus).contains(text) ? true : false
+	}
 
 	func fetchSupport() async {
 		do {
 			services = try await networking.fetchSupportServices()
 		} catch {
 			showingAlert = true
+			alertErrorMessage = error.localizedDescription
 			Logger.serviceModel.error("\(error)")
 		}
 	}
@@ -76,6 +79,7 @@ extension ServiceViewModel {
 			developers = try await networking.fetchDeveloperServices()
 		} catch {
 			showingAlert = true
+			alertErrorMessage = error.localizedDescription
 			Logger.serviceModel.error("\(error)")
 		}
 	}
@@ -88,5 +92,9 @@ extension ServiceViewModel {
 		formatter.unitsStyle = .full
 
 		return formatter.localizedString(for: date, relativeTo: .now)
+	}
+
+	var alertMessageReason: Text {
+		Text("Can't load a services.\n") + Text(alertErrorMessage ?? "")
 	}
 }

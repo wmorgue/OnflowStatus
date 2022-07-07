@@ -7,6 +7,20 @@
 
 import SwiftUI
 
+fileprivate enum NavigationItem {
+	case support
+	case developer
+	case settings
+
+	var label: some View {
+		switch self {
+		case .support: return Label("Support", systemImage: "rectangle.stack")
+		case .developer: return Label("Developer", systemImage: "hammer")
+		case .settings: return Label("Settings", systemImage: "gear")
+		}
+	}
+}
+
 struct NavigationTabView: View {
 
 	@ObservedObject
@@ -19,29 +33,23 @@ struct NavigationTabView: View {
 		TabView(selection: $selectedTab) {
 			// MARK: - Support status
 			ServicesView(model: model)
-				.tabItem {
-					Label("Support", systemImage: "rectangle.stack")
-				}
-				.tag(0)
-				// TODO: Refactor
 				.alert("Network issue", isPresented: $model.showingAlert,
-				       actions: {
-				       	Button(action: { Task { await model.fetchSupport() }}) { Text("Try again") }
-				       },
-				       message: { Text("Can't load a support services") })
+				       actions: { AsyncAlertButton(asyncTask: model.fetchSupport) },
+				       message: { model.alertMessageReason })
+				.tabItem { NavigationItem.support.label }
+				.tag(0)
 
 			// MARK: - Developer status
 			DeveloperList(model: model)
-				.tabItem {
-					Label("Developer", systemImage: "hammer")
-				}
+				.alert("Network issue", isPresented: $model.showingAlert,
+				       actions: { AsyncAlertButton(asyncTask: model.fetchDeveloper) },
+				       message: { model.alertMessageReason })
+				.tabItem { NavigationItem.developer.label }
 				.tag(1)
 
 			// MARK: - Setting
 			SettingsView(model: model)
-				.tabItem {
-					Label("Settings", systemImage: "gear")
-				}
+				.tabItem { NavigationItem.settings.label }
 				.tag(2)
 		}
 	}
