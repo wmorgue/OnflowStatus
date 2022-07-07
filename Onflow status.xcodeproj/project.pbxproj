@@ -15,6 +15,7 @@
 		7311F843285B261400EF174E /* NavigationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F842285B261400EF174E /* NavigationTabView.swift */; };
 		7311F845285B296500EF174E /* ServiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F844285B296500EF174E /* ServiceListView.swift */; };
 		733C6761286B981E005557A3 /* DeveloperSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733C6760286B981E005557A3 /* DeveloperSheet.swift */; };
+		73469160287632D3005F2FCF /* AsyncAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346915F287632D3005F2FCF /* AsyncAlertButton.swift */; };
 		734EE5802865AA69002D6263 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EE57F2865AA69002D6263 /* StringExtension.swift */; };
 		738CD8152868551000D379C2 /* StatusResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CD8142868551000D379C2 /* StatusResource.swift */; };
 		73A4A1DF286A18A80046499B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A4A1DE286A18A80046499B /* SettingsView.swift */; };
@@ -41,6 +42,7 @@
 		7311F844285B296500EF174E /* ServiceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceListView.swift; sourceTree = "<group>"; };
 		733C6760286B981E005557A3 /* DeveloperSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSheet.swift; sourceTree = "<group>"; };
 		7345EB21287193CE005C5CA9 /* Onflow-status-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Onflow-status-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7346915F287632D3005F2FCF /* AsyncAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAlertButton.swift; sourceTree = "<group>"; };
 		734EE57F2865AA69002D6263 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		738CD8142868551000D379C2 /* StatusResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResource.swift; sourceTree = "<group>"; };
 		73A4A1DE286A18A80046499B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -121,8 +123,8 @@
 		734B76A2286493A40058BE97 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				7311F844285B296500EF174E /* ServiceListView.swift */,
 				73E65E14285B30AB0012AC0F /* ServiceRow.swift */,
+				7311F844285B296500EF174E /* ServiceListView.swift */,
 				73D07C14285BA57C00F3B955 /* ServiceSheetView.swift */,
 			);
 			path = Support;
@@ -158,6 +160,7 @@
 		73E65E13285B30800012AC0F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7346915F287632D3005F2FCF /* AsyncAlertButton.swift */,
 				73EE5C66285C891600AA9D2B /* AffectedServicesView.swift */,
 				7311F842285B261400EF174E /* NavigationTabView.swift */,
 				73D70CFB2862133E00897799 /* Developer */,
@@ -253,6 +256,7 @@
 				73D70CFD2862135F00897799 /* DeveloperRow.swift in Sources */,
 				7311F845285B296500EF174E /* ServiceListView.swift in Sources */,
 				73C7EC9728623494007D94B0 /* LabelStyleExtension.swift in Sources */,
+				73469160287632D3005F2FCF /* AsyncAlertButton.swift in Sources */,
 				73D07C15285BA57C00F3B955 /* ServiceSheetView.swift in Sources */,
 				7311F843285B261400EF174E /* NavigationTabView.swift in Sources */,
 				73E65E15285B30AB0012AC0F /* ServiceRow.swift in Sources */,
