@@ -14,8 +14,12 @@ struct SettingsView: View {
 	var body: some View {
 		NavigationStack {
 			List {
-				Section("Compact view") {
+				Section {
 					Toggle("Enable compact style", isOn: $model.isCompactView)
+				} header: {
+					Text("Compact view")
+				} footer: {
+					Text("Only for support tab.")
 				}
 
 				Section("Support") {
@@ -24,7 +28,6 @@ struct SettingsView: View {
 							Text("Contact Support")
 							Spacer()
 							Image(systemName: "paperclip.badge.ellipsis")
-								.imageScale(.large)
 						}
 					}
 					Link(destination: DeveloperContact.telegram) {
@@ -32,10 +35,10 @@ struct SettingsView: View {
 							Text("Telegram")
 							Spacer()
 							Image(systemName: "paperplane.circle")
-								.imageScale(.large)
 						}
 					}
 				}
+				.imageScale(.large)
 			}
 			.scrollIndicators(.never)
 			.navigationTitle(navigationText)
