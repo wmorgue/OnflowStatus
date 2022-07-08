@@ -10,6 +10,18 @@ import Get
 import OSLog
 import SwiftUI
 
+enum AppIcon {
+	case dark
+	case light
+
+	var iconName: String? {
+		switch self {
+		case .dark: return nil
+		case .light: return "LightIcon"
+		}
+	}
+}
+
 @MainActor
 final class ServiceViewModel: ObservableObject {
 	let networking = StatusResource()
@@ -96,5 +108,13 @@ extension ServiceViewModel {
 
 	var alertMessageReason: Text {
 		Text("Can't load a services.\n") + Text(alertErrorMessage ?? "")
+	}
+
+	func chooseAppIcon(for icon: AppIcon) async {
+		do {
+			try await UIApplication.shared.setAlternateIconName(icon.iconName)
+		} catch {
+			Logger.serviceModel.error("\(error)")
+		}
 	}
 }
