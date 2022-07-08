@@ -18,6 +18,7 @@ extension String {
 		}
 	}
 
+	// Remove white spaces and \n
 	var trim: String { trimmingCharacters(in: .whitespacesAndNewlines) }
 
 	static var bundleIdentifier: String {
