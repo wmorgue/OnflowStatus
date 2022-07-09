@@ -47,14 +47,31 @@ struct ServiceListView: View {
 	@State
 	private var searchText: String = ""
 
+	@State
+	private var isFilteredByEvents: Bool = false
+
 	var body: some View {
 		NavigationStack {
-			List(filteredServices) { service in
+			List(filteredEvents) { service in
 				ServiceRow(service)
 					.onTapGesture { model.showSheet(for: service) }
 			}
 			.scrollIndicators(.never)
 			.task { await model.fetchSupport() }
+			.toolbar {
+				ToolbarItem(placement: .navigationBarTrailing) {
+					Button {
+						guard model.services.map(\.events).isEmpty else {
+							isFilteredByEvents.toggle()
+							return
+						}
+					} label: {
+						Image(systemName: "arrow.up.arrow.down.square")
+							.foregroundStyle(Color("FilterEventsButton"))
+							.symbolRenderingMode(.hierarchical)
+					}
+				}
+			}
 			.refreshable { await model.fetchSupport() }
 			.searchable(text: $searchText, prompt: Text("Enter service name"))
 			.sheet(isPresented: $model.showingSheet) {
@@ -69,6 +86,10 @@ struct ServiceListView: View {
 extension ServiceListView {
 	var filteredServices: [Services] {
 		searchText.isEmpty ? model.services : model.services.filter { $0.matches(searchText: searchText) }
+	}
+
+	var filteredEvents: [Services] {
+		isFilteredByEvents ? filteredServices.filter(\.events.isNotEmpty) : filteredServices
 	}
 }
 

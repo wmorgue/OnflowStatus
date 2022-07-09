@@ -14,6 +14,9 @@ struct DeveloperList: View {
 	@State
 	private var searchText: String = ""
 
+	@State
+	private var isFilteredByEvents: Bool = false
+
 //	@State
 //	private var showingDevSheet: Bool = false
 
@@ -22,7 +25,7 @@ struct DeveloperList: View {
 
 	var body: some View {
 		NavigationStack {
-			List(filteredServices) { dev in
+			List(filteredEvents) { dev in
 				DeveloperRow(service: dev)
 //					.onTapGesture { model.showSheet(for: dev) }
 			}
@@ -32,6 +35,20 @@ struct DeveloperList: View {
 //				DeveloperSheet(model: model)
 //					.presentationDetents([.medium, .large])
 //			}
+			.toolbar {
+				ToolbarItem(placement: .navigationBarTrailing) {
+					Button {
+						guard model.developers.map(\.events).isEmpty else {
+							isFilteredByEvents.toggle()
+							return
+						}
+					} label: {
+						Image(systemName: "arrow.up.arrow.down.square")
+							.foregroundStyle(Color("FilterEventsButton"))
+							.symbolRenderingMode(.hierarchical)
+					}
+				}
+			}
 			.task { await model.fetchDeveloper() }
 			.refreshable { await model.fetchDeveloper() }
 			.navigationTitle("Developer")
@@ -42,6 +59,10 @@ struct DeveloperList: View {
 extension DeveloperList {
 	var filteredServices: [Services] {
 		searchText.isEmpty ? model.developers : model.developers.filter { $0.matches(searchText: searchText) }
+	}
+
+	var filteredEvents: [Services] {
+		isFilteredByEvents ? filteredServices.filter(\.events.isNotEmpty) : filteredServices
 	}
 }
 
