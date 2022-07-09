@@ -19,6 +19,7 @@
 		73469160287632D3005F2FCF /* AsyncAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346915F287632D3005F2FCF /* AsyncAlertButton.swift */; };
 		734EE5802865AA69002D6263 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EE57F2865AA69002D6263 /* StringExtension.swift */; };
 		738CD8152868551000D379C2 /* StatusResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CD8142868551000D379C2 /* StatusResource.swift */; };
+		73950ACD2878D0DE00D975E5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73950ACC2878D0DE00D975E5 /* ArrayExtension.swift */; };
 		73A4A1DF286A18A80046499B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A4A1DE286A18A80046499B /* SettingsView.swift */; };
 		73AED67228738221000736A6 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 73AED67128738221000736A6 /* Get */; };
 		73C2D84F286EF3B3001899B7 /* DeveloperContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D84E286EF3B3001899B7 /* DeveloperContact.swift */; };
@@ -29,7 +30,6 @@
 		73E65E12285B2FA00012AC0F /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E65E11285B2FA00012AC0F /* MockData.swift */; };
 		73E65E15285B30AB0012AC0F /* ServiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E65E14285B30AB0012AC0F /* ServiceRow.swift */; };
 		73E65E17285B33480012AC0F /* system_status_ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E65E16285B33480012AC0F /* system_status_ru.json */; };
-		73EE5C67285C891600AA9D2B /* AffectedServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EE5C66285C891600AA9D2B /* AffectedServicesView.swift */; };
 		73F789E128631651002A3BA1 /* DeveloperList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F789E028631651002A3BA1 /* DeveloperList.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +48,7 @@
 		7346915F287632D3005F2FCF /* AsyncAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAlertButton.swift; sourceTree = "<group>"; };
 		734EE57F2865AA69002D6263 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		738CD8142868551000D379C2 /* StatusResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResource.swift; sourceTree = "<group>"; };
+		73950ACC2878D0DE00D975E5 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		73A4A1DE286A18A80046499B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		73C2D84E286EF3B3001899B7 /* DeveloperContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperContact.swift; sourceTree = "<group>"; };
 		73C7EC9628623494007D94B0 /* LabelStyleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyleExtension.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		73E65E11285B2FA00012AC0F /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		73E65E14285B30AB0012AC0F /* ServiceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRow.swift; sourceTree = "<group>"; };
 		73E65E16285B33480012AC0F /* system_status_ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = system_status_ru.json; sourceTree = "<group>"; };
-		73EE5C66285C891600AA9D2B /* AffectedServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectedServicesView.swift; sourceTree = "<group>"; };
 		73F789E028631651002A3BA1 /* DeveloperList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +149,7 @@
 				73C7EC9628623494007D94B0 /* LabelStyleExtension.swift */,
 				734EE57F2865AA69002D6263 /* StringExtension.swift */,
 				7332B76C28771718002A19AE /* ViewExtension.swift */,
+				73950ACC2878D0DE00D975E5 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				7346915F287632D3005F2FCF /* AsyncAlertButton.swift */,
-				73EE5C66285C891600AA9D2B /* AffectedServicesView.swift */,
 				7311F842285B261400EF174E /* NavigationTabView.swift */,
 				73D70CFB2862133E00897799 /* Developer */,
 				734B76A2286493A40058BE97 /* Support */,
@@ -266,9 +266,9 @@
 				73D07C15285BA57C00F3B955 /* ServiceSheetView.swift in Sources */,
 				7311F843285B261400EF174E /* NavigationTabView.swift in Sources */,
 				73E65E15285B30AB0012AC0F /* ServiceRow.swift in Sources */,
-				73EE5C67285C891600AA9D2B /* AffectedServicesView.swift in Sources */,
 				7311F833285B24C000EF174E /* OnflowStatusApp.swift in Sources */,
 				73CEAB7428781BE30099A98D /* BundleExtension.swift in Sources */,
+				73950ACD2878D0DE00D975E5 /* ArrayExtension.swift in Sources */,
 				7332B76D28771718002A19AE /* ViewExtension.swift in Sources */,
 				734EE5802865AA69002D6263 /* StringExtension.swift in Sources */,
 				733C6761286B981E005557A3 /* DeveloperSheet.swift in Sources */,
@@ -400,7 +400,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
@@ -435,7 +435,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
