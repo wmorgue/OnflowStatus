@@ -53,22 +53,17 @@ struct ServiceListView: View {
 	var body: some View {
 		NavigationStack {
 			List(filteredEvents) { service in
-				ServiceRow(service)
-					.onTapGesture { model.showSheet(for: service) }
+				ServiceRow(service) {
+					model.setCircleColor(service, message: .support)
+				}
+				.onTapGesture { model.showSheet(for: service) }
 			}
 			.scrollIndicators(.never)
 			.task { await model.fetchSupport() }
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					Button {
-						guard model.services.map(\.events).isEmpty else {
-							isFilteredByEvents.toggle()
-							return
-						}
-					} label: {
-						Image(systemName: "arrow.up.arrow.down.square")
-							.foregroundStyle(Color("FilterEventsButton"))
-							.symbolRenderingMode(.hierarchical)
+					SortListButton(toggleButton: $isFilteredByEvents) {
+						model.services.map(\.events).isNotEmpty
 					}
 				}
 			}

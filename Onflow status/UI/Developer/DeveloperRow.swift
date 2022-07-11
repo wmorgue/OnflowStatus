@@ -10,6 +10,12 @@ import SwiftUI
 struct DeveloperRow: View {
 
 	var service: Services
+	let circleColor: () -> Color
+
+	init(_ service: Services, circleColor: @escaping () -> Color) {
+		self.service = service
+		self.circleColor = circleColor
+	}
 
 	@Environment(\.openURL) private var openURL
 
@@ -28,7 +34,7 @@ struct DeveloperRow: View {
 		} label: {
 			HStack {
 				Image(systemName: "circle.dotted")
-					.foregroundColor(setCircleColor)
+					.foregroundColor(circleColor())
 
 				// ternary operator doesn't work in label style modifier
 				// https://useyourloaf.com/blog/adapting-swiftui-label-style/
@@ -50,15 +56,6 @@ struct DeveloperRow: View {
 	}
 }
 
-extension DeveloperRow {
-	var setCircleColor: Color {
-		service
-			.events
-			.map(\.eventStatus.localizedLowercase)
-			.contains("completed") || service.events.isEmpty ? .green : .orange
-	}
-}
-
 //	var dynamicLabel: some View {
 //		Label(service.serviceName, systemImage: "link")
 //			.foregroundColor(.primary)
@@ -69,6 +66,6 @@ extension DeveloperRow {
 
 struct DeveloperRow_Previews: PreviewProvider {
 	static var previews: some View {
-		DeveloperRow(service: MockData.developerService)
+		DeveloperRow(MockData.developerService) { .green }
 	}
 }

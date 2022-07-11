@@ -10,6 +10,18 @@ import Get
 import OSLog
 import SwiftUI
 
+enum EventStatusMessage {
+	case support
+	case developer
+
+	var text: String {
+		switch self {
+		case .support: return "resolved"
+		case .developer: return "completed"
+		}
+	}
+}
+
 enum AppIcon {
 	case dark
 	case light
@@ -65,11 +77,11 @@ extension ServiceViewModel {
 		}
 	}
 
-	func setCircleColor(_ service: Services, text: String) -> Color {
+	func setCircleColor(_ service: Services, message: EventStatusMessage) -> Color {
 		service
 			.events
 			.map(\.eventStatus.localizedLowercase)
-			.contains(text.lowercased()) || service.events.isEmpty ? .green : .orange
+			.contains(message.text.lowercased()) || service.events.isEmpty ? .green : .orange
 	}
 
 	func tryCompactView(for service: Services, text: String) -> Bool {

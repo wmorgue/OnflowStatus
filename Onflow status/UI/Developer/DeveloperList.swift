@@ -26,7 +26,9 @@ struct DeveloperList: View {
 	var body: some View {
 		NavigationStack {
 			List(filteredEvents) { dev in
-				DeveloperRow(service: dev)
+				DeveloperRow(dev) {
+					model.setCircleColor(dev, message: .developer)
+				}
 //					.onTapGesture { model.showSheet(for: dev) }
 			}
 			.scrollIndicators(.never)
@@ -37,15 +39,8 @@ struct DeveloperList: View {
 //			}
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					Button {
-						guard model.developers.map(\.events).isEmpty else {
-							isFilteredByEvents.toggle()
-							return
-						}
-					} label: {
-						Image(systemName: "arrow.up.arrow.down.square")
-							.foregroundStyle(Color("FilterEventsButton"))
-							.symbolRenderingMode(.hierarchical)
+					SortListButton(toggleButton: $isFilteredByEvents) {
+						model.developers.map(\.events).isEmpty
 					}
 				}
 			}

@@ -10,9 +10,11 @@ import SwiftUI
 struct ServiceRow: View {
 
 	var service: Services
+	let circleColor: () -> Color
 
-	init(_ service: Services) {
+	init(_ service: Services, circleColor: @escaping () -> Color) {
 		self.service = service
+		self.circleColor = circleColor
 	}
 
 	var body: some View {
@@ -23,23 +25,14 @@ struct ServiceRow: View {
 				.foregroundColor(service.events.isEmpty ? .primary : .blue)
 		} icon: {
 			Image(systemName: "circle.dotted")
-				.foregroundColor(setCircleColor)
+				.foregroundColor(circleColor())
 		}
-	}
-}
-
-extension ServiceRow {
-	var setCircleColor: Color {
-		service
-			.events
-			.map(\.eventStatus.localizedLowercase)
-			.contains("resolved") || service.events.isEmpty ? .green : .orange
 	}
 }
 
 struct ServiceCellView_Previews: PreviewProvider {
 	static var previews: some View {
 		let previewService = Services(serviceName: "Активация устройств с iOS", events: [])
-		ServiceRow(previewService)
+		ServiceRow(previewService, circleColor: { .green })
 	}
 }
