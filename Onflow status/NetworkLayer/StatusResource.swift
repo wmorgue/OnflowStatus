@@ -34,7 +34,9 @@ enum RequestPath {
 
 struct StatusResource {
 	private var host = APIClient(baseURL: URL(string: "https://www.apple.com/support/systemstatus/data")) {
-		$0.sessionConfiguration.timeoutIntervalForRequest = RequestConstant.timeoutInterval
+		$0
+			.sessionConfiguration
+			.timeoutIntervalForRequest = RequestConstant.timeoutInterval
 	}
 
 	private var requestPath: RequestPath = .support
@@ -64,7 +66,7 @@ extension StatusResource {
 
 		guard supportStatus.statusCode == 200 else {
 			Logger.statusResource.error("Request status code invalid: \(supportStatus.statusCode!, privacy: .private)")
-			return []
+			throw URLError(.cannotConnectToHost)
 		}
 		return supportStatus.value.services
 	}
@@ -81,7 +83,7 @@ extension StatusResource {
 
 		guard !isValidObject else {
 			Logger.statusResource.error("Invalid JSON: \(#function)")
-			return []
+			throw URLError(.cannotDecodeContentData)
 		}
 
 		let status: SupportStatus = try JSONDecoder().decode(SupportStatus.self, from: callbackResult)
