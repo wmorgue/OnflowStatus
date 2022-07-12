@@ -20,6 +20,18 @@ struct ReversedLabel: LabelStyle {
 	}
 }
 
+struct AdaptiveLabel: LabelStyle {
+	var redirectUrl: String?
+
+	func makeBody(configuration: Configuration) -> some View {
+		// Ternary operator doesn't work
+		switch redirectUrl != nil {
+		case true: Label(configuration).labelStyle(.reversed)
+		case false: configuration.title
+		}
+	}
+}
+
 extension LabelStyle where Self == ReversedLabel {
 	/// A label style that show title and icon in reverse order.
 	static var reversed: Self {
