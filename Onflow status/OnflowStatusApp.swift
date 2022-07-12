@@ -16,6 +16,10 @@ struct OnflowStatusApp: App {
 	var body: some Scene {
 		WindowGroup {
 			NavigationTabView(model: model)
+				.task {
+					await model.fetchSupport()
+					await model.fetchDeveloper()
+				}
 		}
 	}
 }
