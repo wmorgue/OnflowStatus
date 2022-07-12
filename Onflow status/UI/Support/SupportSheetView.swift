@@ -1,5 +1,5 @@
 //
-//  ServiceSheetView.swift
+//  SupportSheetView.swift
 //  Onflow status
 //
 //  Created by Nikita Rossik on 6/16/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ServiceSheetView: View {
+struct SupportSheetView: View {
 
 	@ObservedObject
 	var model: ServiceViewModel
@@ -61,7 +61,7 @@ struct ServiceSheetView_Previews: PreviewProvider {
 	struct Preview: View {
 		@StateObject var model = ServiceViewModel()
 		var body: some View {
-			ServiceSheetView(model: model)
+			SupportSheetView(model: model)
 				.task { await model.fetchSupport() }
 		}
 	}

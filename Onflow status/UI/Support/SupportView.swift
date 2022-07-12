@@ -1,5 +1,5 @@
 //
-//  ServiceListView.swift
+//  SupportView.swift
 //  Onflow status
 //
 //  Created by Nikita Rossik on 6/16/22.
@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct ServicesView: View {
+struct SupportView: View {
 
 	@ObservedObject
 	var model: ServiceViewModel
 
 	var body: some View {
 		switch model.isCompactView {
-		case true: CompactServiceView()
-		case false: ServiceListView(model: model)
+		case true: CompactSupportView()
+		case false: DefaultSupportListView(model: model)
 		}
 	}
 }
 
-struct CompactServiceView: View {
+struct CompactSupportView: View {
 	var body: some View {
 		NavigationStack {
 			VStack {
@@ -39,7 +39,7 @@ struct CompactServiceView: View {
 	}
 }
 
-struct ServiceListView: View {
+struct DefaultSupportListView: View {
 
 	@ObservedObject
 	var model: ServiceViewModel
@@ -53,24 +53,25 @@ struct ServiceListView: View {
 	var body: some View {
 		NavigationStack {
 			List(filteredEvents) { service in
-				ServiceRow(service) {
+				SupportRow(service) {
 					model.setCircleColor(service, message: .support)
 				}
 				.onTapGesture { model.showSheet(for: service) }
 			}
 			.scrollIndicators(.never)
-			.task { await model.fetchSupport() }
+//			.task { await model.fetchSupport() }
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
+					// Bug fixed, but need attention
 					SortListButton(toggleButton: $isFilteredByEvents) {
-						model.services.map(\.events).isNotEmpty
+						model.supportEventsIsEmpty
 					}
 				}
 			}
 			.refreshable { await model.fetchSupport() }
 			.searchable(text: $searchText, prompt: Text("Enter service name"))
 			.sheet(isPresented: $model.showingSheet) {
-				ServiceSheetView(model: model)
+				SupportSheetView(model: model)
 					.presentationDetents([.medium, .large])
 			}
 			.navigationTitle("Support")
@@ -78,7 +79,7 @@ struct ServiceListView: View {
 	}
 }
 
-extension ServiceListView {
+extension DefaultSupportListView {
 	var filteredServices: [Services] {
 		searchText.isEmpty ? model.services : model.services.filter { $0.matches(searchText: searchText) }
 	}
@@ -94,7 +95,7 @@ struct StatusListView_Previews: PreviewProvider {
 		private var model = ServiceViewModel.preview
 
 		var body: some View {
-			ServicesView(model: model)
+			SupportView(model: model)
 		}
 	}
 

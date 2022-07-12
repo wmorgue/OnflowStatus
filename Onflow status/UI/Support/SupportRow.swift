@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct ServiceRow: View {
+struct SupportRow: View {
 
 	var service: Services
-	let circleColor: () -> Color
+	let circleColor: ClosureColor
 
-	init(_ service: Services, circleColor: @escaping () -> Color) {
+	init(_ service: Services, circleColor: @escaping ClosureColor) {
 		self.service = service
 		self.circleColor = circleColor
 	}
@@ -33,6 +33,6 @@ struct ServiceRow: View {
 struct ServiceCellView_Previews: PreviewProvider {
 	static var previews: some View {
 		let previewService = Services(serviceName: "Активация устройств с iOS", events: [])
-		ServiceRow(previewService, circleColor: { .green })
+		SupportRow(previewService, circleColor: { .green })
 	}
 }
