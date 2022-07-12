@@ -5,7 +5,6 @@
 //  Created by Nikita Rossik on 6/17/22.
 //
 
-import Foundation
 import Get
 import OSLog
 import SwiftUI
@@ -56,6 +55,12 @@ final class ServiceViewModel: ObservableObject {
 	@Published
 	var showingDevSheet: Bool = false
 
+	@Published
+	var developerSearchText: String = ""
+
+	@Published
+	var isFilteredByEvents: Bool = false
+
 	@AppStorage("isCompactView")
 	var isCompactView: Bool = false
 }
@@ -84,9 +89,9 @@ extension ServiceViewModel {
 			.contains(message.text.lowercased()) || service.events.isEmpty ? .green : .orange
 	}
 
-	func tryCompactView(for service: Services, text: String) -> Bool {
-		service.events.isEmpty || service.events.map(\.eventStatus).contains(text) ? true : false
-	}
+//	func tryCompactView(for service: Services, text: String) -> Bool {
+//		service.events.isEmpty || service.events.map(\.eventStatus).contains(text) ? true : false
+//	}
 
 	func fetchSupport() async {
 		do {
@@ -120,6 +125,17 @@ extension ServiceViewModel {
 
 	var alertMessageReason: Text {
 		Text("Can't load a services.\n") + Text(alertErrorMessage ?? "")
+	}
+
+	var supportEventsIsEmpty: Bool { services.flatMap(\.events).isEmpty }
+	var developerEventsIsEmpty: Bool { developers.flatMap(\.events).isEmpty }
+
+	var filteredSupportBySearchText: [Services] {
+		developerSearchText.isEmpty ? developers : developers.filter { $0.matches(searchText: developerSearchText) }
+	}
+
+	var developerList: [Services] {
+		isFilteredByEvents ? filteredSupportBySearchText.filter(\.events.isNotEmpty) : filteredSupportBySearchText
 	}
 
 	func chooseAppIcon(for icon: AppIcon) async {

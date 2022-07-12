@@ -11,53 +11,26 @@ struct DeveloperList: View {
 	@ObservedObject
 	var model: ServiceViewModel
 
-	@State
-	private var searchText: String = ""
-
-	@State
-	private var isFilteredByEvents: Bool = false
-
-//	@State
-//	private var showingDevSheet: Bool = false
-
-//	@State
-//	var availableService: Services?
-
 	var body: some View {
 		NavigationStack {
-			List(filteredEvents) { dev in
+			List(model.developerList) { dev in
 				DeveloperRow(dev) {
 					model.setCircleColor(dev, message: .developer)
 				}
-//					.onTapGesture { model.showSheet(for: dev) }
 			}
 			.scrollIndicators(.never)
-			.searchable(text: $searchText, prompt: Text("Enter service name"))
-//			.sheet(isPresented: $model.showingDevSheet) {
-//				DeveloperSheet(model: model)
-//					.presentationDetents([.medium, .large])
-//			}
+			.searchable(text: $model.developerSearchText, prompt: Text("Enter service name"))
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					SortListButton(toggleButton: $isFilteredByEvents) {
-						model.developers.map(\.events).isEmpty
+					SortListButton(toggleButton: $model.isFilteredByEvents) {
+						model.developerEventsIsEmpty
 					}
 				}
 			}
-			.task { await model.fetchDeveloper() }
+//			.task { await model.fetchDeveloper() }
 			.refreshable { await model.fetchDeveloper() }
 			.navigationTitle("Developer")
 		}
-	}
-}
-
-extension DeveloperList {
-	var filteredServices: [Services] {
-		searchText.isEmpty ? model.developers : model.developers.filter { $0.matches(searchText: searchText) }
-	}
-
-	var filteredEvents: [Services] {
-		isFilteredByEvents ? filteredServices.filter(\.events.isNotEmpty) : filteredServices
 	}
 }
 

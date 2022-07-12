@@ -32,7 +32,7 @@ struct NavigationTabView: View {
 	var body: some View {
 		TabView(selection: $selectedTab) {
 			// MARK: - Support status
-			ServicesView(model: model)
+			SupportView(model: model)
 				.alert("Network issue", isPresented: $model.showingAlert,
 				       actions: {
 				       	Button("Cancel", role: .cancel) {}
