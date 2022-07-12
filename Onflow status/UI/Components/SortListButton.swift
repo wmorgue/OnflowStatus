@@ -11,7 +11,7 @@ struct SortListButton: View {
 
 	@Binding
 	var toggleButton: Bool
-	let isDisabledReason: () -> Bool
+	let isDisabledReason: ClosureBool
 
 	var body: some View {
 		Button {

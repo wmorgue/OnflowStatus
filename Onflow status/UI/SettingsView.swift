@@ -10,7 +10,7 @@ import SwiftUI
 fileprivate struct AppIconButton: View {
 
 	let iconName: String
-	let asyncTask: () async -> Void
+	let asyncTask: ClosureAsyncAction
 
 	var body: some View {
 		Button {
@@ -94,7 +94,6 @@ struct SettingsView: View {
 private extension SettingsView {
 	var navigationText: Text {
 		Text("Settings")
-//		Text(Date.now, format: .dateTime.day().month())
 	}
 }
 

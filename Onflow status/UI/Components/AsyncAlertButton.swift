@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-typealias ClosureAsyncAction = () async -> Void
-
 struct AsyncAlertButton: View {
 
 	let asyncTask: ClosureAsyncAction

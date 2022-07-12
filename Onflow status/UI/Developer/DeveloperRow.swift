@@ -10,14 +10,15 @@ import SwiftUI
 struct DeveloperRow: View {
 
 	var service: Services
-	let circleColor: () -> Color
+	let circleColor: ClosureColor
 
-	init(_ service: Services, circleColor: @escaping () -> Color) {
+	init(_ service: Services, circleColor: @escaping ClosureColor) {
 		self.service = service
 		self.circleColor = circleColor
 	}
 
-	@Environment(\.openURL) private var openURL
+	@Environment(\.openURL)
+	private var openURL
 
 	fileprivate func openUnwrapURL() {
 		if let link = service.redirectUrl {
@@ -36,33 +37,15 @@ struct DeveloperRow: View {
 				Image(systemName: "circle.dotted")
 					.foregroundColor(circleColor())
 
-				// ternary operator doesn't work in label style modifier
-				// https://useyourloaf.com/blog/adapting-swiftui-label-style/
-				if service.redirectUrl != nil {
-					Label(service.serviceName, systemImage: "link")
-						.foregroundColor(.primary)
-						.lineLimit(1)
-						.minimumScaleFactor(0.9)
-						.labelStyle(.reversed)
-				} else {
-					Label(service.serviceName, systemImage: "link")
-						.foregroundColor(.primary)
-						.lineLimit(1)
-						.minimumScaleFactor(0.9)
-						.labelStyle(.titleOnly)
-				}
+				Label(service.serviceName, systemImage: "link")
+					.foregroundColor(.primary)
+					.lineLimit(1)
+					.minimumScaleFactor(0.9)
+					.labelStyle(AdaptiveLabel(redirectUrl: service.redirectUrl))
 			}
 		}
 	}
 }
-
-//	var dynamicLabel: some View {
-//		Label(service.serviceName, systemImage: "link")
-//			.foregroundColor(.primary)
-//			.lineLimit(1)
-//			.minimumScaleFactor(0.9)
-//			.labelStyle(service.redirectUrl == .none ? .titleOnly : .iconOnly)
-//	}
 
 struct DeveloperRow_Previews: PreviewProvider {
 	static var previews: some View {
