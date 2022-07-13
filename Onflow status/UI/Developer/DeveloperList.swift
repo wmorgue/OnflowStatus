@@ -27,7 +27,6 @@ struct DeveloperList: View {
 					}
 				}
 			}
-//			.task { await model.fetchDeveloper() }
 			.refreshable { await model.fetchDeveloper() }
 			.navigationTitle("Developer")
 		}
@@ -41,6 +40,7 @@ struct DeveloperList_Previews: PreviewProvider {
 
 		var body: some View {
 			DeveloperList(model: model)
+				.task { await model.fetchDeveloper() }
 		}
 	}
 

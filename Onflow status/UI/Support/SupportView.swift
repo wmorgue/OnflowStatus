@@ -59,7 +59,6 @@ struct DefaultSupportListView: View {
 				.onTapGesture { model.showSheet(for: service) }
 			}
 			.scrollIndicators(.never)
-//			.task { await model.fetchSupport() }
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
 					// Bug fixed, but need attention
@@ -96,6 +95,7 @@ struct StatusListView_Previews: PreviewProvider {
 
 		var body: some View {
 			SupportView(model: model)
+				.task { await model.fetchSupport() }
 		}
 	}
 

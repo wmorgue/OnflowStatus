@@ -33,23 +33,19 @@ struct NavigationTabView: View {
 		TabView(selection: $selectedTab) {
 			// MARK: - Support status
 			SupportView(model: model)
-				.alert("Network issue", isPresented: $model.showingAlert,
-				       actions: {
-				       	Button("Cancel", role: .cancel) {}
-				       	AsyncAlertButton(asyncTask: model.fetchSupport)
-				       },
-				       message: { model.alertMessageReason })
+				.alert("Network issue", isPresented: $model.showingAlert) {
+					Button("Cancel", role: .cancel) {}
+					AsyncAlertButton(asyncTask: model.fetchSupport)
+				} message: { model.alertMessageReason }
 				.tabItem { NavigationItem.support.label }
 				.tag(0)
 
 			// MARK: - Developer status
 			DeveloperList(model: model)
-				.alert("Network issue", isPresented: $model.showingAlert,
-				       actions: {
-				       	Button("Cancel", role: .cancel) {}
-				       	AsyncAlertButton(asyncTask: model.fetchDeveloper)
-				       },
-				       message: { model.alertMessageReason })
+				.alert("Network issue", isPresented: $model.showingAlert) {
+					Button("Cancel", role: .cancel) {}
+					AsyncAlertButton(asyncTask: model.fetchDeveloper)
+				} message: { model.alertMessageReason }
 				.tabItem { NavigationItem.developer.label }
 				.tag(1)
 
