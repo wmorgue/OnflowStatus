@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Onflow Light launch screen 1.png",
+      "filename" : "Generic launchScreen.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Onflow Dark launch screen.png",
+      "filename" : "Generic Dark launchScreen.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
