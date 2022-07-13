@@ -44,15 +44,9 @@ struct DefaultSupportListView: View {
 	@ObservedObject
 	var model: ServiceViewModel
 
-	@State
-	private var searchText: String = ""
-
-	@State
-	private var isFilteredByEvents: Bool = false
-
 	var body: some View {
 		NavigationStack {
-			List(filteredEvents) { service in
+			List(model.supportList) { service in
 				SupportRow(service) {
 					model.setCircleColor(service, message: .support)
 				}
@@ -62,29 +56,19 @@ struct DefaultSupportListView: View {
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
 					// Bug fixed, but need attention
-					SortListButton(toggleButton: $isFilteredByEvents) {
+					SortListButton(toggleButton: $model.isFilteredSupport.animation()) {
 						model.supportEventsIsEmpty
 					}
 				}
 			}
 			.refreshable { await model.fetchSupport() }
-			.searchable(text: $searchText, prompt: Text("Enter service name"))
+			.searchable(text: $model.supportSearchText.animation(), prompt: Text("Enter service name"))
 			.sheet(isPresented: $model.showingSheet) {
 				SupportSheetView(model: model)
 					.presentationDetents([.medium, .large])
 			}
 			.navigationTitle("Support")
 		}
-	}
-}
-
-extension DefaultSupportListView {
-	var filteredServices: [Services] {
-		searchText.isEmpty ? model.services : model.services.filter { $0.matches(searchText: searchText) }
-	}
-
-	var filteredEvents: [Services] {
-		isFilteredByEvents ? filteredServices.filter(\.events.isNotEmpty) : filteredServices
 	}
 }
 

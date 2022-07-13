@@ -19,10 +19,10 @@ struct DeveloperList: View {
 				}
 			}
 			.scrollIndicators(.never)
-			.searchable(text: $model.developerSearchText, prompt: Text("Enter service name"))
+			.searchable(text: $model.developerSearchText.animation(), prompt: Text("Enter service name"))
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					SortListButton(toggleButton: $model.isFilteredByEvents) {
+					SortListButton(toggleButton: $model.isFilteredDeveloper.animation()) {
 						model.developerEventsIsEmpty
 					}
 				}

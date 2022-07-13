@@ -55,10 +55,16 @@ final class ServiceViewModel: ObservableObject {
 	var showingDevSheet: Bool = false
 
 	@Published
+	var supportSearchText: String = ""
+
+	@Published
 	var developerSearchText: String = ""
 
 	@Published
-	var isFilteredByEvents: Bool = false
+	var isFilteredSupport: Bool = false
+
+	@Published
+	var isFilteredDeveloper: Bool = false
 
 	@AppStorage("isCompactView")
 	var isCompactView: Bool = false
@@ -73,13 +79,6 @@ private extension Logger {
 
 extension ServiceViewModel {
 	static let preview = ServiceViewModel()
-
-	func showSheet(for service: Services) {
-		guard service.events.isEmpty else {
-			showingSheet.toggle()
-			return
-		}
-	}
 
 	func setCircleColor(_ service: Services, message: EventStatusMessage) -> Color {
 		service
@@ -128,15 +127,33 @@ extension ServiceViewModel {
 		Text("Can't load a services.\n") + Text(alertErrorMessage ?? "")
 	}
 
+	// MARK: - Support
+	func showSheet(for service: Services) {
+		guard service.events.isEmpty else {
+			showingSheet.toggle()
+			return
+		}
+	}
+
 	var supportEventsIsEmpty: Bool { services.flatMap(\.events).isEmpty }
-	var developerEventsIsEmpty: Bool { developers.flatMap(\.events).isEmpty }
 
 	var filteredSupportBySearchText: [Services] {
+		supportSearchText.isEmpty ? services : services.filter { $0.matches(searchText: supportSearchText) }
+	}
+
+	var supportList: [Services] {
+		isFilteredSupport ? filteredSupportBySearchText.filter(\.events.isNotEmpty) : filteredSupportBySearchText
+	}
+
+	// MARK: - Developer
+	var developerEventsIsEmpty: Bool { developers.flatMap(\.events).isEmpty }
+
+	var filteredDeveloperBySearchText: [Services] {
 		developerSearchText.isEmpty ? developers : developers.filter { $0.matches(searchText: developerSearchText) }
 	}
 
 	var developerList: [Services] {
-		isFilteredByEvents ? filteredSupportBySearchText.filter(\.events.isNotEmpty) : filteredSupportBySearchText
+		isFilteredDeveloper ? filteredDeveloperBySearchText.filter(\.events.isNotEmpty) : filteredDeveloperBySearchText
 	}
 
 	@MainActor
