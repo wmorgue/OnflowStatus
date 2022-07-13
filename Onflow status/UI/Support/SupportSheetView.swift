@@ -15,13 +15,14 @@ struct SupportSheetView: View {
 	var body: some View {
 		List(model.services) { service in
 			ForEach(service.events) { event in
-				Section("Status") {
+
+				Section {
 					// MARK: - Service name
 					HStack {
 						Text(service.serviceName)
 						Spacer()
 						Image(systemName: "checkmark.circle.fill")
-							.foregroundColor(event.eventStatus.elementsEqual("ongoing") ? .orange : .green)
+							.foregroundColor(model.setCircleColor(service, message: .support))
 					}
 
 					// MARK: - Relative date started
@@ -31,18 +32,17 @@ struct SupportSheetView: View {
 						Text(model.relativeStartDate(from: event.startDate))
 							.foregroundColor(.secondary)
 					}
+
 					HStack {
 						Text("Resolution")
 						Spacer()
 						Text(event.eventStatus.capitalized)
 							.foregroundColor(.secondary)
 					}
-				}
-				// MARK: - Message to user
-				Section {
-					HStack {
-						Text(event.message)
-					}
+				} header: {
+					Text("Status")
+				} footer: {
+					Text(event.message)
 				}
 				// MARK: - Affected services
 				if let affectedServices: [String] = event.affectedServices {
