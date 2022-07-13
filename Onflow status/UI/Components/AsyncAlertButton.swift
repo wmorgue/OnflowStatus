@@ -13,7 +13,9 @@ struct AsyncAlertButton: View {
 
 	var body: some View {
 		Button {
-			Task { await asyncTask() }
+			Task { @MainActor in
+				await asyncTask()
+			}
 		} label: {
 			Text("Try again")
 		}

@@ -33,7 +33,6 @@ enum AppIcon {
 	}
 }
 
-@MainActor
 final class ServiceViewModel: ObservableObject {
 	let networking = StatusResource()
 
@@ -93,6 +92,7 @@ extension ServiceViewModel {
 //		service.events.isEmpty || service.events.map(\.eventStatus).contains(text) ? true : false
 //	}
 
+	@MainActor
 	func fetchSupport() async {
 		do {
 			services = try await networking.fetchSupportServices()
@@ -103,6 +103,7 @@ extension ServiceViewModel {
 		}
 	}
 
+	@MainActor
 	func fetchDeveloper() async {
 		do {
 			developers = try await networking.fetchDeveloperServices()
@@ -138,6 +139,7 @@ extension ServiceViewModel {
 		isFilteredByEvents ? filteredSupportBySearchText.filter(\.events.isNotEmpty) : filteredSupportBySearchText
 	}
 
+	@MainActor
 	func chooseAppIcon(for icon: AppIcon) async {
 		do {
 			try await UIApplication.shared.setAlternateIconName(icon.iconName)
