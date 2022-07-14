@@ -27,7 +27,7 @@ struct DeveloperSheet: View {
 					HStack {
 						Text("Event started")
 						Spacer()
-						Text(model.relativeStartDate(from: event.startDate))
+//						Text(model.relativeStartDate(from: event.startDate))
 							.foregroundColor(.secondary)
 					}
 					HStack {

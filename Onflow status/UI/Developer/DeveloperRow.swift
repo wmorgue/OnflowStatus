@@ -10,11 +10,9 @@ import SwiftUI
 struct DeveloperRow: View {
 
 	var service: Services
-	let circleColor: ClosureColor
 
-	init(_ service: Services, circleColor: @escaping ClosureColor) {
+	init(_ service: Services) {
 		self.service = service
-		self.circleColor = circleColor
 	}
 
 	@Environment(\.openURL)
@@ -35,7 +33,7 @@ struct DeveloperRow: View {
 		} label: {
 			HStack {
 				Image(systemName: "circle.dotted")
-					.foregroundColor(circleColor())
+					.foregroundColor(.setCircleColor(service, message: .developer))
 
 				Label(service.serviceName, systemImage: "link")
 					.foregroundColor(.primary)
@@ -49,6 +47,6 @@ struct DeveloperRow: View {
 
 struct DeveloperRow_Previews: PreviewProvider {
 	static var previews: some View {
-		DeveloperRow(MockData.developerService) { .green }
+		DeveloperRow(MockData.developerService)
 	}
 }

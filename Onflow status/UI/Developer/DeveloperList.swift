@@ -14,9 +14,7 @@ struct DeveloperList: View {
 	var body: some View {
 		NavigationStack {
 			List(model.developerList) { dev in
-				DeveloperRow(dev) {
-					model.setCircleColor(dev, message: .developer)
-				}
+				DeveloperRow(dev)
 			}
 			.scrollIndicators(.never)
 			.searchable(text: $model.developerSearchText.animation(), prompt: Text("Enter service name"))
