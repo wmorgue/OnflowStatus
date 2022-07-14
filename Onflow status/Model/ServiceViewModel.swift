@@ -66,6 +66,9 @@ final class ServiceViewModel: ObservableObject {
 	@Published
 	var isFilteredDeveloper: Bool = false
 
+	@Published
+	var currentSheetService: Services?
+
 	@AppStorage("isCompactView")
 	var isCompactView: Bool = false
 }
@@ -79,13 +82,6 @@ private extension Logger {
 
 extension ServiceViewModel {
 	static let preview = ServiceViewModel()
-
-	func setCircleColor(_ service: Services, message: EventStatusMessage) -> Color {
-		service
-			.events
-			.map(\.eventStatus.localizedLowercase)
-			.contains(message.text.lowercased()) || service.events.isEmpty ? .green : .orange
-	}
 
 //	func tryCompactView(for service: Services, text: String) -> Bool {
 //		service.events.isEmpty || service.events.map(\.eventStatus).contains(text) ? true : false
@@ -113,16 +109,6 @@ extension ServiceViewModel {
 		}
 	}
 
-	func relativeStartDate(from startDate: String) -> String {
-		let strategy = Date.ParseStrategy(format: "\(month: .twoDigits)/\(day: .twoDigits)/\(year: .defaultDigits) \(hour: .twoDigits(clock: .twelveHour, hourCycle: .zeroBased)):\(minute: .twoDigits) PDT", locale: Locale(identifier: networking.locale), timeZone: .current)
-		guard let date = try? Date(startDate, strategy: strategy) else { return Date.now.formatted() }
-
-		let formatter = RelativeDateTimeFormatter()
-		formatter.unitsStyle = .full
-
-		return formatter.localizedString(for: date, relativeTo: .now)
-	}
-
 	var alertMessageReason: Text {
 		Text("Can't load a services.\n") + Text(alertErrorMessage ?? "")
 	}
@@ -130,7 +116,7 @@ extension ServiceViewModel {
 	// MARK: - Support
 	func showSheet(for service: Services) {
 		guard service.events.isEmpty else {
-			showingSheet.toggle()
+			currentSheetService = service
 			return
 		}
 	}
