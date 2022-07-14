@@ -54,7 +54,14 @@ enum MockData {
 				datePosted: "06/12/2022 06:00 PDT",
 				startDate: "06/10/2022 09:50 PDT",
 				endDate: "06/10/2022 17:10 PDT",
-				affectedServices: nil,
+				affectedServices: [
+					"iCloud Drive",
+					"Веб-приложения iCloud (iCloud.com)",
+					"Календарь iCloud",
+					"Почта iCloud",
+					"Связка ключей iCloud",
+					"Учетная запись и вход в iCloud",
+				],
 				eventStatus: "completed",
 				message: "Users may have experienced issues with the service."
 			)]
