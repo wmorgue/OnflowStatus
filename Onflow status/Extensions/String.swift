@@ -24,4 +24,14 @@ extension String {
 	static var bundleIdentifier: String {
 		Bundle.main.bundleIdentifier ?? "ca.rossik.onflow-status"
 	}
+
+	static func relativeStartDate(from startDate: String, localeUS: String = "en_US") -> String {
+		let strategy = Date.ParseStrategy(format: "\(month: .twoDigits)/\(day: .twoDigits)/\(year: .defaultDigits) \(hour: .twoDigits(clock: .twelveHour, hourCycle: .zeroBased)):\(minute: .twoDigits) PDT", locale: Locale(identifier: localeUS), timeZone: .current)
+		guard let date = try? Date(startDate, strategy: strategy) else { return Date.now.formatted() }
+
+		let formatter = RelativeDateTimeFormatter()
+		formatter.unitsStyle = .full
+
+		return formatter.localizedString(for: date, relativeTo: .now)
+	}
 }

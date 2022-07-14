@@ -9,4 +9,11 @@ import SwiftUI
 
 extension Color {
 	static let sortEventsButton = Color("FilterEventsButton")
+
+	static func setCircleColor(_ service: Services, message: EventStatusMessage) -> Color {
+		service
+			.events
+			.map(\.eventStatus.localizedLowercase)
+			.contains(message.text.lowercased()) || service.events.isEmpty ? .green : .orange
+	}
 }
