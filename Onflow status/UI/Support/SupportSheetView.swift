@@ -7,66 +7,81 @@
 
 import SwiftUI
 
-struct SupportSheetView: View {
+struct GenericSheetView: View {
 
-	@ObservedObject
-	var model: ServiceViewModel
+	var services: Services
+	var eventFor: EventStatusMessage
+
+	@Environment(\.dismiss)
+	private var closeSheet
+
+	init(_ services: Services, eventFor: EventStatusMessage) {
+		self.services = services
+		self.eventFor = eventFor
+	}
 
 	var body: some View {
-		List(model.services) { service in
-			ForEach(service.events) { event in
-
+		NavigationStack {
+			List {
 				Section {
-					// MARK: - Service name
-					HStack {
-						Text(service.serviceName)
-						Spacer()
+					Label {
+						Text("Status")
+					} icon: {
 						Image(systemName: "checkmark.circle.fill")
-							.foregroundColor(model.setCircleColor(service, message: .support))
+							.foregroundColor(.setCircleColor(services, message: eventFor))
 					}
+					.labelStyle(.reversed)
 
-					// MARK: - Relative date started
-					HStack {
-						Text("Event started")
-						Spacer()
-						Text(model.relativeStartDate(from: event.startDate))
-							.foregroundColor(.secondary)
-					}
+					ForEach(services.events) { event in
 
-					HStack {
-						Text("Resolution")
-						Spacer()
-						Text(event.eventStatus.capitalized)
-							.foregroundColor(.secondary)
-					}
-				} header: {
-					Text("Status")
-				} footer: {
-					Text(event.message)
-				}
-				// MARK: - Affected services
-				if let affectedServices: [String] = event.affectedServices {
-					Section("Affected services") {
 						HStack {
-							Text(String.affectedSeparator(affectedServices))
+							Text("Event started")
+							Spacer()
+							Text(String.relativeStartDate(from: event.startDate))
+								.foregroundColor(.secondary)
+						}
+
+						HStack {
+							Text("Resolution")
+							Spacer()
+							Text(event.eventStatus.capitalized)
+								.foregroundColor(.secondary)
+						}
+
+						Text(event.message)
+					}
+				}
+
+				ForEach(services.events) { event in
+					if let affectedServices: [String] = event.affectedServices {
+						Section("Affected services") {
+							HStack {
+								Text(String.affectedSeparator(affectedServices))
+							}
 						}
 					}
 				}
 			}
+			.navigationBarTitle(services.serviceName, displayMode: .inline)
+			.toolbar {
+				ToolbarItem(placement: .navigationBarTrailing) {
+					Button {
+						closeSheet()
+					} label: {
+						Image(systemName: "xmark.app")
+							.foregroundColor(.primary)
+					}
+				}
+			}
+//			.toolbarTitleMenu {
+//				Text("123")
+//			}
 		}
 	}
 }
 
 struct ServiceSheetView_Previews: PreviewProvider {
-	struct Preview: View {
-		@StateObject var model = ServiceViewModel()
-		var body: some View {
-			SupportSheetView(model: model)
-				.task { await model.fetchSupport() }
-		}
-	}
-
 	static var previews: some View {
-		Preview()
+		GenericSheetView(MockData.developerService, eventFor: .developer)
 	}
 }

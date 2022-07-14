@@ -47,10 +47,8 @@ struct DefaultSupportListView: View {
 	var body: some View {
 		NavigationStack {
 			List(model.supportList) { service in
-				SupportRow(service) {
-					model.setCircleColor(service, message: .support)
-				}
-				.onTapGesture { model.showSheet(for: service) }
+				SupportRow(service)
+					.onTapGesture { model.showSheet(for: service) }
 			}
 			.scrollIndicators(.never)
 			.toolbar {
@@ -63,8 +61,8 @@ struct DefaultSupportListView: View {
 			}
 			.refreshable { await model.fetchSupport() }
 			.searchable(text: $model.supportSearchText.animation(), prompt: Text("Enter service name"))
-			.sheet(isPresented: $model.showingSheet) {
-				SupportSheetView(model: model)
+			.sheet(item: $model.currentSheetService) { service in
+				GenericSheetView(service, eventFor: .support)
 					.presentationDetents([.medium, .large])
 			}
 			.navigationTitle("Support")
