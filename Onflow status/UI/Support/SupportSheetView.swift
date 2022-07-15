@@ -41,6 +41,15 @@ struct GenericSheetView: View {
 								.foregroundColor(.secondary)
 						}
 
+						if let eventEndDate = event.endDate {
+							HStack {
+								Text("Event ended")
+								Spacer()
+								Text(String.relativeStartDate(from: eventEndDate))
+									.foregroundColor(.secondary)
+							}
+						}
+
 						HStack {
 							Text("Resolution")
 							Spacer()
