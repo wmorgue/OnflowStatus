@@ -56,8 +56,8 @@ extension StatusResource {
 		return request
 	}
 
-	private func performCallbackRequest(_ requestPath: RequestPath) async throws -> Request<Data> {
-		let request: Request<Data> = .get(requestPath.path + locale + RequestConstant.requestPathExtension)
+	private func performCallbackRequest(_ requestPath: RequestPath) async throws -> Request<String> {
+		let request: Request<String> = .get(requestPath.path + locale + RequestConstant.requestPathExtension)
 		return request
 	}
 
@@ -72,21 +72,24 @@ extension StatusResource {
 	}
 
 	func fetchDeveloperServices() async throws -> [Services] {
-		var callbackResult: Data = try await host.send(performCallbackRequest(.developer)).data
+		var callbackResult: String = try await host
+			.send(performCallbackRequest(.developer))
+			.value
+			.trim
+
 		callbackResult.removeFirst(13)
 		callbackResult.removeLast(2)
 
-//		print(callbackResult)
-//		let resultData = callbackResult.data(using: .utf8)!
+		let resultData: Data = callbackResult.data(using: .utf8)!
 
-		let isValidObject: Bool = JSONSerialization.isValidJSONObject(callbackResult)
+		let isValidObject: Bool = JSONSerialization.isValidJSONObject(resultData)
 
 		guard !isValidObject else {
 			Logger.statusResource.error("Invalid JSON: \(#function)")
 			throw URLError(.cannotDecodeContentData)
 		}
 
-		let status: SupportStatus = try JSONDecoder().decode(SupportStatus.self, from: callbackResult)
+		let status: SupportStatus = try JSONDecoder().decode(SupportStatus.self, from: resultData)
 		return status.services
 	}
 }
