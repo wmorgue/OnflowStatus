@@ -14,6 +14,7 @@ After compleate a steps above —> Archive and upload build to TestFlight.
 - [x] Launch Screen file
 - [x] Redisign DeveloperView. Tap by row for showing more deatails in sheet.
 - [ ] Favorite service?
-- [ ] What about a [.sheet(item: $)](https://developer.apple.com/documentation/swiftui/form/sheet(item:ondismiss:content:))
+- [x] What about a [.sheet(item: $)](https://developer.apple.com/documentation/swiftui/form/sheet(item:ondismiss:content:))
 - [ ] iOS Widget.
 - [ ] iPad destination.
+- [ ] [App landing page](https://github.com/emilbaehr/automatic-app-landing-page). Privacy page Github Pages https://www.pixelmator.com/privacy-policy/ and Support URL.
