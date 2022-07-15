@@ -11,10 +11,19 @@ struct DeveloperList: View {
 	@ObservedObject
 	var model: ServiceViewModel
 
+	@State
+	private var currentDeveloperServices: Services?
+
 	var body: some View {
 		NavigationStack {
 			List(model.developerList) { dev in
 				DeveloperRow(dev)
+					.onTapGesture {
+						guard dev.events.isEmpty else {
+							currentDeveloperServices = dev
+							return
+						}
+					}
 			}
 			.scrollIndicators(.never)
 			.searchable(text: $model.developerSearchText.animation(), prompt: Text("Enter service name"))
@@ -24,6 +33,10 @@ struct DeveloperList: View {
 						model.developerEventsIsEmpty
 					}
 				}
+			}
+			.sheet(item: $currentDeveloperServices) { currentService in
+				GenericSheetView(currentService, eventFor: .developer)
+					.presentationDetents([.medium, .large])
 			}
 			.refreshable { await model.fetchDeveloper() }
 			.navigationTitle("Developer")

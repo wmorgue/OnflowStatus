@@ -36,7 +36,7 @@ struct DeveloperRow: View {
 					.foregroundColor(.setCircleColor(service, message: .developer))
 
 				Label(service.serviceName, systemImage: "link")
-					.foregroundColor(.primary)
+					.foregroundColor(service.events.isEmpty ? .primary : .blue)
 					.lineLimit(1)
 					.minimumScaleFactor(0.9)
 					.labelStyle(AdaptiveLabel(redirectUrl: service.redirectUrl))
