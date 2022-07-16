@@ -37,7 +37,7 @@ struct GenericSheetView: View {
 						HStack {
 							Text("Event started")
 							Spacer()
-							Text(relativeNamedDate(epochDate: event.epochStartDate))
+							Text(relativeNamedDate(epochDate: event.epochStartDate).capitalized)
 								.foregroundColor(.secondary)
 						}
 
@@ -45,7 +45,7 @@ struct GenericSheetView: View {
 							HStack {
 								Text("Event ended")
 								Spacer()
-								Text(relativeNamedDate(epochDate: eventEndDate))
+								Text(relativeNamedDate(epochDate: eventEndDate).capitalized)
 									.foregroundColor(.secondary)
 							}
 						}
