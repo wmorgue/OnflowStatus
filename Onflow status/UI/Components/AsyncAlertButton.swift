@@ -12,7 +12,7 @@ struct AsyncAlertButton: View {
 	let asyncTask: ClosureAsyncAction
 
 	var body: some View {
-		Button {
+		Button(role: .cancel) {
 			Task { @MainActor in
 				await asyncTask()
 			}

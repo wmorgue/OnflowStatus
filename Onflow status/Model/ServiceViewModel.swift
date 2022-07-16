@@ -16,7 +16,7 @@ enum EventStatusMessage {
 	var text: String {
 		switch self {
 		case .support: return "resolved"
-		case .developer: return "completed"
+		case .developer: return "resolved" // before: completed
 		}
 	}
 }

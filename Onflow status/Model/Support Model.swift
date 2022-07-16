@@ -26,8 +26,8 @@ struct Services {
 
 struct Event {
 	var usersAffected: String?
-	var epochStartDate: Int
-	var epochEndDate: Int?
+	var epochStartDate: Double
+	var epochEndDate: Double?
 	var messageID, statusType, datePosted, startDate: String
 	var endDate: String?
 	var affectedServices: [String]?
