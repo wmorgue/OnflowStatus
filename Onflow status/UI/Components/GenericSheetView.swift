@@ -1,5 +1,5 @@
 //
-//  SupportSheetView.swift
+//  GenericSheetView.swift
 //  Onflow status
 //
 //  Created by Nikita Rossik on 6/16/22.
@@ -37,15 +37,15 @@ struct GenericSheetView: View {
 						HStack {
 							Text("Event started")
 							Spacer()
-							Text(String.relativeStartDate(from: event.startDate))
+							Text(relativeNamedDate(epochDate: event.epochStartDate))
 								.foregroundColor(.secondary)
 						}
 
-						if let eventEndDate = event.endDate {
+						if let eventEndDate = event.epochEndDate {
 							HStack {
 								Text("Event ended")
 								Spacer()
-								Text(String.relativeStartDate(from: eventEndDate))
+								Text(relativeNamedDate(epochDate: eventEndDate))
 									.foregroundColor(.secondary)
 							}
 						}
@@ -77,8 +77,8 @@ struct GenericSheetView: View {
 					Button {
 						closeSheet()
 					} label: {
-						Image(systemName: "xmark.app")
-							.foregroundColor(.primary)
+						Image(systemName: "xmark.app.fill")
+							.foregroundColor(.secondary)
 					}
 				}
 			}
@@ -86,6 +86,14 @@ struct GenericSheetView: View {
 //				Text("123")
 //			}
 		}
+	}
+}
+
+extension GenericSheetView {
+	// TODO: - Move outside view and test with different time zone
+	func relativeNamedDate(epochDate: Double) -> String {
+		let currentUnix = Date(timeIntervalSince1970: epochDate / 1000)
+		return currentUnix.formatted(.relative(presentation: .named))
 	}
 }
 
