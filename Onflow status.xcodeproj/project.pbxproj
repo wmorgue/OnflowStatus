@@ -18,7 +18,6 @@
 		7332B76D28771718002A19AE /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332B76C28771718002A19AE /* View.swift */; };
 		733BCA0D287AD3D0001C20ED /* SortListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733BCA0C287AD3D0001C20ED /* SortListButton.swift */; };
 		733BCA0F287AD470001C20ED /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733BCA0E287AD470001C20ED /* Color.swift */; };
-		733C6761286B981E005557A3 /* DeveloperSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733C6760286B981E005557A3 /* DeveloperSheet.swift */; };
 		73469160287632D3005F2FCF /* AsyncAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346915F287632D3005F2FCF /* AsyncAlertButton.swift */; };
 		734EE5802865AA69002D6263 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EE57F2865AA69002D6263 /* String.swift */; };
 		7359EA24287D671900E648DB /* developer_status_en.json in Resources */ = {isa = PBXBuildFile; fileRef = 7359EA23287D671900E648DB /* developer_status_en.json */; };
@@ -29,7 +28,7 @@
 		73C2D84F286EF3B3001899B7 /* DeveloperContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D84E286EF3B3001899B7 /* DeveloperContact.swift */; };
 		73C7EC9728623494007D94B0 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7EC9628623494007D94B0 /* LabelStyle.swift */; };
 		73CEAB7428781BE30099A98D /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEAB7328781BE30099A98D /* Bundle.swift */; };
-		73D07C15285BA57C00F3B955 /* SupportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D07C14285BA57C00F3B955 /* SupportSheetView.swift */; };
+		73D07C15285BA57C00F3B955 /* GenericSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D07C14285BA57C00F3B955 /* GenericSheetView.swift */; };
 		73D70CFD2862135F00897799 /* DeveloperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D70CFC2862135F00897799 /* DeveloperRow.swift */; };
 		73E65E12285B2FA00012AC0F /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E65E11285B2FA00012AC0F /* MockData.swift */; };
 		73E65E15285B30AB0012AC0F /* SupportRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E65E14285B30AB0012AC0F /* SupportRow.swift */; };
@@ -50,7 +49,6 @@
 		7332B76C28771718002A19AE /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		733BCA0C287AD3D0001C20ED /* SortListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortListButton.swift; sourceTree = "<group>"; };
 		733BCA0E287AD470001C20ED /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		733C6760286B981E005557A3 /* DeveloperSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSheet.swift; sourceTree = "<group>"; };
 		7345EB21287193CE005C5CA9 /* Onflow-status-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Onflow-status-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7346915F287632D3005F2FCF /* AsyncAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAlertButton.swift; sourceTree = "<group>"; };
 		734EE57F2865AA69002D6263 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -61,7 +59,7 @@
 		73C2D84E286EF3B3001899B7 /* DeveloperContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperContact.swift; sourceTree = "<group>"; };
 		73C7EC9628623494007D94B0 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
 		73CEAB7328781BE30099A98D /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		73D07C14285BA57C00F3B955 /* SupportSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportSheetView.swift; sourceTree = "<group>"; };
+		73D07C14285BA57C00F3B955 /* GenericSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSheetView.swift; sourceTree = "<group>"; };
 		73D70CFC2862135F00897799 /* DeveloperRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperRow.swift; sourceTree = "<group>"; };
 		73E65E11285B2FA00012AC0F /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		73E65E14285B30AB0012AC0F /* SupportRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportRow.swift; sourceTree = "<group>"; };
@@ -136,6 +134,7 @@
 		733BCA0B287AD3A3001C20ED /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				73D07C14285BA57C00F3B955 /* GenericSheetView.swift */,
 				7346915F287632D3005F2FCF /* AsyncAlertButton.swift */,
 				733BCA0C287AD3D0001C20ED /* SortListButton.swift */,
 			);
@@ -147,7 +146,6 @@
 			children = (
 				73E65E14285B30AB0012AC0F /* SupportRow.swift */,
 				7311F844285B296500EF174E /* SupportView.swift */,
-				73D07C14285BA57C00F3B955 /* SupportSheetView.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -179,7 +177,6 @@
 			children = (
 				73D70CFC2862135F00897799 /* DeveloperRow.swift */,
 				73F789E028631651002A3BA1 /* DeveloperList.swift */,
-				733C6760286B981E005557A3 /* DeveloperSheet.swift */,
 			);
 			path = Developer;
 			sourceTree = "<group>";
@@ -286,7 +283,7 @@
 				73C7EC9728623494007D94B0 /* LabelStyle.swift in Sources */,
 				733BCA0F287AD470001C20ED /* Color.swift in Sources */,
 				73469160287632D3005F2FCF /* AsyncAlertButton.swift in Sources */,
-				73D07C15285BA57C00F3B955 /* SupportSheetView.swift in Sources */,
+				73D07C15285BA57C00F3B955 /* GenericSheetView.swift in Sources */,
 				7311F843285B261400EF174E /* NavigationTabView.swift in Sources */,
 				73E65E15285B30AB0012AC0F /* SupportRow.swift in Sources */,
 				7311F833285B24C000EF174E /* OnflowStatusApp.swift in Sources */,
@@ -294,7 +291,6 @@
 				73950ACD2878D0DE00D975E5 /* Array.swift in Sources */,
 				7332B76D28771718002A19AE /* View.swift in Sources */,
 				734EE5802865AA69002D6263 /* String.swift in Sources */,
-				733C6761286B981E005557A3 /* DeveloperSheet.swift in Sources */,
 				733BCA0D287AD3D0001C20ED /* SortListButton.swift in Sources */,
 				73F789E128631651002A3BA1 /* DeveloperList.swift in Sources */,
 			);
@@ -436,6 +432,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,6 +468,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
