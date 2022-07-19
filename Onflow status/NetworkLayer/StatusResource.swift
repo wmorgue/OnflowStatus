@@ -51,14 +51,12 @@ extension StatusResource {
 		#endif
 	}
 
-	private func performRequest(_ requestPath: RequestPath) async throws -> Request<SupportStatus> {
-		let request: Request<SupportStatus> = .get(requestPath.path + locale + RequestConstant.requestPathExtension)
-		return request
+	private func performRequest(_ requestPath: RequestPath) -> Request<SupportStatus> {
+		Request.get(requestPath.path + locale + RequestConstant.requestPathExtension)
 	}
 
-	private func performCallbackRequest(_ requestPath: RequestPath) async throws -> Request<String> {
-		let request: Request<String> = .get(requestPath.path + locale + RequestConstant.requestPathExtension)
-		return request
+	private func performCallbackRequest(_ requestPath: RequestPath) -> Request<String> {
+		Request.get(requestPath.path + locale + RequestConstant.requestPathExtension)
 	}
 
 	func fetchSupportServices() async throws -> [Services] {
