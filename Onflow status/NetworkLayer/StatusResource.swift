@@ -40,8 +40,9 @@ struct StatusResource {
 	}
 
 	private var requestPath: RequestPath = .support
-	private(set) var locale: String = "en_US"
-//	private(set) var locale: String = Locale.current.identifier
+	var supportLocale: String = LocaleLayer.shared.locale
+//	private(set) var supportLocale: String = LocaleLayer.shared.locale
+	private(set) var developerLocale: String = CurrentLocale.english.identifier
 }
 
 extension StatusResource {
@@ -52,14 +53,15 @@ extension StatusResource {
 	}
 
 	private func performRequest(_ requestPath: RequestPath) -> Request<SupportStatus> {
-		Request.get(requestPath.path + locale + RequestConstant.requestPathExtension)
+		Request.get(requestPath.path + supportLocale + RequestConstant.requestPathExtension)
 	}
 
 	private func performCallbackRequest(_ requestPath: RequestPath) -> Request<String> {
-		Request.get(requestPath.path + locale + RequestConstant.requestPathExtension)
+		Request.get(requestPath.path + developerLocale + RequestConstant.requestPathExtension)
 	}
 
 	func fetchSupportServices() async throws -> [Services] {
+		print("🌊 \(#function)", supportLocale)
 		let supportStatus = try await host.send(performRequest(.support))
 
 		guard supportStatus.statusCode == 200 else {
