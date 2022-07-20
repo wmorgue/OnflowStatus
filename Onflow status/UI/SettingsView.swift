@@ -28,8 +28,11 @@ fileprivate struct AppIconButton: View {
 }
 
 struct SettingsView: View {
-	@ObservedObject
-	var model: ServiceViewModel
+	@StateObject
+	var model = ServiceViewModel()
+
+	@StateObject
+	var localeLayer = LocaleLayer.shared
 
 	var body: some View {
 		NavigationStack {
@@ -40,6 +43,38 @@ struct SettingsView: View {
 					Text("Compact view")
 				} footer: {
 					Text("Only for support tab.")
+				}
+
+				Section {
+					Picker("Region language", selection: $localeLayer.locale) {
+						ForEach(localeLayer.allLocales) { locale in
+							Text(locale.rawValue)
+								.tag(locale.identifier)
+								.onDisappear {
+									model.updateLocale(for: locale)
+								}
+						}
+					}
+					.onDisappear {
+						fetchUpdatedSupport()
+					}
+					.pickerStyle(.menu)
+//					NavigationLink {
+//						VStack {
+//							List(localeLayer.allLocales) { locale in
+//								Button {
+//									localeLayer.setNewLocale(newLocale: locale)
+//									print("🟩 Selected:", locale.identifier)
+//								} label: {
+//									Text(locale.rawValue)
+//								}
+//							}
+//						}
+//					} label: {
+//						Text("Region language")
+//					}
+				} footer: {
+					Text("You can set your region preference. Available only for support tab.")
 				}
 
 				// App Icon — Default >
@@ -95,11 +130,17 @@ private extension SettingsView {
 	var navigationText: Text {
 		Text("Settings")
 	}
+
+	func fetchUpdatedSupport() {
+		Task { @MainActor in
+			await model.fetchSupport()
+		}
+	}
 }
 
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-//		AppIconButton()
+		//		AppIconButton()
 		SettingsView(model: ServiceViewModel())
 	}
 }

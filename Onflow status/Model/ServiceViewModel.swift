@@ -34,7 +34,7 @@ enum AppIcon {
 }
 
 final class ServiceViewModel: ObservableObject {
-	let networking = StatusResource()
+	var networking = StatusResource()
 
 	@Published
 	var services: [Services] = []
@@ -119,6 +119,11 @@ extension ServiceViewModel {
 			currentSheetService = service
 			return
 		}
+	}
+
+	func updateLocale(for locale: CurrentLocale) {
+		networking.supportLocale = locale.identifier
+		Logger.serviceModel.debug("🟢 Update current locale.")
 	}
 
 	var supportEventsIsEmpty: Bool { services.flatMap(\.events).isEmpty }
