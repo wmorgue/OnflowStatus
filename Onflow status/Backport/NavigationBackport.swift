@@ -19,11 +19,10 @@ public struct NavigationBackport<Content: View>: View {
 	}
 }
 
-
 struct NavigationBackport_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationBackport {
-				Text("Is working")
+			Text("Is working")
 				.navigationBarTitle("Backport")
 		}
 	}
