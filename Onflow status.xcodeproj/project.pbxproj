@@ -22,6 +22,7 @@
 		73469160287632D3005F2FCF /* AsyncAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346915F287632D3005F2FCF /* AsyncAlertButton.swift */; };
 		734EE5802865AA69002D6263 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EE57F2865AA69002D6263 /* String.swift */; };
 		7359EA24287D671900E648DB /* developer_status_en.json in Resources */ = {isa = PBXBuildFile; fileRef = 7359EA23287D671900E648DB /* developer_status_en.json */; };
+		73783AE62887532000AF0335 /* LocaleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73783AE52887532000AF0335 /* LocaleLayer.swift */; };
 		738CD8152868551000D379C2 /* StatusResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738CD8142868551000D379C2 /* StatusResource.swift */; };
 		73950ACD2878D0DE00D975E5 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73950ACC2878D0DE00D975E5 /* Array.swift */; };
 		73A4A1DF286A18A80046499B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A4A1DE286A18A80046499B /* SettingsView.swift */; };
@@ -55,6 +56,7 @@
 		7346915F287632D3005F2FCF /* AsyncAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAlertButton.swift; sourceTree = "<group>"; };
 		734EE57F2865AA69002D6263 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7359EA23287D671900E648DB /* developer_status_en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = developer_status_en.json; sourceTree = "<group>"; };
+		73783AE52887532000AF0335 /* LocaleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleLayer.swift; sourceTree = "<group>"; };
 		738CD8142868551000D379C2 /* StatusResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResource.swift; sourceTree = "<group>"; };
 		73950ACC2878D0DE00D975E5 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		73A4A1DE286A18A80046499B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				738CD8142868551000D379C2 /* StatusResource.swift */,
+				73783AE52887532000AF0335 /* LocaleLayer.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				73E65E15285B30AB0012AC0F /* SupportRow.swift in Sources */,
 				7311F833285B24C000EF174E /* OnflowStatusApp.swift in Sources */,
 				73CEAB7428781BE30099A98D /* Bundle.swift in Sources */,
+				73783AE62887532000AF0335 /* LocaleLayer.swift in Sources */,
 				73950ACD2878D0DE00D975E5 /* Array.swift in Sources */,
 				7332B76D28771718002A19AE /* View.swift in Sources */,
 				734EE5802865AA69002D6263 /* String.swift in Sources */,
@@ -432,7 +436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
@@ -449,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.4;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.rossik.onflow-status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -468,7 +472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
@@ -485,7 +489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.4;
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.rossik.onflow-status";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
