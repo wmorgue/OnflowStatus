@@ -61,7 +61,9 @@ extension StatusResource {
 	}
 
 	func fetchSupportServices() async throws -> [Services] {
-		print("🌊 \(#function)", supportLocale)
+		#if targetEnvironment(simulator)
+			Logger.statusResource.debug("Called \(#function). Locale: \(supportLocale)")
+		#endif
 		let supportStatus = try await host.send(performRequest(.support))
 
 		guard supportStatus.statusCode == 200 else {
