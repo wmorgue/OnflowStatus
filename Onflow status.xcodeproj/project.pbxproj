@@ -29,6 +29,7 @@
 		73AED67228738221000736A6 /* Get in Frameworks */ = {isa = PBXBuildFile; productRef = 73AED67128738221000736A6 /* Get */; };
 		73C2D84F286EF3B3001899B7 /* DeveloperContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D84E286EF3B3001899B7 /* DeveloperContact.swift */; };
 		73C7EC9728623494007D94B0 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7EC9628623494007D94B0 /* LabelStyle.swift */; };
+		73C83BED28894DAC00E46260 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73C83BEF28894DAC00E46260 /* Localizable.strings */; };
 		73CEAB7428781BE30099A98D /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CEAB7328781BE30099A98D /* Bundle.swift */; };
 		73D07C15285BA57C00F3B955 /* GenericSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D07C14285BA57C00F3B955 /* GenericSheetView.swift */; };
 		73D70CFD2862135F00897799 /* DeveloperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D70CFC2862135F00897799 /* DeveloperRow.swift */; };
@@ -62,6 +63,8 @@
 		73A4A1DE286A18A80046499B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		73C2D84E286EF3B3001899B7 /* DeveloperContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperContact.swift; sourceTree = "<group>"; };
 		73C7EC9628623494007D94B0 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
+		73C83BEE28894DAC00E46260 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		73C83BF028894DB000E46260 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73CEAB7328781BE30099A98D /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		73D07C14285BA57C00F3B955 /* GenericSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSheetView.swift; sourceTree = "<group>"; };
 		73D70CFC2862135F00897799 /* DeveloperRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperRow.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 				738CD8112868511100D379C2 /* NetworkLayer */,
 				7311F838285B24C400EF174E /* Preview Content */,
 				73E65E13285B30800012AC0F /* UI */,
+				73C83BEF28894DAC00E46260 /* Localizable.strings */,
 			);
 			path = "Onflow status";
 			sourceTree = "<group>";
@@ -251,7 +255,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = 7311F826285B24C000EF174E;
 			packageReferences = (
@@ -271,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73C83BED28894DAC00E46260 /* Localizable.strings in Resources */,
 				73E65E17285B33480012AC0F /* system_status_ru.json in Resources */,
 				7311F83A285B24C400EF174E /* Preview Assets.xcassets in Resources */,
 				7311F837285B24C400EF174E /* Assets.xcassets in Resources */,
@@ -313,6 +318,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		73C83BEF28894DAC00E46260 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73C83BEE28894DAC00E46260 /* en */,
+				73C83BF028894DB000E46260 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7311F83B285B24C400EF174E /* Debug */ = {
@@ -436,7 +453,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
@@ -472,7 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;

@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  Onflow status
+
+  Created by Nikita Rossik on 7/21/22.
+  
+*/
+
+// MARK: - Navigation tab View
+"navigation-supportLabel" = "System";
+"navigation-developerLabel" = "Developer";
+"navigation-settingsLabel" = "Settings";
+
+// MARK: - Settings View
+"settings-navigationText" = "Settings";
+"settings-compactView" = "Compact view";
+"settings-toggleCompactView" = "Enable compact style";
+"settings-toggleFooter" = "Only for system tab";
+"settings-pickerRegion" = "Region language";
+"settings-pickerFooter" = "You can set your region preference. Available only for system tab.";
+"settings-appIconPromt" = "Choose light or dark app icon";
+"settings-appIconButtonDark" = "Dark";
+"settings-appIconButtonLight" = "Light";
+"settings-appIconLabel" = "App Icon";
+"settings-mailSupport" = "Contact Support";
+"settings-appVersion" = "Version";
