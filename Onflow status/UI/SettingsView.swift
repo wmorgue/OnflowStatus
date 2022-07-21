@@ -38,15 +38,15 @@ struct SettingsView: View {
 		NavigationStack {
 			List {
 				Section {
-					Toggle("Enable compact style", isOn: $model.isCompactView)
+					Toggle("settings-toggleCompactView", isOn: $model.isCompactView)
 				} header: {
-					Text("Compact view")
+					Text("settings-compactView")
 				} footer: {
-					Text("Only for support tab.")
+					Text("settings-toggleFooter")
 				}
 
 				Section {
-					Picker("Region language", selection: $localeLayer.locale) {
+					Picker("settings-pickerRegion", selection: $localeLayer.locale) {
 						ForEach(localeLayer.allLocales) { locale in
 							Text(locale.rawValue)
 								.tag(locale.identifier)
@@ -58,12 +58,12 @@ struct SettingsView: View {
 					}
 					.pickerStyle(.menu)
 				} footer: {
-					Text("You can set your region preference. Available only for support tab.")
+					Text("settings-pickerFooter")
 				}
 
 				// App Icon — Default >
 				NavigationLink {
-					Text("Choose light or dark app icon")
+					Text("settings-appIconPromt")
 						.font(.title2)
 						.fontWeight(.thin)
 						.padding(.bottom, 80)
@@ -74,30 +74,30 @@ struct SettingsView: View {
 								playSuccessHaptic()
 								await model.chooseAppIcon(for: .dark)
 							}
-							Text("Dark")
+							Text("settings-appIconButtonDark")
 						}
 						VStack {
 							AppIconButton(iconName: "LightButtonIcon") {
 								playSuccessHaptic()
 								await model.chooseAppIcon(for: .light)
 							}
-							Text("Light")
+							Text("settings-appIconButtonLight")
 						}
 					}
 					.bold()
 				} label: {
-					Text("App Icon")
+					Text("settings-appIconLabel")
 				}
 
 				Section {
 					Link(destination: DeveloperContact.mail) {
-						Label("Contact Support", systemImage: "paperclip.badge.ellipsis")
+						Label("settings-mailSupport", systemImage: "paperclip.badge.ellipsis")
 					}
 					Link(destination: DeveloperContact.telegram) {
 						Label("Telegram", systemImage: "paperplane.circle.fill")
 					}
 				} footer: {
-					Text("\(Bundle.main.appName) Version \(Bundle.main.appVersionLong)")
+					Text("\(Bundle.main.appName) \(appVersion) \(Bundle.main.appVersionLong)")
 				}
 				.labelStyle(.reversed)
 				.symbolRenderingMode(.hierarchical)
@@ -112,7 +112,11 @@ struct SettingsView: View {
 
 private extension SettingsView {
 	var navigationText: Text {
-		Text("Settings")
+		Text("settings-navigationText")
+	}
+
+	var appVersion: Text {
+		Text("settings-appVersion")
 	}
 
 	func fetchUpdatedSupport() {
@@ -126,5 +130,6 @@ struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
 		//		AppIconButton()
 		SettingsView(model: ServiceViewModel())
+//			.environment(\.locale, .init(identifier: "ru"))
 	}
 }
