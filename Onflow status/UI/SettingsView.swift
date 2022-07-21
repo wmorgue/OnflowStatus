@@ -50,29 +50,13 @@ struct SettingsView: View {
 						ForEach(localeLayer.allLocales) { locale in
 							Text(locale.rawValue)
 								.tag(locale.identifier)
-								.onDisappear {
-									model.updateLocale(for: locale)
-								}
 						}
 					}
-					.onDisappear {
+					.onChange(of: localeLayer.locale) { locale in
+						model.updateLocale(for: locale)
 						fetchUpdatedSupport()
 					}
 					.pickerStyle(.menu)
-//					NavigationLink {
-//						VStack {
-//							List(localeLayer.allLocales) { locale in
-//								Button {
-//									localeLayer.setNewLocale(newLocale: locale)
-//									print("🟩 Selected:", locale.identifier)
-//								} label: {
-//									Text(locale.rawValue)
-//								}
-//							}
-//						}
-//					} label: {
-//						Text("Region language")
-//					}
 				} footer: {
 					Text("You can set your region preference. Available only for support tab.")
 				}

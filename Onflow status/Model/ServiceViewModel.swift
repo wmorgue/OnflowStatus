@@ -121,9 +121,11 @@ extension ServiceViewModel {
 		}
 	}
 
-	func updateLocale(for locale: CurrentLocale) {
-		networking.supportLocale = locale.identifier
-		Logger.serviceModel.debug("🟢 Update current locale.")
+	func updateLocale(for locale: String) {
+		networking.supportLocale = locale
+		#if targetEnvironment(simulator)
+			Logger.serviceModel.debug("🟢 Update current locale.")
+		#endif
 	}
 
 	var supportEventsIsEmpty: Bool { services.flatMap(\.events).isEmpty }
