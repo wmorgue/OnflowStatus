@@ -128,6 +128,10 @@ extension ServiceViewModel {
 		#endif
 	}
 
+	var dismissFilter: Void {
+		isFilteredSupport = false
+	}
+
 	var supportEventsIsEmpty: Bool { services.flatMap(\.events).isEmpty }
 
 	var filteredSupportBySearchText: [Services] {

@@ -53,6 +53,7 @@ struct SettingsView: View {
 						}
 					}
 					.onChange(of: localeLayer.locale) { locale in
+						model.dismissFilter
 						model.updateLocale(for: locale)
 						fetchUpdatedSupport()
 					}
@@ -105,15 +106,15 @@ struct SettingsView: View {
 				.imageScale(.large)
 			}
 			.scrollIndicators(.never)
-			.navigationTitle(navigationText)
+			.navigationTitle("navigation-settingsTitle")
 		}
 	}
 }
 
 private extension SettingsView {
-	var navigationText: Text {
-		Text("settings-navigationText")
-	}
+//	var navigationText: Text {
+//		Text("navigation-settingsTitle")
+//	}
 
 	var appVersion: Text {
 		Text("settings-appVersion")

@@ -26,7 +26,7 @@ struct DeveloperList: View {
 					}
 			}
 			.scrollIndicators(.never)
-			.searchable(text: $model.developerSearchText.animation(), prompt: Text("Enter service name"))
+			.searchable(text: $model.developerSearchText.animation(), prompt: Text("searchable-promptText"))
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
 					SortListButton(toggleButton: $model.isFilteredDeveloper.animation()) {
@@ -39,7 +39,7 @@ struct DeveloperList: View {
 					.presentationDetents([.medium, .large])
 			}
 			.refreshable { await model.fetchDeveloper() }
-			.navigationTitle("Developer")
+			.navigationTitle("navigation-developerTitle")
 		}
 	}
 }
