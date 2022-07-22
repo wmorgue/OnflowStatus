@@ -29,11 +29,11 @@ struct CompactSupportView: View {
 					.imageScale(.large)
 					.foregroundColor(.green)
 
-				Text("All services are operating normally.")
+				Text("compactViewText")
 					.font(.title3)
 					.minimumScaleFactor(0.8)
 			}
-			.navigationTitle("Support")
+			.navigationTitle("navigation-systemTitle")
 			.navigationBarTitleDisplayMode(.inline)
 		}
 	}
@@ -60,12 +60,12 @@ struct DefaultSupportListView: View {
 				}
 			}
 			.refreshable { await model.fetchSupport() }
-			.searchable(text: $model.supportSearchText.animation(), prompt: Text("Enter service name"))
+			.searchable(text: $model.supportSearchText.animation(), prompt: Text("searchable-promptText"))
 			.sheet(item: $model.currentSheetService) { service in
 				GenericSheetView(service, eventFor: .support)
 					.presentationDetents([.medium, .large])
 			}
-			.navigationTitle("Support")
+			.navigationTitle("navigation-systemTitle")
 		}
 	}
 }
