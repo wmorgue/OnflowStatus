@@ -12,11 +12,15 @@ fileprivate enum NavigationItem {
 	case developer
 	case settings
 
+	static let systemTitle = String(localized: "navigation-systemTitle")
+	static let developerTitle = String(localized: "navigation-developerTitle")
+	static let settingsTitle = String(localized: "navigation-settingsTitle")
+
 	var label: some View {
 		switch self {
-		case .support: return Label("Support", systemImage: "rectangle.stack")
-		case .developer: return Label("Developer", systemImage: "hammer")
-		case .settings: return Label("Settings", systemImage: "gear")
+		case .support: return Label(Self.systemTitle, systemImage: "rectangle.stack")
+		case .developer: return Label(Self.developerTitle, systemImage: "hammer")
+		case .settings: return Label(Self.settingsTitle, systemImage: "gear")
 		}
 	}
 }
