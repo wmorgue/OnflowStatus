@@ -6,13 +6,15 @@
   
 */
 
+"compactViewText" = "Все сервисы работают в штатном режиме";
+"searchable-promptText" = "Напечатайте имя сервиса";
+
 // MARK: - Navigation tab View
-"navigation-supportLabel" = "Система";
-"navigation-developerLabel" = "Разработка";
-"navigation-settingsLabel" = "Настройки";
+"navigation-systemTitle" = "Система";
+"navigation-developerTitle" = "Разработка";
+"navigation-settingsTitle" = "Настройки";
 
 // MARK: - Settings View
-"settings-navigationText" = "Настройки";
 "settings-compactView" = "Компактный вид";
 "settings-toggleCompactView" = "Включить компактный вид";
 "settings-toggleFooter" = "Только для вкладки системы.";

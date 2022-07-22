@@ -6,13 +6,15 @@
   
 */
 
+"compactViewText" = "All services are operating normally";
+"searchable-promptText" = "Enter service name";
+
 // MARK: - Navigation tab View
-"navigation-supportLabel" = "System";
-"navigation-developerLabel" = "Developer";
-"navigation-settingsLabel" = "Settings";
+"navigation-systemTitle" = "System";
+"navigation-developerTitle" = "Developer";
+"navigation-settingsTitle" = "Settings";
 
 // MARK: - Settings View
-"settings-navigationText" = "Settings";
 "settings-compactView" = "Compact view";
 "settings-toggleCompactView" = "Enable compact style";
 "settings-toggleFooter" = "Only for system tab";
