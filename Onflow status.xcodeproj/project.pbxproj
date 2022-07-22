@@ -158,13 +158,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		734B76A2286493A40058BE97 /* Support */ = {
+		734B76A2286493A40058BE97 /* System */ = {
 			isa = PBXGroup;
 			children = (
 				73E65E14285B30AB0012AC0F /* SupportRow.swift */,
 				7311F844285B296500EF174E /* SupportView.swift */,
 			);
-			path = Support;
+			path = System;
 			sourceTree = "<group>";
 		};
 		738CD8112868511100D379C2 /* NetworkLayer */ = {
@@ -206,7 +206,7 @@
 				73A4A1DE286A18A80046499B /* SettingsView.swift */,
 				733BCA0B287AD3A3001C20ED /* Components */,
 				73D70CFB2862133E00897799 /* Developer */,
-				734B76A2286493A40058BE97 /* Support */,
+				734B76A2286493A40058BE97 /* System */,
 			);
 			path = UI;
 			sourceTree = "<group>";
