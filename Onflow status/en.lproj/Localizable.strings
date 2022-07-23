@@ -6,8 +6,19 @@
   
 */
 
+"asyncAlertButtonText" = "Try again";
+"alert-topMessage" = "Can't load a services.";
+"alert-networkIssue" = "Network issue";
+"alert-buttonCancel" = "Cancel";
 "compactViewText" = "All services are operating normally";
 "searchable-promptText" = "Enter service name";
+
+// MARK: - Generic Sheet View
+"genericSheet-status" = "Status";
+"genericSheet-eventStarted" = "Event started";
+"genericSheet-eventEnded" = "Event ended";
+"genericSheet-eventResolution" = "Resolution";
+"genericSheet-affectedServices" = "Affected services";
 
 // MARK: - Navigation tab View
 "navigation-systemTitle" = "System";

@@ -6,8 +6,19 @@
   
 */
 
+"asyncAlertButtonText" = "Повторить";
+"alert-topMessage" = "Сервисы не доступны.";
+"alert-networkIssue" = "Неполадка в сети";
+"alert-buttonCancel" = "Отмена";
 "compactViewText" = "Все сервисы работают в штатном режиме";
 "searchable-promptText" = "Напечатайте имя сервиса";
+
+// MARK: - Generic Sheet View
+"genericSheet-status" = "Статус";
+"genericSheet-eventStarted" = "Начало";
+"genericSheet-eventEnded" = "Завершение";
+"genericSheet-eventResolution" = "Вердикт";
+"genericSheet-affectedServices" = "Затронутые сервисы";
 
 // MARK: - Navigation tab View
 "navigation-systemTitle" = "Система";
