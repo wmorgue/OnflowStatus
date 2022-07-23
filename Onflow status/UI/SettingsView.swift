@@ -112,10 +112,6 @@ struct SettingsView: View {
 }
 
 private extension SettingsView {
-//	var navigationText: Text {
-//		Text("navigation-settingsTitle")
-//	}
-
 	var appVersion: Text {
 		Text("settings-appVersion")
 	}

@@ -37,8 +37,8 @@ struct NavigationTabView: View {
 		TabView(selection: $selectedTab) {
 			// MARK: - Support status
 			SupportView(model: model)
-				.alert("Network issue", isPresented: $model.showingAlert) {
-					Button("Cancel") {}
+				.alert("alert-networkIssue", isPresented: $model.showingAlert) {
+					Button("alert-buttonCancel") {}
 					AsyncAlertButton(asyncTask: model.fetchSupport)
 				} message: { model.alertMessageReason }
 				.tabItem { NavigationItem.support.label }
@@ -46,8 +46,8 @@ struct NavigationTabView: View {
 
 			// MARK: - Developer status
 			DeveloperList(model: model)
-				.alert("Network issue", isPresented: $model.showingAlert) {
-					Button("Cancel") {}
+				.alert("alert-networkIssue", isPresented: $model.showingAlert) {
+					Button("alert-buttonCancel") {}
 					AsyncAlertButton(asyncTask: model.fetchDeveloper)
 				} message: { model.alertMessageReason }
 				.tabItem { NavigationItem.developer.label }

@@ -25,7 +25,7 @@ struct GenericSheetView: View {
 			List {
 				Section {
 					Label {
-						Text("Status")
+						Text("genericSheet-status")
 					} icon: {
 						Image(systemName: "checkmark.circle.fill")
 							.foregroundColor(.setCircleColor(services, message: eventFor))
@@ -35,7 +35,7 @@ struct GenericSheetView: View {
 					ForEach(services.events) { event in
 
 						HStack {
-							Text("Event started")
+							Text("genericSheet-eventStarted")
 							Spacer()
 							Text(relativeNamedDate(epochDate: event.epochStartDate).capitalized)
 								.foregroundColor(.secondary)
@@ -43,7 +43,7 @@ struct GenericSheetView: View {
 
 						if let eventEndDate = event.epochEndDate {
 							HStack {
-								Text("Event ended")
+								Text("genericSheet-eventEnded")
 								Spacer()
 								Text(relativeNamedDate(epochDate: eventEndDate).capitalized)
 									.foregroundColor(.secondary)
@@ -51,7 +51,7 @@ struct GenericSheetView: View {
 						}
 
 						HStack {
-							Text("Resolution")
+							Text("genericSheet-eventResolution")
 							Spacer()
 							Text(event.eventStatus.capitalized)
 								.foregroundColor(.secondary)
@@ -63,7 +63,7 @@ struct GenericSheetView: View {
 
 				ForEach(services.events) { event in
 					if let affectedServices: [String] = event.affectedServices {
-						Section("Affected services") {
+						Section("genericSheet-affectedServices") {
 							HStack {
 								Text(String.affectedSeparator(affectedServices))
 							}

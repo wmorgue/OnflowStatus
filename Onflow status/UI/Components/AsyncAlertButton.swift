@@ -17,7 +17,7 @@ struct AsyncAlertButton: View {
 				await asyncTask()
 			}
 		} label: {
-			Text("Try again")
+			Text("asyncAlertButtonText")
 		}
 	}
 }

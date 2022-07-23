@@ -110,7 +110,7 @@ extension ServiceViewModel {
 	}
 
 	var alertMessageReason: Text {
-		Text("Can't load a services.\n") + Text(alertErrorMessage ?? "")
+		Text("alert-topMessage") + Text("\n") + Text(alertErrorMessage ?? "")
 	}
 
 	// MARK: - Support
