@@ -34,7 +34,7 @@ enum AppIcon {
 }
 
 final class ServiceViewModel: ObservableObject {
-	var networking = StatusResource()
+	var networking = NetworkLayer()
 
 	@Published
 	var services: [Services] = []

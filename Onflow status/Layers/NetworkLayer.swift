@@ -1,5 +1,5 @@
 //
-//  StatusResource.swift
+//  NetworkLayer.swift
 //  Onflow status
 //
 //  Created by Nikita Rossik on 6/26/22.
@@ -11,7 +11,7 @@ import OSLog
 
 private extension Logger {
 	static var statusResource: Logger {
-		Logger(subsystem: .bundleIdentifier, category: String(describing: StatusResource.self))
+		Logger(subsystem: .bundleIdentifier, category: String(describing: NetworkLayer.self))
 	}
 }
 
@@ -32,7 +32,7 @@ enum RequestPath {
 	}
 }
 
-struct StatusResource {
+struct NetworkLayer {
 	private var host = APIClient(baseURL: URL(string: "https://www.apple.com/support/systemstatus/data")) {
 		$0
 			.sessionConfiguration
@@ -45,7 +45,7 @@ struct StatusResource {
 	private(set) var developerLocale: String = CurrentLocale.english.identifier
 }
 
-extension StatusResource {
+extension NetworkLayer {
 	private func debugDump<T>(_ value: T) -> Void {
 		#if targetEnvironment(simulator)
 			dump(value, indent: 2)

@@ -13,11 +13,11 @@ enum CurrentLocale: String, CaseIterable, Identifiable {
 	case china = "Chinese"
 	case japan = "Japanese"
 	case korea = "Korean"
-	case german = "Germany"
-//	case spanish = "Spanish"
+	case german = "German"
+	case spanish = "Spanish"
 	case french = "French"
 	case italia = "Italian"
-	case portugal = "Portugalian"
+	case portugal = "Portuguese"
 	case russia = "Russian"
 
 	var id: String { self.rawValue }
@@ -29,7 +29,7 @@ enum CurrentLocale: String, CaseIterable, Identifiable {
 		case .japan: return "ja_JP"
 		case .korea: return "ko_KR"
 		case .german: return "de_DE"
-//		case .spanish: return "es_MX"
+		case .spanish: return "es_ES"
 		case .french: return "fr_FR"
 		case .italia: return "it_IT"
 		case .portugal: return "pt_BR"
@@ -53,6 +53,6 @@ final class LocaleLayer: ObservableObject {
 	}
 
 //	func updateForNetwork(newLocale: CurrentLocale) {
-//		StatusResource().developerLocale = newLocale
+//		NetworkLayer().developerLocale = newLocale
 //	}
 }
