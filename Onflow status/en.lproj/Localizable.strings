@@ -29,7 +29,7 @@
 "settings-compactView" = "Compact view";
 "settings-toggleCompactView" = "Enable compact style";
 "settings-toggleFooter" = "Only for system tab";
-"settings-pickerRegion" = "Region language";
+"settings-pickerRegion" = "Region";
 "settings-pickerFooter" = "You can set your region preference. Available only for system tab.";
 "settings-appIconPromt" = "Choose light or dark app icon";
 "settings-appIconButtonDark" = "Dark";
