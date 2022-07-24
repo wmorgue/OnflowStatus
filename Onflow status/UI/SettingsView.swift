@@ -55,6 +55,7 @@ struct SettingsView: View {
 					.onChange(of: localeLayer.locale) { locale in
 						model.dismissFilter
 						model.updateLocale(for: locale)
+						playSuccessHaptic()
 						fetchUpdatedSupport()
 					}
 					.pickerStyle(.menu)
