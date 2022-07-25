@@ -14,7 +14,7 @@ fileprivate struct AppIconButton: View {
 
 	var body: some View {
 		Button {
-			Task { @MainActor in await asyncTask() }
+			Task { await asyncTask() }
 		} label: {
 			Image(iconName)
 				.resizable()
