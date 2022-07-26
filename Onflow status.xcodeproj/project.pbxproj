@@ -107,6 +107,7 @@
 			children = (
 				7345EB21287193CE005C5CA9 /* Onflow-status-Info.plist */,
 				7311F832285B24C000EF174E /* OnflowStatusApp.swift */,
+				73E65E11285B2FA00012AC0F /* MockData.swift */,
 				7311F836285B24C400EF174E /* Assets.xcassets */,
 				733116B02882DBFD00FEA3E9 /* Backport */,
 				73C7EC9528623460007D94B0 /* Extensions */,
@@ -132,7 +133,6 @@
 		7311F847285B2CF100EF174E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				73E65E11285B2FA00012AC0F /* MockData.swift */,
 				7311F840285B256200EF174E /* Support Model.swift */,
 				7307BE7B285CA1A60090E9FA /* ServiceViewModel.swift */,
 				73C2D84E286EF3B3001899B7 /* DeveloperContact.swift */,
