@@ -37,7 +37,7 @@ struct GenericSheetView: View {
 						HStack {
 							Text("genericSheet-eventStarted")
 							Spacer()
-							Text(relativeNamedDate(epochDate: event.epochStartDate).capitalized)
+							Text(event.relativeNamedDate(epochDate: event.epochStartDate))
 								.foregroundColor(.secondary)
 						}
 
@@ -45,7 +45,7 @@ struct GenericSheetView: View {
 							HStack {
 								Text("genericSheet-eventEnded")
 								Spacer()
-								Text(relativeNamedDate(epochDate: eventEndDate).capitalized)
+								Text(event.relativeNamedDate(epochDate: eventEndDate))
 									.foregroundColor(.secondary)
 							}
 						}
@@ -86,14 +86,6 @@ struct GenericSheetView: View {
 //				Text("123")
 //			}
 		}
-	}
-}
-
-extension GenericSheetView {
-	// TODO: - Move outside view and test with different time zone
-	func relativeNamedDate(epochDate: Double) -> String {
-		let currentUnix = Date(timeIntervalSince1970: epochDate / 1000)
-		return currentUnix.formatted(.relative(presentation: .named))
 	}
 }
 
