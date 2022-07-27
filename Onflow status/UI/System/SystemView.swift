@@ -1,5 +1,5 @@
 //
-//  SupportView.swift
+//  SystemView.swift
 //  Onflow status
 //
 //  Created by Nikita Rossik on 6/16/22.
@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct SupportView: View {
+struct SystemView: View {
 
 	@ObservedObject
 	var model: ServiceViewModel
 
 	var body: some View {
 		switch model.isCompactView {
-		case true: CompactSupportView()
-		case false: DefaultSupportListView(model: model)
+		case true: CompactSystemView()
+		case false: DefaultSystemListView(model: model)
 		}
 	}
 }
 
-struct CompactSupportView: View {
+struct CompactSystemView: View {
 	var body: some View {
 		NavigationStack {
 			VStack {
@@ -39,7 +39,7 @@ struct CompactSupportView: View {
 	}
 }
 
-struct DefaultSupportListView: View {
+struct DefaultSystemListView: View {
 
 	@ObservedObject
 	var model: ServiceViewModel
@@ -47,7 +47,7 @@ struct DefaultSupportListView: View {
 	var body: some View {
 		NavigationStack {
 			List(model.supportList) { service in
-				SupportRow(service)
+				SystemRow(service)
 					.onTapGesture { model.showSheet(for: service) }
 			}
 			.scrollIndicators(.never)
@@ -76,7 +76,7 @@ struct StatusListView_Previews: PreviewProvider {
 		private var model = ServiceViewModel.preview
 
 		var body: some View {
-			SupportView(model: model)
+			SystemView(model: model)
 				.task { await model.fetchSupport() }
 		}
 	}

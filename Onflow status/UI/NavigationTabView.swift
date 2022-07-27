@@ -36,7 +36,7 @@ struct NavigationTabView: View {
 	var body: some View {
 		TabView(selection: $selectedTab) {
 			// MARK: - Support status
-			SupportView(model: model)
+			SystemView(model: model)
 				.alert("alert-networkIssue", isPresented: $model.showingAlert) {
 					Button("alert-buttonCancel") {}
 					AsyncAlertButton(asyncTask: model.fetchSupport)

@@ -1,5 +1,5 @@
 //
-//  ServiceRow.swift
+//  SystemRow.swift
 //  Onflow status
 //
 //  Created by Nikita Rossik on 6/16/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SupportRow: View {
+struct SystemRow: View {
 
 	var service: Services
 
@@ -28,9 +28,9 @@ struct SupportRow: View {
 	}
 }
 
-struct ServiceCellView_Previews: PreviewProvider {
+struct SystemRow_Previews: PreviewProvider {
 	static var previews: some View {
 		let previewService = Services(serviceName: "Активация устройств с iOS", events: [])
-		SupportRow(previewService)
+		SystemRow(previewService)
 	}
 }
