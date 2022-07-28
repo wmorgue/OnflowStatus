@@ -16,4 +16,11 @@ extension Color {
 			.map(\.eventStatus.localizedLowercase)
 			.contains(message.text.lowercased()) || service.events.isEmpty ? .green : .orange
 	}
+
+	static func setCircleEventColor(_ event: Event, message: EventStatusMessage) -> Color {
+		event
+			.eventStatus
+			.lowercased()
+			.contains(message.text.lowercased()) ? Color.green : Color.orange
+	}
 }
