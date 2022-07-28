@@ -60,7 +60,7 @@ extension Event: Identifiable {
 	var id: String { messageID }
 
 	/// Showing relative localized date with capitalization
-	func relativeNamedDate(epochDate: Double) -> String {
+	static func relativeNamedDate(epochDate: Double) -> String {
 		let currentUnix = Date(timeIntervalSince1970: epochDate / 1000)
 		return currentUnix.formatted(.relative(presentation: .named)).capitalized
 	}
