@@ -41,30 +41,69 @@ enum MockData {
 		return apiResponse?.services ?? []
 	}
 
+	/*
+	 {
+	 										"usersAffected": "Some users are affected",
+	 										"epochStartDate": 1658940000000,
+	 										"epochEndDate": null,
+	 										"messageId": "2000001581",
+	 										"statusType": "Issue",
+	 										"datePosted": "07/27/2022 10:48 PDT",
+	 										"startDate": "07/27/2022 09:40 PDT",
+	 										"endDate": null,
+	 										"affectedServices": [
+	 												"App Store Connect - App Processing ",
+	 												"App Store Connect - App Upload"
+	 										],
+	 										"eventStatus": "ongoing",
+	 										"message": "Users are experiencing a problem with this service. We are working to resolve this issue."
+	 								},
+	 								{
+	 										"usersAffected": "Some users were affected",
+	 										"epochStartDate": 1658868480000,
+	 										"epochEndDate": 1658881620000,
+	 										"messageId": "2000001579",
+	 										"statusType": "Performance",
+	 										"datePosted": "07/27/2022 10:48 PDT",
+	 										"startDate": "07/26/2022 13:48 PDT",
+	 										"endDate": "07/26/2022 17:27 PDT",
+	 										"affectedServices": null,
+	 										"eventStatus": "resolved",
+	 										"message": "Users experienced a problem with this service."
+	 								}
+	 */
 	static var developerService: Services {
 		Services(
-			serviceName: "Developer ID Notary Service",
+			serviceName: "App Store Connect - App Processing",
 			redirectUrl: nil,
-			events: [Event(
-				usersAffected: "Some users were affected",
-				epochStartDate: 1_654_879_800_000,
-				epochEndDate: 1_654_906_200_000,
-				messageID: "2000001488",
-				statusType: "Issue",
-				datePosted: "06/12/2022 06:00 PDT",
-				startDate: "06/10/2022 09:50 PDT",
-				endDate: "06/10/2022 17:10 PDT",
-				affectedServices: [
-					"iCloud Drive",
-					"Веб-приложения iCloud (iCloud.com)",
-					"Календарь iCloud",
-					"Почта iCloud",
-					"Связка ключей iCloud",
-					"Учетная запись и вход в iCloud",
-				],
-				eventStatus: "completed",
-				message: "Users may have experienced issues with the service."
-			)]
+			events: [
+				Event(usersAffected: "Some users are affected",
+				      epochStartDate: 1_658_940_000_000,
+				      epochEndDate: nil,
+				      messageID: "2000001488",
+				      statusType: "Issue",
+				      datePosted: "07/27/2022 10:48 PDT",
+				      startDate: "07/27/2022 09:40 PDT",
+				      endDate: nil,
+				      affectedServices: [
+				      	"App Store Connect - App Processing ",
+				      	"App Store Connect - App Upload",
+				      ],
+				      eventStatus: "ongoing",
+				      message: "Users are experiencing a problem with this service. We are working to resolve this issue."),
+
+				Event(usersAffected: "Some users were affected",
+				      epochStartDate: 1_658_868_480_000,
+				      epochEndDate: 1_658_881_620_000,
+				      messageID: "2000001579",
+				      statusType: "Performance",
+				      datePosted: "07/27/2022 10:48 PDT",
+				      startDate: "07/26/2022 13:48 PDT",
+				      endDate: "07/26/2022 17:27 PDT",
+				      affectedServices: nil,
+				      eventStatus: "resolved",
+				      message: "Users experienced a problem with this service."),
+			]
 		)
 	}
 }
