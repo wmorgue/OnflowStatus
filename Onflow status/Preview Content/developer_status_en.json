@@ -59,54 +59,40 @@
     },
     {
       "redirectUrl": "https://appstoreconnect.apple.com ",
-      "events": [
-        {
-          "usersAffected": "All users were affected",
-          "epochStartDate": 1656161700000,
-          "epochEndDate": 1656167400000,
-          "messageId": "2000001506",
-          "statusType": "Maintenance",
-          "datePosted": "06/27/2022 06:17 PDT",
-          "startDate": "06/25/2022 05:55 PDT",
-          "endDate": "06/25/2022 07:30 PDT",
-          "affectedServices": [
-            "App Store Connect",
-            "App Store Connect - App Processing ",
-            "App Store Connect - App Upload",
-            "App Store Connect API",
-            "App Store Connect Analytics",
-            "Apple Podcasts Connect",
-            "Content Delivery"
-          ],
-          "eventStatus": "completed",
-          "message": "Due to scheduled maintenance, some services were unavailable."
-        }
-      ],
+      "events": [],
       "serviceName": "App Store Connect"
     },
     {
       "redirectUrl": null,
       "events": [
         {
-          "usersAffected": "All users were affected",
-          "epochStartDate": 1656161700000,
-          "epochEndDate": 1656167400000,
-          "messageId": "2000001506",
-          "statusType": "Maintenance",
-          "datePosted": "06/27/2022 06:17 PDT",
-          "startDate": "06/25/2022 05:55 PDT",
-          "endDate": "06/25/2022 07:30 PDT",
+          "usersAffected": "Some users are affected",
+          "epochStartDate": 1658940000000,
+          "epochEndDate": null,
+          "messageId": "2000001581",
+          "statusType": "Issue",
+          "datePosted": "07/27/2022 10:48 PDT",
+          "startDate": "07/27/2022 09:40 PDT",
+          "endDate": null,
           "affectedServices": [
-            "App Store Connect",
             "App Store Connect - App Processing ",
-            "App Store Connect - App Upload",
-            "App Store Connect API",
-            "App Store Connect Analytics",
-            "Apple Podcasts Connect",
-            "Content Delivery"
+            "App Store Connect - App Upload"
           ],
-          "eventStatus": "completed",
-          "message": "Due to scheduled maintenance, some services were unavailable."
+          "eventStatus": "ongoing",
+          "message": "Users are experiencing a problem with this service. We are working to resolve this issue."
+        },
+        {
+          "usersAffected": "Some users were affected",
+          "epochStartDate": 1658868480000,
+          "epochEndDate": 1658881620000,
+          "messageId": "2000001579",
+          "statusType": "Performance",
+          "datePosted": "07/27/2022 10:48 PDT",
+          "startDate": "07/26/2022 13:48 PDT",
+          "endDate": "07/26/2022 17:27 PDT",
+          "affectedServices": null,
+          "eventStatus": "resolved",
+          "message": "Users experienced a problem with this service."
         }
       ],
       "serviceName": "App Store Connect - App Processing "
@@ -115,81 +101,32 @@
       "redirectUrl": null,
       "events": [
         {
-          "usersAffected": "All users were affected",
-          "epochStartDate": 1656161700000,
-          "epochEndDate": 1656167400000,
-          "messageId": "2000001506",
-          "statusType": "Maintenance",
-          "datePosted": "06/27/2022 06:17 PDT",
-          "startDate": "06/25/2022 05:55 PDT",
-          "endDate": "06/25/2022 07:30 PDT",
+          "usersAffected": "Some users are affected",
+          "epochStartDate": 1658940000000,
+          "epochEndDate": null,
+          "messageId": "2000001581",
+          "statusType": "Issue",
+          "datePosted": "07/27/2022 10:48 PDT",
+          "startDate": "07/27/2022 09:40 PDT",
+          "endDate": null,
           "affectedServices": [
-            "App Store Connect",
             "App Store Connect - App Processing ",
-            "App Store Connect - App Upload",
-            "App Store Connect API",
-            "App Store Connect Analytics",
-            "Apple Podcasts Connect",
-            "Content Delivery"
+            "App Store Connect - App Upload"
           ],
-          "eventStatus": "completed",
-          "message": "Users may have experienced issues with the service."
+          "eventStatus": "ongoing",
+          "message": "Users may be experiencing issues with the service. We are working to resolve the problem."
         }
       ],
       "serviceName": "App Store Connect - App Upload"
     },
     {
       "redirectUrl": "https://appstoreconnect.apple.com/analytics",
-      "events": [
-        {
-          "usersAffected": "All users were affected",
-          "epochStartDate": 1656161700000,
-          "epochEndDate": 1656167400000,
-          "messageId": "2000001506",
-          "statusType": "Maintenance",
-          "datePosted": "06/27/2022 06:17 PDT",
-          "startDate": "06/25/2022 05:55 PDT",
-          "endDate": "06/25/2022 07:30 PDT",
-          "affectedServices": [
-            "App Store Connect",
-            "App Store Connect - App Processing ",
-            "App Store Connect - App Upload",
-            "App Store Connect API",
-            "App Store Connect Analytics",
-            "Apple Podcasts Connect",
-            "Content Delivery"
-          ],
-          "eventStatus": "completed",
-          "message": "Due to scheduled maintenance, some services were unavailable."
-        }
-      ],
+      "events": [],
       "serviceName": "App Store Connect Analytics"
     },
     {
       "redirectUrl": "https://developer.apple.com/app-store-connect/api/",
-      "events": [
-        {
-          "usersAffected": "All users were affected",
-          "epochStartDate": 1656161700000,
-          "epochEndDate": 1656167400000,
-          "messageId": "2000001506",
-          "statusType": "Maintenance",
-          "datePosted": "06/27/2022 06:17 PDT",
-          "startDate": "06/25/2022 05:55 PDT",
-          "endDate": "06/25/2022 07:30 PDT",
-          "affectedServices": [
-            "App Store Connect",
-            "App Store Connect - App Processing ",
-            "App Store Connect - App Upload",
-            "App Store Connect API",
-            "App Store Connect Analytics",
-            "Apple Podcasts Connect",
-            "Content Delivery"
-          ],
-          "eventStatus": "completed",
-          "message": "Due to scheduled maintenance, some services were unavailable."
-        }
-      ],
+      "events": [],
       "serviceName": "App Store Connect API"
     },
     {
@@ -229,29 +166,7 @@
     },
     {
       "redirectUrl": null,
-      "events": [
-        {
-          "usersAffected": "All users were affected",
-          "epochStartDate": 1656161700000,
-          "epochEndDate": 1656167400000,
-          "messageId": "2000001506",
-          "statusType": "Maintenance",
-          "datePosted": "06/27/2022 06:17 PDT",
-          "startDate": "06/25/2022 05:55 PDT",
-          "endDate": "06/25/2022 07:30 PDT",
-          "affectedServices": [
-            "App Store Connect",
-            "App Store Connect - App Processing ",
-            "App Store Connect - App Upload",
-            "App Store Connect API",
-            "App Store Connect Analytics",
-            "Apple Podcasts Connect",
-            "Content Delivery"
-          ],
-          "eventStatus": "completed",
-          "message": "Users experienced a problem with this service."
-        }
-      ],
+      "events": [],
       "serviceName": "Apple Podcasts Connect"
     },
     {
@@ -291,21 +206,7 @@
     },
     {
       "redirectUrl": null,
-      "events": [
-        {
-          "usersAffected": "Some users were affected",
-          "epochStartDate": 1656165180000,
-          "epochEndDate": 1656167400000,
-          "messageId": "2000001509",
-          "statusType": "Maintenance",
-          "datePosted": "06/27/2022 06:17 PDT",
-          "startDate": "06/25/2022 06:53 PDT",
-          "endDate": "06/25/2022 07:30 PDT",
-          "affectedServices": null,
-          "eventStatus": "completed",
-          "message": "Responses were delayed but will be delivered."
-        }
-      ],
+      "events": [],
       "serviceName": "Developer ID Notary Service"
     },
     {
