@@ -41,7 +41,7 @@ enum CurrentLocale: String, CaseIterable, Identifiable {
 final class LocaleLayer: ObservableObject {
 
 	private init() {}
-	static let shared = LocaleLayer()
+	static let instance = LocaleLayer()
 
 	@AppStorage("serviceLocale")
 	var locale = CurrentLocale.english.identifier

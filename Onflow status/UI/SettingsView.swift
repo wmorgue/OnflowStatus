@@ -32,7 +32,7 @@ struct SettingsView: View {
 	var model = ServiceViewModel()
 
 	@StateObject
-	var localeLayer = LocaleLayer.shared
+	var localeLayer = LocaleLayer.instance
 
 	var body: some View {
 		NavigationStack {
@@ -126,7 +126,6 @@ private extension SettingsView {
 
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		//		AppIconButton()
 		SettingsView(model: ServiceViewModel())
 //			.environment(\.locale, .init(identifier: "ru"))
 	}

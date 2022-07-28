@@ -40,8 +40,8 @@ struct NetworkLayer {
 	}
 
 	private var requestPath: RequestPath = .support
-	var supportLocale: String = LocaleLayer.shared.locale
-//	private(set) var supportLocale: String = LocaleLayer.shared.locale
+	var supportLocale: String = LocaleLayer.instance.locale
+//	private(set) var supportLocale: String = LocaleLayer.instance.locale
 	private(set) var developerLocale: String = CurrentLocale.english.identifier
 }
 
