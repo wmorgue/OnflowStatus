@@ -7,6 +7,45 @@
 
 import SwiftUI
 
+struct SettingsView: View {
+	@StateObject
+	var model = ServiceViewModel()
+
+	@StateObject
+	var localeLayer = LocaleLayer.instance
+
+	var body: some View {
+		NavigationStack {
+			List {
+				CompactToggle(isCompact: $model.isCompactView)
+				RegionPicker(
+					locale: $localeLayer.locale,
+					model: model,
+					allLocales: localeLayer.allLocales
+				)
+				ApplicationIcon(model: model)
+				ContactSupport(appVersion: appVersion)
+			}
+			.scrollIndicators(.never)
+			.navigationTitle("navigation-settingsTitle")
+		}
+	}
+}
+
+private extension SettingsView {
+	var appVersion: Text {
+		Text("settings-appVersion")
+	}
+}
+
+private extension RegionPicker {
+	func fetchUpdatedSupport() {
+		Task { @MainActor in
+			await model.fetchSupport()
+		}
+	}
+}
+
 fileprivate struct AppIconButton: View {
 
 	let iconName: String
@@ -27,103 +66,112 @@ fileprivate struct AppIconButton: View {
 	}
 }
 
-struct SettingsView: View {
-	@StateObject
-	var model = ServiceViewModel()
+fileprivate struct CompactToggle: View {
 
-	@StateObject
-	var localeLayer = LocaleLayer.instance
+	@Binding
+	var isCompact: Bool
 
 	var body: some View {
-		NavigationStack {
-			List {
-				Section {
-					Toggle("settings-toggleCompactView", isOn: $model.isCompactView)
-				} header: {
-					Text("settings-compactView")
-				} footer: {
-					Text("settings-toggleFooter")
-				}
+		Section {
+			Toggle("settings-toggleCompactView", isOn: $isCompact)
+		} header: {
+			Text("settings-compactView")
+		} footer: {
+			Text("settings-toggleFooter")
+		}
+	}
+}
 
-				Section {
-					Picker("settings-pickerRegion", selection: $localeLayer.locale) {
-						ForEach(localeLayer.allLocales) { locale in
-							Text(locale.rawValue)
-								.tag(locale.identifier)
-						}
-					}
-					.onChange(of: localeLayer.locale) { locale in
-						model.dismissFilter
-						model.updateLocale(for: locale)
-						playSuccessHaptic()
-						fetchUpdatedSupport()
-					}
-					.pickerStyle(.menu)
-				} footer: {
-					Text("settings-pickerFooter")
-				}
+fileprivate struct RegionPicker: View {
 
-				// App Icon — Default >
-				NavigationLink {
-					Text("settings-appIconPromt")
-						.font(.title2)
-						.fontWeight(.thin)
-						.padding(.bottom, 80)
+	@Binding
+	var locale: String
 
-					HStack(spacing: 20) {
-						VStack {
-							AppIconButton(iconName: "DarkButtonIcon") {
-								playSuccessHaptic()
-								await model.chooseAppIcon(for: .dark)
-							}
-							Text("settings-appIconButtonDark")
-						}
-						VStack {
-							AppIconButton(iconName: "LightButtonIcon") {
-								playSuccessHaptic()
-								await model.chooseAppIcon(for: .light)
-							}
-							Text("settings-appIconButtonLight")
-						}
-					}
-					.bold()
-				} label: {
-					Text("settings-appIconLabel")
-				}
+	@ObservedObject
+	var model: ServiceViewModel
 
-				Section {
-					Link(destination: DeveloperContact.mail) {
-						Label("settings-mailSupport", systemImage: "paperclip.badge.ellipsis")
-					}
-					Link(destination: DeveloperContact.telegram) {
-						Label("Telegram", systemImage: "paperplane.circle.fill")
-					}
-				} footer: {
-					Text("\(Bundle.main.appName) \(appVersion) \(Bundle.main.appVersionLong)")
+	let allLocales: [CurrentLocale]
+
+	var body: some View {
+		Section {
+			Picker("settings-pickerRegion", selection: $locale) {
+				ForEach(allLocales) { locale in
+					Text(locale.rawValue)
+						.tag(locale.identifier)
 				}
-				.labelStyle(.reversed)
-				.symbolRenderingMode(.hierarchical)
-				.foregroundColor(.primary)
-				.imageScale(.large)
 			}
-			.scrollIndicators(.never)
-			.navigationTitle("navigation-settingsTitle")
+			.onChange(of: locale) { locale in
+				model.dismissFilter
+				model.updateLocale(for: locale)
+				playSuccessHaptic()
+				fetchUpdatedSupport()
+			}
+			.pickerStyle(.menu)
+		} footer: {
+			Text("settings-pickerFooter")
 		}
 	}
 }
 
-private extension SettingsView {
-	var appVersion: Text {
-		Text("settings-appVersion")
-	}
+fileprivate struct ContactSupport: View {
 
-	func fetchUpdatedSupport() {
-		Task { @MainActor in
-			await model.fetchSupport()
+	let appVersion: Text
+
+	var body: some View {
+		Section {
+			// TODO: - Issue #10 in Github
+			Link(destination: DeveloperContact.mail) {
+				Label("settings-mailSupport", systemImage: "paperclip.badge.ellipsis")
+			}
+			Link(destination: DeveloperContact.telegram) {
+				Label("Telegram", systemImage: "paperplane.circle.fill")
+			}
+		} footer: {
+			Text("\(Bundle.main.appName) \(appVersion) \(Bundle.main.appVersionLong)")
+		}
+		.labelStyle(.reversed)
+		.symbolRenderingMode(.hierarchical)
+		.foregroundColor(.primary)
+		.imageScale(.large)
+	}
+}
+
+fileprivate struct ApplicationIcon: View {
+
+	@ObservedObject
+	var model: ServiceViewModel
+
+	var body: some View {
+		NavigationLink {
+			Text("settings-appIconPromt")
+				.font(.title2)
+				.fontWeight(.thin)
+				.padding(.bottom, 80)
+
+			HStack(spacing: 20) {
+				VStack {
+					AppIconButton(iconName: "DarkButtonIcon") {
+						playSuccessHaptic()
+						await model.chooseAppIcon(for: .dark)
+					}
+					Text("settings-appIconButtonDark")
+				}
+				VStack {
+					AppIconButton(iconName: "LightButtonIcon") {
+						playSuccessHaptic()
+						await model.chooseAppIcon(for: .light)
+					}
+					Text("settings-appIconButtonLight")
+				}
+			}
+			.bold()
+		} label: {
+			Text("settings-appIconLabel")
 		}
 	}
 }
 
+// MARK: - Canvas Preview
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
 		SettingsView(model: ServiceViewModel())
