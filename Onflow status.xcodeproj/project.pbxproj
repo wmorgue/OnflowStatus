@@ -12,7 +12,7 @@
 		7311F833285B24C000EF174E /* OnflowStatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F832285B24C000EF174E /* OnflowStatusApp.swift */; };
 		7311F837285B24C400EF174E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7311F836285B24C400EF174E /* Assets.xcassets */; };
 		7311F83A285B24C400EF174E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7311F839285B24C400EF174E /* Preview Assets.xcassets */; };
-		7311F841285B256200EF174E /* Support Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F840285B256200EF174E /* Support Model.swift */; };
+		7311F841285B256200EF174E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F840285B256200EF174E /* Model.swift */; };
 		7311F843285B261400EF174E /* NavigationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F842285B261400EF174E /* NavigationTabView.swift */; };
 		7311F845285B296500EF174E /* SystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F844285B296500EF174E /* SystemView.swift */; };
 		733116B22882DC1A00FEA3E9 /* NavigationBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733116B12882DC1A00FEA3E9 /* NavigationBackport.swift */; };
@@ -46,7 +46,7 @@
 		7311F832285B24C000EF174E /* OnflowStatusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnflowStatusApp.swift; sourceTree = "<group>"; };
 		7311F836285B24C400EF174E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7311F839285B24C400EF174E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7311F840285B256200EF174E /* Support Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Support Model.swift"; sourceTree = "<group>"; };
+		7311F840285B256200EF174E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		7311F842285B261400EF174E /* NavigationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabView.swift; sourceTree = "<group>"; };
 		7311F844285B296500EF174E /* SystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemView.swift; sourceTree = "<group>"; };
 		733116B12882DC1A00FEA3E9 /* NavigationBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackport.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		7311F847285B2CF100EF174E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7311F840285B256200EF174E /* Support Model.swift */,
+				7311F840285B256200EF174E /* Model.swift */,
 				7307BE7B285CA1A60090E9FA /* ServiceViewModel.swift */,
 				73C2D84E286EF3B3001899B7 /* DeveloperContact.swift */,
 			);
@@ -293,7 +293,7 @@
 				73C2D84F286EF3B3001899B7 /* DeveloperContact.swift in Sources */,
 				73A4A1DF286A18A80046499B /* SettingsView.swift in Sources */,
 				7300165C287C196D00B1C95D /* Closures.swift in Sources */,
-				7311F841285B256200EF174E /* Support Model.swift in Sources */,
+				7311F841285B256200EF174E /* Model.swift in Sources */,
 				73E65E12285B2FA00012AC0F /* MockData.swift in Sources */,
 				7307BE7C285CA1A60090E9FA /* ServiceViewModel.swift in Sources */,
 				738CD8152868551000D379C2 /* NetworkLayer.swift in Sources */,
@@ -453,7 +453,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
@@ -489,7 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Onflow status/Preview Content\"";
 				DEVELOPMENT_TEAM = 4K8HNGCPFU;
 				ENABLE_PREVIEWS = YES;
