@@ -54,7 +54,7 @@ struct NavigationTabView: View {
 				.tag(1)
 
 			// MARK: - Setting
-			SettingsView(model: model)
+			SettingsView(model: model, contacts: TestFlightContact())
 				.tabItem { NavigationItem.settings.label }
 				.tag(2)
 		}

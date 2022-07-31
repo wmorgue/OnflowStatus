@@ -9,10 +9,12 @@ import SwiftUI
 
 struct SettingsView: View {
 	@StateObject
-	var model = ServiceViewModel()
+	var model: ServiceViewModel
 
 	@StateObject
 	var localeLayer = LocaleLayer.instance
+
+	var contacts: ContactsProtocol
 
 	var body: some View {
 		NavigationStack {
@@ -24,7 +26,7 @@ struct SettingsView: View {
 					allLocales: localeLayer.allLocales
 				)
 				ApplicationIcon(model: model)
-				ContactSupport(appVersion: appVersion)
+				ContactSupport(appVersion: appVersion, contacts: contacts)
 			}
 			.scrollIndicators(.never)
 			.navigationTitle("navigation-settingsTitle")
@@ -116,16 +118,23 @@ fileprivate struct RegionPicker: View {
 fileprivate struct ContactSupport: View {
 
 	let appVersion: Text
+	let contacts: ContactsProtocol
 
 	var body: some View {
 		Section {
 			// TODO: - Issue #10 in Github
-			Link(destination: DeveloperContact.mail) {
+			Link(destination: contacts.mail) {
 				Label("settings-mailSupport", systemImage: "paperclip.badge.ellipsis")
 			}
-			Link(destination: DeveloperContact.telegram) {
+			Link(destination: contacts.telegram) {
 				Label("Telegram", systemImage: "paperplane.circle.fill")
 			}
+
+			// This method should not be called on the main thread as it may lead to UI unresponsiveness.
+//			ShareLink(item: contacts.testFlight, subject: Text("Onflow status")) {
+//				Label("Share the app", systemImage: "square.and.arrow.up")
+//			}
+
 		} footer: {
 			Text("\(Bundle.main.appName) \(appVersion) \(Bundle.main.appVersionLong)")
 		}
@@ -174,7 +183,7 @@ fileprivate struct ApplicationIcon: View {
 // MARK: - Canvas Preview
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsView(model: ServiceViewModel())
+		SettingsView(model: ServiceViewModel(), contacts: TestFlightContact())
 //			.environment(\.locale, .init(identifier: "ru"))
 	}
 }
