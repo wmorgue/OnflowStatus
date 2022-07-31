@@ -73,13 +73,6 @@ final class ServiceViewModel: ObservableObject {
 	var isCompactView: Bool = false
 }
 
-private extension Logger {
-	static let serviceModel = Logger(
-		subsystem: .bundleIdentifier,
-		category: String(describing: ServiceViewModel.self)
-	)
-}
-
 extension ServiceViewModel {
 	static let preview = ServiceViewModel()
 

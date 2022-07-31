@@ -9,12 +9,6 @@ import Foundation
 import Get
 import OSLog
 
-private extension Logger {
-	static var statusResource: Logger {
-		Logger(subsystem: .bundleIdentifier, category: String(describing: NetworkLayer.self))
-	}
-}
-
 private enum RequestConstant {
 	static let timeoutInterval: Double = 5
 	static let requestPathExtension: String = ".js"
