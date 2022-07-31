@@ -41,37 +41,6 @@ enum MockData {
 		return apiResponse?.services ?? []
 	}
 
-	/*
-	 {
-	 										"usersAffected": "Some users are affected",
-	 										"epochStartDate": 1658940000000,
-	 										"epochEndDate": null,
-	 										"messageId": "2000001581",
-	 										"statusType": "Issue",
-	 										"datePosted": "07/27/2022 10:48 PDT",
-	 										"startDate": "07/27/2022 09:40 PDT",
-	 										"endDate": null,
-	 										"affectedServices": [
-	 												"App Store Connect - App Processing ",
-	 												"App Store Connect - App Upload"
-	 										],
-	 										"eventStatus": "ongoing",
-	 										"message": "Users are experiencing a problem with this service. We are working to resolve this issue."
-	 								},
-	 								{
-	 										"usersAffected": "Some users were affected",
-	 										"epochStartDate": 1658868480000,
-	 										"epochEndDate": 1658881620000,
-	 										"messageId": "2000001579",
-	 										"statusType": "Performance",
-	 										"datePosted": "07/27/2022 10:48 PDT",
-	 										"startDate": "07/26/2022 13:48 PDT",
-	 										"endDate": "07/26/2022 17:27 PDT",
-	 										"affectedServices": null,
-	 										"eventStatus": "resolved",
-	 										"message": "Users experienced a problem with this service."
-	 								}
-	 */
 	static var developerService: Services {
 		Services(
 			serviceName: "App Store Connect - App Processing",

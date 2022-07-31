@@ -51,8 +51,4 @@ final class LocaleLayer: ObservableObject {
 	func setNewLocale(newLocale: CurrentLocale) {
 		locale = newLocale.identifier
 	}
-
-//	func updateForNetwork(newLocale: CurrentLocale) {
-//		NetworkLayer().developerLocale = newLocale
-//	}
 }
