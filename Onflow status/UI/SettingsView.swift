@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-	@StateObject
+	@ObservedObject
 	var model: ServiceViewModel
 
 	@StateObject
@@ -130,7 +130,7 @@ fileprivate struct ContactSupport: View {
 				Label("Telegram", systemImage: "paperplane.circle.fill")
 			}
 
-			// This method should not be called on the main thread as it may lead to UI unresponsiveness.
+// This method should not be called on the main thread as it may lead to UI unresponsiveness.
 //			ShareLink(item: contacts.testFlight, subject: Text("Onflow status")) {
 //				Label("Share the app", systemImage: "square.and.arrow.up")
 //			}
