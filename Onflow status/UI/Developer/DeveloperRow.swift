@@ -38,7 +38,6 @@ struct DeveloperRow: View {
 				Label(service.serviceName, systemImage: "link")
 					.foregroundColor(service.events.isEmpty ? .primary : .blue)
 					.lineLimit(1)
-					.minimumScaleFactor(0.9)
 					.labelStyle(AdaptiveLabel(redirectUrl: service.redirectUrl))
 			}
 		}
