@@ -131,7 +131,7 @@ fileprivate struct EventResolution: View {
 		HStack {
 			Text("genericSheet-eventResolution")
 			Spacer()
-			Text(event.eventStatus.capitalized)
+			Text(event.eventStatus.localizedCapitalized)
 				.foregroundColor(.secondary)
 		}
 	}
@@ -147,7 +147,7 @@ fileprivate struct AffectedServices: View {
 
 	var body: some View {
 		ForEach(events) { event in
-			if let affectedServices: [String] = event.affectedServices {
+			if let affectedServices: [String] = event.compactAffectedServices {
 				Section("genericSheet-affectedServices") {
 					HStack {
 						Text(String.affectedSeparator(affectedServices))

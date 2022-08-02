@@ -30,7 +30,11 @@ struct Event {
 	var epochEndDate: Double?
 	var messageID, statusType, datePosted, startDate: String
 	var endDate: String?
-	var affectedServices: [String]?
+	var affectedServices: [String?]?
+	var compactAffectedServices: [String]? {
+		affectedServices?.compactMap { $0 }
+	}
+
 	var eventStatus, message: String
 
 	enum CodingKeys: String, CodingKey {
@@ -62,6 +66,6 @@ extension Event: Identifiable {
 	/// Showing relative localized date with capitalization
 	static func relativeNamedDate(epochDate: Double) -> String {
 		let currentUnix = Date(timeIntervalSince1970: epochDate / 1000)
-		return currentUnix.formatted(.relative(presentation: .named)).capitalized
+		return currentUnix.formatted(.relative(presentation: .named)).localizedCapitalized
 	}
 }
