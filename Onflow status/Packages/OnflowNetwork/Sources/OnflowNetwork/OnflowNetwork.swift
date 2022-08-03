@@ -75,6 +75,8 @@ public struct SystemStatusService: OnflowServiceProtocol {
 // Apply to DeveloperStatusViewModel
 public struct DeveloperStatusService: OnflowServiceProtocol {
 
+	public init() {}
+
 	public var host = APIClient(baseURL: URL(string: "https://www.apple.com/support/systemstatus")) {
 		$0
 			.sessionConfiguration

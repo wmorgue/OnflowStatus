@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Onflow status.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "OnflowNetwork"
+               BuildableName = "OnflowNetwork"
+               BlueprintName = "OnflowNetwork"
+               ReferencedContainer = "container:Onflow status/Packages/OnflowNetwork">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "get",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Kean/Get.git",
+      "state" : {
+        "revision" : "899db7397eacddad384fc252d79b804c0801072c",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}

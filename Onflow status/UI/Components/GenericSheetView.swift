@@ -5,6 +5,7 @@
 //  Created by Nikita Rossik on 6/16/22.
 //
 
+import OnflowNetwork
 import SwiftUI
 
 struct GenericSheetView: View {
@@ -160,6 +161,6 @@ fileprivate struct AffectedServices: View {
 
 struct GenericSheetView_Previews: PreviewProvider {
 	static var previews: some View {
-		GenericSheetView(MockData.developerService, eventFor: .developer)
+		GenericSheetView(Services(serviceName: "MockData Service", events: []), eventFor: .developer)
 	}
 }
