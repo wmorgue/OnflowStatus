@@ -5,6 +5,7 @@
 //  Created by Nikita Rossik on 6/21/22.
 //
 
+import OnflowNetwork
 import SwiftUI
 
 struct DeveloperRow: View {
@@ -46,6 +47,7 @@ struct DeveloperRow: View {
 
 struct DeveloperRow_Previews: PreviewProvider {
 	static var previews: some View {
-		DeveloperRow(MockData.developerService)
+		let previewMock = Services(serviceName: "Xcode Cloud", events: [])
+		DeveloperRow(previewMock)
 	}
 }

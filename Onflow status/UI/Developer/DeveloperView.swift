@@ -5,11 +5,12 @@
 //  Created by Nikita Rossik on 6/22/22.
 //
 
+import OnflowNetwork
 import SwiftUI
 
-struct DeveloperList: View {
+struct DeveloperView: View {
 	@ObservedObject
-	var model: ServiceViewModel
+	var model: DeveloperStatusViewModel
 
 	@State
 	private var currentDeveloperServices: Services?
@@ -26,10 +27,10 @@ struct DeveloperList: View {
 					}
 			}
 			.scrollIndicators(.never)
-			.searchable(text: $model.developerSearchText.animation(), prompt: Text("searchable-promptText"))
+			.searchable(text: $model.searchText.animation(), prompt: Text("searchable-promptText"))
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					SortListButton(toggleButton: $model.isFilteredDeveloper.animation()) {
+					SortListButton(toggleButton: $model.isFiltered.animation()) {
 						model.developerEventsIsEmpty
 					}
 				}
@@ -38,24 +39,27 @@ struct DeveloperList: View {
 				GenericSheetView(currentService, eventFor: .developer)
 					.presentationDetents([.medium, .large])
 			}
-			.refreshable { await model.fetchDeveloper() }
+			.refreshable { await model.fetchServices() }
 			.navigationTitle("navigation-developerTitle")
 		}
 	}
 }
 
-struct DeveloperList_Previews: PreviewProvider {
+struct DeveloperView_Previews: PreviewProvider {
 	struct Preview: View {
 		@StateObject
-		private var model = ServiceViewModel.preview
+		private var model = DeveloperStatusViewModel(onflowService: DeveloperStatusService())
 
 		var body: some View {
-			DeveloperList(model: model)
-				.task { await model.fetchDeveloper() }
+			DeveloperView(model: model)
+				.task { await model.fetchServices() }
 		}
 	}
 
 	static var previews: some View {
+//		@StateObject
+//		private var model = DeveloperStatusViewModel(onflowService: DeveloperStatusService())
+//		DeveloperList(model: model)
 		Preview()
 	}
 }
