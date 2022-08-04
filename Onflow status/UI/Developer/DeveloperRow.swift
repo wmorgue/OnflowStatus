@@ -7,6 +7,7 @@
 
 import OnflowNetwork
 import SwiftUI
+import OSLog
 
 struct DeveloperRow: View {
 
@@ -23,31 +24,32 @@ struct DeveloperRow: View {
 		if let link = service.redirectUrl {
 			// sometimes links have a whitespace and you can't open a link.
 			if let url = URL(string: link.trim) {
+				#if targetEnvironment(simulator)
+				Logger().info("✅ Developer Row | \(#function): \(url)")
+				#endif
 				openURL(url)
 			}
 		}
 	}
 
 	var body: some View {
-		Button {
+		HStack {
+			Image(systemName: "circle.dotted")
+				.foregroundColor(.setCircleColor(service, message: .developer))
+			Label(service.serviceName, systemImage: "link")
+				.foregroundColor(service.events.isEmpty ? .primary : .blue)
+				.lineLimit(1)
+				.labelStyle(AdaptiveLabel(redirectUrl: service.redirectUrl))
+		}
+		.onLongPressGesture(minimumDuration: 1.3) {
 			openUnwrapURL()
-		} label: {
-			HStack {
-				Image(systemName: "circle.dotted")
-					.foregroundColor(.setCircleColor(service, message: .developer))
-
-				Label(service.serviceName, systemImage: "link")
-					.foregroundColor(service.events.isEmpty ? .primary : .blue)
-					.lineLimit(1)
-					.labelStyle(AdaptiveLabel(redirectUrl: service.redirectUrl))
-			}
 		}
 	}
 }
 
 struct DeveloperRow_Previews: PreviewProvider {
 	static var previews: some View {
-		let previewMock = Services(serviceName: "Xcode Cloud", events: [])
+		let previewMock = Services(serviceName: "Xcode Cloud", redirectUrl: "https://ya.ru", events: [])
 		DeveloperRow(previewMock)
 	}
 }
