@@ -2,6 +2,12 @@ import Foundation
 import Get
 import OSLog
 
+private extension Logger {
+	static var onflowNetwork: Logger {
+		Logger(subsystem: String(describing: OnflowServiceProtocol.self), category: String(describing: OnflowServiceProtocol.self))
+	}
+}
+
 /// Onflow Service Protocol that create a network request
 public protocol OnflowServiceProtocol {
 	var host: APIClient { get }
@@ -29,16 +35,6 @@ public enum RequestPath {
 	}
 }
 
-extension Logger {
-	static var systemStatus: Logger {
-		Logger(subsystem: String(describing: OnflowServiceProtocol.self), category: String(describing: SystemStatusService.self))
-	}
-
-	static var developerStatus: Logger {
-		Logger(subsystem: String(describing: OnflowServiceProtocol.self), category: String(describing: DeveloperStatusService.self))
-	}
-}
-
 // Apply to SystemStatusViewModel
 public struct SystemStatusService: OnflowServiceProtocol {
 
@@ -59,13 +55,13 @@ public struct SystemStatusService: OnflowServiceProtocol {
 
 	public func fetchServices() async throws -> [Services] {
 		#if targetEnvironment(simulator)
-			Logger.systemStatus.debug("Called \(#function). Locale: \(localeLayer.locale)")
+			Logger.onflowNetwork.debug("💡\(String(describing: SystemStatusService.self)) | Called \(#function). Locale: \(localeLayer.locale)")
 		#endif
 		let systemStatus = try await host.send(performRequest(.support))
 
 		// Move to Unit Testing?
 		guard systemStatus.statusCode == 200 else {
-			Logger.systemStatus.error("Request status code invalid: \(systemStatus.statusCode!, privacy: .private)")
+			Logger.onflowNetwork.error("🚨 Request status code invalid: \(systemStatus.statusCode!, privacy: .private)")
 			throw URLError(.cannotConnectToHost)
 		}
 		return systemStatus.value.services
@@ -107,9 +103,13 @@ public struct DeveloperStatusService: OnflowServiceProtocol {
 		let isValidObject: Bool = JSONSerialization.isValidJSONObject(resultData)
 
 		guard !isValidObject else {
-			Logger.developerStatus.error("Invalid JSON: \(#function)")
+			Logger.onflowNetwork.error("🚨 Invalid JSON: \(#function)")
 			throw URLError(.cannotDecodeContentData)
 		}
+
+	#if targetEnvironment(simulator)
+		Logger.onflowNetwork.debug("💡\(String(describing: DeveloperStatusService.self)) | Called \(#function)")
+	#endif
 
 		let status: SupportStatus = try JSONDecoder().decode(SupportStatus.self, from: resultData)
 		return status.services
