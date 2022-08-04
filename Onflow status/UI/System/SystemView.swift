@@ -5,12 +5,13 @@
 //  Created by Nikita Rossik on 6/16/22.
 //
 
+import OnflowNetwork
 import SwiftUI
 
 struct SystemView: View {
 
 	@ObservedObject
-	var model: ServiceViewModel
+	var model: SystemStatusViewModel
 
 	var body: some View {
 		switch model.isCompactView {
@@ -42,7 +43,7 @@ struct CompactSystemView: View {
 struct DefaultSystemListView: View {
 
 	@ObservedObject
-	var model: ServiceViewModel
+	var model: SystemStatusViewModel
 
 	var body: some View {
 		NavigationStack {
@@ -54,13 +55,14 @@ struct DefaultSystemListView: View {
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
 					// Bug fixed, but need attention
-					SortListButton(toggleButton: $model.isFilteredSupport.animation()) {
+					SortListButton(toggleButton: $model.isFiltered.animation()) {
 						model.supportEventsIsEmpty
 					}
 				}
 			}
-			.refreshable { await model.fetchSupport() }
-			.searchable(text: $model.supportSearchText.animation(), prompt: Text("searchable-promptText"))
+			.refreshable { await model.fetchServices() }
+			.searchable(text: $model.searchText.animation(), prompt: Text("searchable-promptText"))
+			.submitLabel(.search)
 			.sheet(item: $model.currentSheetService) { service in
 				GenericSheetView(service, eventFor: .support)
 					.presentationDetents([.medium, .large])
@@ -70,14 +72,14 @@ struct DefaultSystemListView: View {
 	}
 }
 
-struct StatusListView_Previews: PreviewProvider {
+struct SystemView_Previews: PreviewProvider {
 	struct Preview: View {
 		@StateObject
-		private var model = ServiceViewModel.preview
+		private var model = SystemStatusViewModel(onflowService: SystemStatusService())
 
 		var body: some View {
 			SystemView(model: model)
-				.task { await model.fetchSupport() }
+				.task { await model.fetchServices() }
 		}
 	}
 

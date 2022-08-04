@@ -28,6 +28,7 @@ struct DeveloperView: View {
 			}
 			.scrollIndicators(.never)
 			.searchable(text: $model.searchText.animation(), prompt: Text("searchable-promptText"))
+			.submitLabel(.search)
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
 					SortListButton(toggleButton: $model.isFiltered.animation()) {
