@@ -5,6 +5,7 @@
 //  Created by Nikita Rossik on 7/10/22.
 //
 
+import OnflowNetwork
 import SwiftUI
 
 extension Color {
