@@ -5,21 +5,29 @@
 //  Created by Nikita Rossik on 6/16/22.
 //
 
+import OnflowNetwork
 import SwiftUI
 
 @main
 struct OnflowStatusApp: App {
 
-	@StateObject
-	var model = ServiceViewModel()
-
 	var body: some Scene {
 		WindowGroup {
-			NavigationTabView(model: model)
-				.task {
-					await model.fetchSupport()
-					await model.fetchDeveloper()
-				}
+
+			// Production services
+			let systemStatusService = SystemStatusService()
+			let developerStatusService = DeveloperStatusService()
+
+			// Test mock services
+			// let mockStatusService = MockStatusService()
+			//	let mockDeveloperService = MockDeveloperService()
+
+			// Dependency Injection in nutshell
+			// Здесь нужно передавать SystemMockDataService & DeveloperMockDataService
+			NavigationTabView(
+				systemService: systemStatusService,
+				developerService: developerStatusService
+			)
 		}
 	}
 }
