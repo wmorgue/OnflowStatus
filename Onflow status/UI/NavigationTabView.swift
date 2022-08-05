@@ -5,30 +5,23 @@
 //  Created by Nikita Rossik on 6/16/22.
 //
 
+import OnflowNetwork
 import SwiftUI
-
-fileprivate enum NavigationItem {
-	case support
-	case developer
-	case settings
-
-	static let systemTitle = String(localized: "navigation-systemTitle")
-	static let developerTitle = String(localized: "navigation-developerTitle")
-	static let settingsTitle = String(localized: "navigation-settingsTitle")
-
-	var label: some View {
-		switch self {
-		case .support: return Label(Self.systemTitle, systemImage: "rectangle.stack")
-		case .developer: return Label(Self.developerTitle, systemImage: "hammer")
-		case .settings: return Label(Self.settingsTitle, systemImage: "gear")
-		}
-	}
-}
 
 struct NavigationTabView: View {
 
-	@ObservedObject
-	var model: ServiceViewModel
+	// В рут уровень передаем 2 сервиса
+
+	@StateObject
+	private var systemStatus: SystemStatusViewModel
+
+	@StateObject
+	private var developerStatus: DeveloperStatusViewModel
+
+	init(systemService: OnflowServiceProtocol, developerService: OnflowServiceProtocol) {
+		_systemStatus = StateObject(wrappedValue: SystemStatusViewModel(onflowService: systemService))
+		_developerStatus = StateObject(wrappedValue: DeveloperStatusViewModel(onflowService: developerService))
+	}
 
 	@AppStorage("selectedTab")
 	private var selectedTab: Int = 0
@@ -36,42 +29,40 @@ struct NavigationTabView: View {
 	var body: some View {
 		TabView(selection: $selectedTab) {
 			// MARK: - Support status
-			SystemView(model: model)
-				.alert("alert-networkIssue", isPresented: $model.showingAlert) {
+			SystemView(model: systemStatus)
+				.alert("alert-networkIssue", isPresented: $systemStatus.showingAlert) {
 					Button("alert-buttonCancel") {}
-					AsyncAlertButton(asyncTask: model.fetchSupport)
-				} message: { model.alertMessageReason }
+					AsyncAlertButton(asyncTask: systemStatus.fetchServices)
+				} message: { systemStatus.alertMessageReason }
 				.tabItem { NavigationItem.support.label }
 				.tag(0)
 
 			// MARK: - Developer status
-			DeveloperList(model: model)
-				.alert("alert-networkIssue", isPresented: $model.showingAlert) {
+			DeveloperView(model: developerStatus)
+				.alert("alert-networkIssue", isPresented: $developerStatus.showingAlert) {
 					Button("alert-buttonCancel") {}
-					AsyncAlertButton(asyncTask: model.fetchDeveloper)
-				} message: { model.alertMessageReason }
+					AsyncAlertButton(asyncTask: developerStatus.fetchServices)
+				} message: { developerStatus.alertMessageReason }
 				.tabItem { NavigationItem.developer.label }
 				.tag(1)
 
 			// MARK: - Setting
-			SettingsView(model: model, contacts: TestFlightContact())
+			SettingsView(model: systemStatus)
 				.tabItem { NavigationItem.settings.label }
 				.tag(2)
+		}
+		.task {
+			await systemStatus.fetchServices()
+			await developerStatus.fetchServices()
 		}
 	}
 }
 
 struct TabView_Previews: PreviewProvider {
-	struct Preview: View {
-		@StateObject
-		private var model = ServiceViewModel()
-
-		var body: some View {
-			NavigationTabView(model: model)
-		}
-	}
-
 	static var previews: some View {
-		Preview()
+		NavigationTabView(
+			systemService: SystemStatusService(),
+			developerService: DeveloperStatusService()
+		)
 	}
 }
