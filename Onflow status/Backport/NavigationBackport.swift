@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// Warning: Disabled compilation
+// Targets —> Onflow status —> Build Phases
 public struct NavigationBackport<Content: View>: View {
 	public let content: () -> Content
 
