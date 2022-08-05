@@ -55,7 +55,7 @@ public struct SystemStatusService: OnflowServiceProtocol {
 
 	public func fetchServices() async throws -> [Services] {
 		#if targetEnvironment(simulator)
-			Logger.onflowNetwork.debug("💡\(String(describing: SystemStatusService.self)) | Called \(#function). Locale: \(localeLayer.locale)")
+			Logger.onflowNetwork.debug("💡\(String(describing: SystemStatusService.self)) | Called \(#function). Current locale: \(localeLayer.locale)")
 		#endif
 		let systemStatus = try await host.send(performRequest(.support))
 
@@ -107,9 +107,9 @@ public struct DeveloperStatusService: OnflowServiceProtocol {
 			throw URLError(.cannotDecodeContentData)
 		}
 
-	#if targetEnvironment(simulator)
-		Logger.onflowNetwork.debug("💡\(String(describing: DeveloperStatusService.self)) | Called \(#function)")
-	#endif
+		#if targetEnvironment(simulator)
+			Logger.onflowNetwork.debug("💡\(String(describing: DeveloperStatusService.self)) | Called \(#function)")
+		#endif
 
 		let status: SupportStatus = try JSONDecoder().decode(SupportStatus.self, from: resultData)
 		return status.services

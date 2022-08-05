@@ -44,13 +44,9 @@ public final class LocaleLayer: ObservableObject {
 	public static let instance = LocaleLayer()
 
 	@AppStorage("serviceLocale")
-	public var locale = CurrentLocale.english.identifier
+	public var locale: String = CurrentLocale.english.identifier
 
 	public let developerLocale = CurrentLocale.english.identifier
 
 	public var allLocales = CurrentLocale.allCases
-
-	public func setNewLocale(newLocale: CurrentLocale) {
-		locale = newLocale.identifier
-	}
 }
