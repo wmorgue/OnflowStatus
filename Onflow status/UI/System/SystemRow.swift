@@ -5,6 +5,7 @@
 //  Created by Nikita Rossik on 6/16/22.
 //
 
+import OnflowNetwork
 import SwiftUI
 
 struct SystemRow: View {
@@ -28,8 +29,10 @@ struct SystemRow: View {
 }
 
 struct SystemRow_Previews: PreviewProvider {
+
 	static var previews: some View {
-		let previewService = Services(serviceName: "Активация устройств с iOS", events: [])
-		SystemRow(previewService)
+
+		let previewMock = Services(serviceName: "Активация устройств с iOS", events: [])
+		SystemRow(previewMock)
 	}
 }

@@ -6,8 +6,8 @@
 //
 
 import OnflowNetwork
-import SwiftUI
 import OSLog
+import SwiftUI
 
 struct DeveloperRow: View {
 
@@ -25,7 +25,7 @@ struct DeveloperRow: View {
 			// sometimes links have a whitespace and you can't open a link.
 			if let url = URL(string: link.trim) {
 				#if targetEnvironment(simulator)
-				Logger().info("✅ Developer Row | \(#function): \(url)")
+					Logger().info("✅ Developer Row | \(#function): \(url)")
 				#endif
 				openURL(url)
 			}
