@@ -5,16 +5,22 @@
 //  Created by Nikita Rossik on 6/27/22.
 //
 
+import OnflowNetwork
 import SwiftUI
 
 struct SettingsView: View {
 	@ObservedObject
-	var model: ServiceViewModel
+	var model: SystemStatusViewModel
 
 	@StateObject
 	var localeLayer = LocaleLayer.instance
 
 	var contacts: ContactsProtocol
+
+	init(model: SystemStatusViewModel, contacts: ContactsProtocol = TestFlightContact()) {
+		self.model = model
+		self.contacts = contacts
+	}
 
 	var body: some View {
 		NavigationStack {
@@ -41,9 +47,9 @@ private extension SettingsView {
 }
 
 private extension RegionPicker {
-	func fetchUpdatedSupport() {
+	func fetchUpdatedServices() {
 		Task { @MainActor in
-			await model.fetchSupport()
+			await model.fetchServices()
 		}
 	}
 }
@@ -90,7 +96,7 @@ fileprivate struct RegionPicker: View {
 	var locale: String
 
 	@ObservedObject
-	var model: ServiceViewModel
+	var model: SystemStatusViewModel
 
 	let allLocales: [CurrentLocale]
 
@@ -98,7 +104,7 @@ fileprivate struct RegionPicker: View {
 		Section {
 			Picker("settings-pickerRegion", selection: $locale) {
 				ForEach(allLocales) { locale in
-					Text(locale.rawValue)
+					Text(locale.id)
 						.tag(locale.identifier)
 				}
 			}
@@ -106,7 +112,7 @@ fileprivate struct RegionPicker: View {
 				model.dismissFilter
 				model.updateLocale(for: locale)
 				playSuccessHaptic()
-				fetchUpdatedSupport()
+				fetchUpdatedServices()
 			}
 			.pickerStyle(.menu)
 		} footer: {
@@ -130,7 +136,7 @@ fileprivate struct ContactSupport: View {
 				Label("Telegram", systemImage: "paperplane.circle.fill")
 			}
 
-// This method should not be called on the main thread as it may lead to UI unresponsiveness.
+			// This method should not be called on the main thread as it may lead to UI unresponsiveness.
 //			ShareLink(item: contacts.testFlight, subject: Text("Onflow status")) {
 //				Label("Share the app", systemImage: "square.and.arrow.up")
 //			}
@@ -148,7 +154,7 @@ fileprivate struct ContactSupport: View {
 fileprivate struct ApplicationIcon: View {
 
 	@ObservedObject
-	var model: ServiceViewModel
+	var model: SystemStatusViewModel
 
 	var body: some View {
 		NavigationLink {
@@ -183,7 +189,9 @@ fileprivate struct ApplicationIcon: View {
 // MARK: - Canvas Preview
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsView(model: ServiceViewModel(), contacts: TestFlightContact())
+		let systemStatusService = SystemStatusViewModel(onflowService: SystemStatusService())
+
+		SettingsView(model: systemStatusService)
 //			.environment(\.locale, .init(identifier: "ru"))
 	}
 }
