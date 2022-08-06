@@ -1,6 +1,0 @@
-project: DubDubMap.xcodeproj
-retain_public: true
-schemes:
-- DubDubMap
-targets:
-- DubDubMap
