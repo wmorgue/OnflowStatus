@@ -6,6 +6,7 @@
 //
 
 import OnflowNetwork
+import OSLog
 import SwiftUI
 
 final class DeveloperStatusViewModel: ObservableObject {
@@ -57,7 +58,9 @@ extension DeveloperStatusViewModel {
 		do {
 			systemData = try await onflowService.fetchServices()
 		} catch {
-			print(error)
+			showingAlert = true
+			alertErrorMessage = error.localizedDescription
+			Logger.developerStatus.error("🚨 \(error)")
 		}
 	}
 }
