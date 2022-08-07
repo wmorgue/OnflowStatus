@@ -19,15 +19,15 @@ public protocol OnflowServiceProtocol {
 }
 
 public enum RequestConstant {
-	static let timeoutInterval: Double = 5
-	static let requestPathExtension: String = ".js"
+	public static let timeoutInterval: Double = 5
+	public static let requestPathExtension: String = ".js"
 }
 
 public enum RequestPath {
 	case support
 	case developer
 
-	var path: String {
+	public var path: String {
 		switch self {
 		case .support: return "/data/system_status_"
 		case .developer: return "/data/developer/system_status_"
