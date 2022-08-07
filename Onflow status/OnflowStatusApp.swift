@@ -18,9 +18,12 @@ struct OnflowStatusApp: App {
 			let systemStatusService = SystemStatusService()
 			let developerStatusService = DeveloperStatusService()
 
-			// Test mock services
-			// let mockStatusService = MockStatusService()
-			//	let mockDeveloperService = MockDeveloperService()
+			/*
+			 Test mock services:
+
+			 let mockStatusService = MockStatusService()
+			 let mockDeveloperService = MockDeveloperService()
+			 */
 
 			// Dependency Injection in nutshell
 			// Здесь нужно передавать SystemMockDataService & DeveloperMockDataService

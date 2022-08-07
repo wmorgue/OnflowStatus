@@ -1,9 +1,9 @@
-////
-////  Logger.swift
-////  Onflow status
-////
-////  Created by Nikita Rossik on 7/31/22.
-////
+//
+//  Logger.swift
+//  Onflow status
+//
+//  Created by Nikita Rossik on 7/31/22.
+//
 //
 import Foundation
 import OSLog
