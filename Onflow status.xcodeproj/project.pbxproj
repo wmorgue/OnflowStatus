@@ -37,8 +37,19 @@
 		73E65E12285B2FA00012AC0F /* MockDataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E65E11285B2FA00012AC0F /* MockDataServices.swift */; };
 		73E65E15285B30AB0012AC0F /* SystemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E65E14285B30AB0012AC0F /* SystemRow.swift */; };
 		73E65E17285B33480012AC0F /* system_status_ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E65E16285B33480012AC0F /* system_status_ru.json */; };
+		73EF570B289FA4B7000513BC /* SystemStatusViewModel_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EF570A289FA4B7000513BC /* SystemStatusViewModel_Test.swift */; };
 		73F789E128631651002A3BA1 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F789E028631651002A3BA1 /* DeveloperView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		73EF5705289FA446000513BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7311F827285B24C000EF174E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7311F82E285B24C000EF174E;
+			remoteInfo = "Onflow status";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7300165B287C196D00B1C95D /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
@@ -76,6 +87,8 @@
 		73E65E11285B2FA00012AC0F /* MockDataServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataServices.swift; sourceTree = "<group>"; };
 		73E65E14285B30AB0012AC0F /* SystemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemRow.swift; sourceTree = "<group>"; };
 		73E65E16285B33480012AC0F /* system_status_ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = system_status_ru.json; sourceTree = "<group>"; };
+		73EF5701289FA446000513BC /* Onflow status Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Onflow status Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73EF570A289FA4B7000513BC /* SystemStatusViewModel_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStatusViewModel_Test.swift; sourceTree = "<group>"; };
 		73F789E028631651002A3BA1 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +98,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				73CB2113289A844F0081D0E6 /* OnflowNetwork in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73EF56FE289FA446000513BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,21 +119,13 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
-		730F9F14289A76D7006B1B6A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				73568127289A780900B68639 /* Packages */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7311F826285B24C000EF174E = {
 			isa = PBXGroup;
 			children = (
 				73068E29289D2ED000D7408A /* swift_format.zsh */,
 				7311F831285B24C000EF174E /* Onflow status */,
+				73EF5702289FA446000513BC /* Onflow status Unit Tests */,
 				7311F830285B24C000EF174E /* Products */,
-				730F9F14289A76D7006B1B6A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				7311F82F285B24C000EF174E /* Onflow status.app */,
+				73EF5701289FA446000513BC /* Onflow status Unit Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,14 +204,6 @@
 			path = System;
 			sourceTree = "<group>";
 		};
-		73568127289A780900B68639 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Packages;
-			path = "Onflow status/Packages";
-			sourceTree = "<group>";
-		};
 		738239962896735C003F293F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +250,14 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		73EF5702289FA446000513BC /* Onflow status Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				73EF570A289FA4B7000513BC /* SystemStatusViewModel_Test.swift */,
+			);
+			path = "Onflow status Unit Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,6 +282,24 @@
 			productReference = 7311F82F285B24C000EF174E /* Onflow status.app */;
 			productType = "com.apple.product-type.application";
 		};
+		73EF5700289FA446000513BC /* Onflow status Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73EF5707289FA446000513BC /* Build configuration list for PBXNativeTarget "Onflow status Unit Tests" */;
+			buildPhases = (
+				73EF56FD289FA446000513BC /* Sources */,
+				73EF56FE289FA446000513BC /* Frameworks */,
+				73EF56FF289FA446000513BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73EF5706289FA446000513BC /* PBXTargetDependency */,
+			);
+			name = "Onflow status Unit Tests";
+			productName = "Onflow status Unit Tests";
+			productReference = 73EF5701289FA446000513BC /* Onflow status Unit Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -281,6 +312,10 @@
 				TargetAttributes = {
 					7311F82E285B24C000EF174E = {
 						CreatedOnToolsVersion = 14.0;
+					};
+					73EF5700289FA446000513BC = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = 7311F82E285B24C000EF174E;
 					};
 				};
 			};
@@ -300,6 +335,7 @@
 			projectRoot = "";
 			targets = (
 				7311F82E285B24C000EF174E /* Onflow status */,
+				73EF5700289FA446000513BC /* Onflow status Unit Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -314,6 +350,13 @@
 				7311F83A285B24C400EF174E /* Preview Assets.xcassets in Resources */,
 				7311F837285B24C400EF174E /* Assets.xcassets in Resources */,
 				7359EA24287D671900E648DB /* developer_status_en.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73EF56FF289FA446000513BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +417,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		73EF56FD289FA446000513BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73EF570B289FA4B7000513BC /* SystemStatusViewModel_Test.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		73EF5706289FA446000513BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7311F82E285B24C000EF174E /* Onflow status */;
+			targetProxy = 73EF5705289FA446000513BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		73C83BEF28894DAC00E46260 /* Localizable.strings */ = {
@@ -575,6 +634,48 @@
 			};
 			name = Release;
 		};
+		73EF5708289FA446000513BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Default;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = 4K8HNGCPFU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Onflow status";
+				MARKETING_VERSION = 0.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.rossik.Onflow-status-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Onflow status.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Onflow status";
+			};
+			name = Debug;
+		};
+		73EF5709289FA446000513BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Default;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = 4K8HNGCPFU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Onflow status";
+				MARKETING_VERSION = 0.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.rossik.Onflow-status-Unit-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Onflow status.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Onflow status";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -592,6 +693,15 @@
 			buildConfigurations = (
 				7311F83E285B24C400EF174E /* Debug */,
 				7311F83F285B24C400EF174E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73EF5707289FA446000513BC /* Build configuration list for PBXNativeTarget "Onflow status Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73EF5708289FA446000513BC /* Debug */,
+				73EF5709289FA446000513BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

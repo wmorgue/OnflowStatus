@@ -34,6 +34,20 @@
                ReferencedContainer = "container:Onflow status/Packages/OnflowNetwork">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "73EF5700289FA446000513BC"
+               BuildableName = "Onflow status Unit Tests.xctest"
+               BlueprintName = "Onflow status Unit Tests"
+               ReferencedContainer = "container:Onflow status.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -42,6 +56,17 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "73EF5700289FA446000513BC"
+               BuildableName = "Onflow status Unit Tests.xctest"
+               BlueprintName = "Onflow status Unit Tests"
+               ReferencedContainer = "container:Onflow status.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
