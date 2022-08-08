@@ -19,7 +19,7 @@ enum EventStatusMessage {
 	}
 }
 
-enum AppIcon {
+enum AppIcon: CaseIterable {
 	case dark
 	case light
 
