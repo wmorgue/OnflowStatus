@@ -7,7 +7,7 @@
       "events": [
         {
           "usersAffected": "Были затронуты все пользователи",
-          "epochStartDate": 1647879900000,
+          "epochStartDate": 1659973020000,
           "epochEndDate": 1647882840000,
           "messageId": "2000001300",
           "statusType": "Outage",
@@ -31,7 +31,7 @@
       "events": [
         {
           "usersAffected": "Затронуты некоторые пользователи",
-          "epochStartDate": 1647880020000,
+          "epochStartDate": 1659973020000,
           "epochEndDate": null,
           "messageId": "2000001303",
           "statusType": "Outage",
@@ -97,7 +97,7 @@
       "events": [
         {
           "usersAffected": "Затронуты некоторые пользователи",
-          "epochStartDate": 1647880020000,
+          "epochStartDate": 1659973020000,
           "epochEndDate": null,
           "messageId": "2000001303",
           "statusType": "Outage",
