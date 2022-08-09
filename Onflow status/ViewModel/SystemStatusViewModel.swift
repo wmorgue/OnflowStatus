@@ -54,6 +54,20 @@ extension SystemStatusViewModel {
 		}
 	}
 
+	var badgeCountToday: Int? {
+
+		var badgeCountValue = 0
+
+		_ = systemData
+			.flatMap(\.events)
+			.map { Date(timeIntervalSince1970: $0.epochStartDate / 1000) } // 1659973020000
+			.map { date in
+				if Calendar.current.isDateInToday(date) { badgeCountValue += 1 }
+			}
+
+		return badgeCountValue
+	}
+
 	var dismissFilter: Void { isFiltered = false }
 
 	var supportEventsIsEmpty: Bool { systemData.flatMap(\.events).isEmpty }

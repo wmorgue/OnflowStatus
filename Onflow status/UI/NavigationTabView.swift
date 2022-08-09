@@ -35,6 +35,7 @@ struct NavigationTabView: View {
 					AsyncAlertButton(asyncTask: systemStatus.fetchServices)
 				} message: { systemStatus.alertMessageReason }
 				.tabItem { NavigationItem.support.label }
+				.badge(systemStatus.badgeCountToday ?? 0)
 				.tag(0)
 
 			// MARK: - Developer status
@@ -44,6 +45,7 @@ struct NavigationTabView: View {
 					AsyncAlertButton(asyncTask: developerStatus.fetchServices)
 				} message: { developerStatus.alertMessageReason }
 				.tabItem { NavigationItem.developer.label }
+				.badge(developerStatus.badgeCountToday ?? 0)
 				.tag(1)
 
 			// MARK: - Setting
