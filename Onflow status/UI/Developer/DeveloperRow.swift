@@ -41,8 +41,14 @@ struct DeveloperRow: View {
 				.lineLimit(1)
 				.labelStyle(AdaptiveLabel(redirectUrl: service.redirectUrl))
 		}
-		.onLongPressGesture(minimumDuration: 1.3) {
-			openUnwrapURL()
+		.contextMenu {
+			if service.redirectUrl != nil {
+				Button {
+					openUnwrapURL()
+				} label: {
+					Label("Open website", systemImage: "globe")
+				}
+			}
 		}
 	}
 }
