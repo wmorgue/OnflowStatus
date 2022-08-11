@@ -644,9 +644,12 @@
 				MARKETING_VERSION = 0.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.rossik.Onflow-status-Unit-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Onflow status.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Onflow status";
 			};
 			name = Debug;
@@ -665,9 +668,12 @@
 				MARKETING_VERSION = 0.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.rossik.Onflow-status-Unit-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Onflow status.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Onflow status";
 			};
 			name = Release;
