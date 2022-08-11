@@ -34,19 +34,18 @@ public struct Event {
 	public var usersAffected: String?
 	public var epochStartDate: Double
 	public var epochEndDate: Double?
-	public var messageID, statusType, datePosted, startDate: String
-	public var endDate: String?
+	public var messageID: String
 	public var affectedServices: [String?]?
 	public var compactAffectedServices: [String]? {
 		affectedServices?.compactMap { $0 }
 	}
 
-	public var eventStatus, message: String
+	public var eventStatus, message: String?
 
 	enum CodingKeys: String, CodingKey {
 		case usersAffected, epochStartDate, epochEndDate
 		case messageID = "messageId"
-		case statusType, datePosted, startDate, endDate, affectedServices, eventStatus, message
+		case affectedServices, eventStatus, message
 	}
 }
 
