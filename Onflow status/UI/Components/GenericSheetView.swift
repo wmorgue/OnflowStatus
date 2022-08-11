@@ -7,6 +7,7 @@
 
 import OnflowNetwork
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct GenericSheetView: View {
 
@@ -30,7 +31,7 @@ struct GenericSheetView: View {
 						EventStarted(event.epochStartDate)
 						EventEnded(event)
 						EventResolution(event)
-						Text(event.message)
+						EventMessage(event.message)
 					}
 				}
 				AffectedServices(services.events)
@@ -132,8 +133,30 @@ fileprivate struct EventResolution: View {
 		HStack {
 			Text("genericSheet-eventResolution")
 			Spacer()
-			Text(event.eventStatus.localizedCapitalized)
+			// TODO:
+			Text(event.eventStatus?.localizedCapitalized ?? "N/A")
 				.foregroundColor(.secondary)
+		}
+	}
+}
+
+fileprivate struct EventMessage: View {
+	let message: String?
+
+	init(_ message: String?) {
+		self.message = message
+	}
+
+	var body: some View {
+		if let message {
+			Text(message)
+				.contextMenu {
+					Button {
+						UIPasteboard.general.setValue(message, forPasteboardType: UTType.plainText.identifier)
+					} label: {
+						Label("Copy to clipboard", systemImage: "doc.on.clipboard.fill")
+					}
+				}
 		}
 	}
 }
