@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  Onflow status
+
+  Created by Nikita Rossik on 7/21/22.
+  
+*/
+
+"asyncAlertButtonText" = "Повторити";
+"alert-topMessage" = "Сервіси недоступні.";
+"alert-networkIssue" = "Несправність у мережі";
+"alert-buttonCancel" = "Відміна";
+"compactViewText" = "Усі служби працюють у штатному режимі";
+"searchable-promptText" = "Введіть ім'я сервісу";
+
+// MARK: - Generic Sheet View
+"genericSheet-status" = "Статус";
+"genericSheet-eventStarted" = "Початок";
+"genericSheet-eventEnded" = "Завершення";
+"genericSheet-eventResolution" = "Вердикт";
+"genericSheet-affectedServices" = "Торкнулися сервіси";
+
+// MARK: - Navigation tab View
+"navigation-systemTitle" = "Система";
+"navigation-developerTitle" = "Розробка";
+"navigation-settingsTitle" = "Налаштування";
+
+// MARK: - Settings View
+"settings-compactView" = "Компактний вигляд";
+"settings-toggleCompactView" = "Увімкнути компактний вигляд";
+"settings-toggleFooter" = "Тільки для вкладки системи.";
+"settings-pickerRegion" = "Регіон";
+"settings-pickerFooter" = "Ви можете налаштувати відповідний для вас регіон. Доступно лише для вкладки системи.";
+"settings-appIconPromt" = "Виберіть світлу або темну іконку програми";
+"settings-appIconButtonDark" = "Темна";
+"settings-appIconButtonLight" = "Світла";
+"settings-appIconLabel" = "іконка програми";
+"settings-mailSupport" = "Допомога";
+"settings-appVersion" = "Версія";

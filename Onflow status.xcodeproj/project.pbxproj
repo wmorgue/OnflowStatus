@@ -67,6 +67,7 @@
 		733BCA0E287AD470001C20ED /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7345EB21287193CE005C5CA9 /* Onflow-status-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Onflow-status-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7346915F287632D3005F2FCF /* AsyncAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAlertButton.swift; sourceTree = "<group>"; };
+		734C2B7528B12C83008CA680 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		734EE57F2865AA69002D6263 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7359EA23287D671900E648DB /* developer_status_en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = developer_status_en.json; sourceTree = "<group>"; };
 		7373342F2896B19F002BA3C8 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -325,6 +326,7 @@
 			knownRegions = (
 				en,
 				ru,
+				uk,
 			);
 			mainGroup = 7311F826285B24C000EF174E;
 			packageReferences = (
@@ -439,6 +441,7 @@
 			children = (
 				73C83BEE28894DAC00E46260 /* en */,
 				73C83BF028894DB000E46260 /* ru */,
+				734C2B7528B12C83008CA680 /* uk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
