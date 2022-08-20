@@ -9,16 +9,16 @@ import Foundation
 import struct SwiftUI.AppStorage
 
 public enum CurrentLocale: String, CaseIterable, Identifiable {
-	case english = "English"
-	case china = "Chinese"
-	case japan = "Japanese"
-	case korea = "Korean"
-	case german = "German"
-	case spanish = "Spanish"
-	case french = "French"
-	case italia = "Italian"
-	case portugal = "Portuguese"
-	case russia = "Russian"
+	case english = "USA"
+	case china = "China"
+	case japan = "Japan"
+	case korea = "South Korea"
+	case german = "Germany"
+	case spanish = "Spain"
+	case french = "France"
+	case italia = "Italy"
+	case portugal = "Portugal"
+	case russia = "Russia"
 
 	public var id: String { self.rawValue }
 
