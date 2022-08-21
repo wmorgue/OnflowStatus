@@ -29,7 +29,7 @@ struct SettingsView: View {
 				RegionPicker(
 					locale: $localeLayer.locale,
 					model: model,
-					allLocales: localeLayer.allLocales
+					allLocales: localeLayer.allLocales.sorted(by: <)
 				)
 				ApplicationIcon(model: model)
 				ContactSupport(appVersion: appVersion, contacts: contacts)

@@ -8,7 +8,7 @@
 import Foundation
 import struct SwiftUI.AppStorage
 
-public enum CurrentLocale: String, CaseIterable, Identifiable {
+public enum CurrentLocale: String, CaseIterable, Identifiable, Comparable {
 	case english = "USA"
 	case china = "China"
 	case japan = "Japan"
@@ -35,6 +35,10 @@ public enum CurrentLocale: String, CaseIterable, Identifiable {
 		case .portugal: return "pt_BR"
 		case .russia: return "ru_RU"
 		}
+	}
+
+	public static func < (lhs: CurrentLocale, rhs: CurrentLocale) -> Bool {
+		lhs.id < rhs.id
 	}
 }
 
