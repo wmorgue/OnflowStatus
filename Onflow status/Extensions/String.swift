@@ -8,15 +8,6 @@
 import Foundation
 
 extension String {
-	static var affectedSeparator: (_ services: [String]) -> Self = { services in
-		guard !services.isEmpty else { return "Array is empy" }
-
-		if services.count == 2 {
-			return services.joined(separator: " and ")
-		} else {
-			return services.joined(separator: ", ")
-		}
-	}
 
 	// Remove white spaces and \n
 	var trim: String { trimmingCharacters(in: .whitespacesAndNewlines) }
