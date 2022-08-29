@@ -14,11 +14,11 @@ import Foundation
  https://www.apple.com/support/systemstatus/data/developer/system_status_en_US.js
  */
 
-public struct SupportStatus {
+public struct SupportStatus: Sendable {
 	public var services: [Services]
 }
 
-public struct Services {
+public struct Services: Sendable {
 	public var serviceName: String
 	public var redirectUrl: String?
 	public var events: [Event]
@@ -30,7 +30,7 @@ public struct Services {
 	}
 }
 
-public struct Event {
+public struct Event: Sendable {
 	public var usersAffected: String?
 	public var epochStartDate: Double
 	public var epochEndDate: Double?
@@ -46,6 +46,16 @@ public struct Event {
 		case usersAffected, epochStartDate, epochEndDate
 		case messageID = "messageId"
 		case affectedServices, eventStatus, message
+	}
+
+	public func affectedSeparator(_ services: [String]) -> String {
+		guard !services.isEmpty else { return "Array is empy" }
+
+		if services.count == 2 {
+			return services.joined(separator: " and ")
+		} else {
+			return services.joined(separator: ", ")
+		}
 	}
 }
 
