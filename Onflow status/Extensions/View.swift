@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension View {
+	@MainActor
 	func playSuccessHaptic() {
 		let generator = UINotificationFeedbackGenerator()
 		generator.notificationOccurred(.success)
