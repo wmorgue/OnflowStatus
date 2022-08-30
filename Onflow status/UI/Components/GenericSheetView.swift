@@ -174,7 +174,7 @@ fileprivate struct AffectedServices: View {
 			if let affectedServices: [String] = event.compactAffectedServices {
 				Section("genericSheet-affectedServices") {
 					HStack {
-						Text(String.affectedSeparator(affectedServices))
+						Text(event.affectedSeparator(affectedServices))
 					}
 				}
 			}
