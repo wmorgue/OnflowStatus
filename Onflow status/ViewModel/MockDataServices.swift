@@ -3,8 +3,7 @@
 //  Onflow status
 //
 //  Created by Nikita Rossik on 6/16/22.
-//
-//
+
 import Foundation
 import Get
 import OnflowNetwork
