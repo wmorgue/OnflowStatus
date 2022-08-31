@@ -140,6 +140,7 @@ fileprivate struct AllowNotificationSheet: View {
 			} label: {
 				Text("Notify me")
 			}
+			.font(.title2)
 			.buttonStyle(.borderedProminent)
 
 			Button {
