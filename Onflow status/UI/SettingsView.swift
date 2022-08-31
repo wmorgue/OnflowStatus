@@ -15,6 +15,9 @@ struct SettingsView: View {
 	@StateObject
 	var localeLayer = LocaleLayer.instance
 
+//	@AppStorage("isNotificationEnabled")
+//	private var isToggled = false
+
 	var contacts: ContactsProtocol
 
 	init(model: SystemStatusViewModel, contacts: ContactsProtocol = TestFlightContact()) {
@@ -26,6 +29,23 @@ struct SettingsView: View {
 		NavigationStack {
 			List {
 				CompactToggle(isCompact: $model.isCompactView)
+				// Сделай через кнопку и не еби мозги !!!
+//				Button {
+//					model.isToggled.toggle()
+//					Task { await model.tryRequest() }
+//				} label: {
+//					Text("Enable Notifications")
+//				}
+//				.sheet(isPresented: $model.isToggled) {
+//					AllowNotificationSheet()
+//						.presentationDetents([.medium, .large])
+//				}
+
+//				Toggle("Enable Notifications", isOn: $model.isToggled)
+//					.onChange(of: model.isToggled) {
+//						Task { await model.tryRequest() }
+//					}
+
 				RegionPicker(
 					locale: $localeLayer.locale,
 					model: model,
@@ -89,6 +109,52 @@ fileprivate struct CompactToggle: View {
 		}
 	}
 }
+
+fileprivate struct AllowNotificationSheet: View {
+
+	@Environment(\.dismiss)
+	private var closeNotificationSheet
+	private let localNotification = LocalNotifications.instance
+
+	var body: some View {
+//		NavigationLink("Notifications") {
+		VStack(spacing: 15) {
+			Text("Onflow Status")
+				.font(.title3.bold())
+				.foregroundColor(.secondary)
+			Spacer()
+			Text("Push Notifications")
+				.font(.title2.bold())
+			Text("Get a notification when some of service has an issue.")
+				.padding(.bottom)
+
+			Button {
+				Task {
+					// request notification permission
+					let instance = LocalNotifications.instance
+					try await instance.requestNotificationPermission()
+					closeNotificationSheet()
+//					await instance.getNotificationsSettings()
+				}
+
+			} label: {
+				Text("Notify me")
+			}
+			.buttonStyle(.borderedProminent)
+
+			Button {
+				closeNotificationSheet()
+			} label: {
+				Text("Do not notify me")
+			}
+			Spacer()
+		}
+		.navigationBarTitle(Text(""), displayMode: .inline)
+		.padding()
+	}
+}
+
+// }
 
 fileprivate struct RegionPicker: View {
 
