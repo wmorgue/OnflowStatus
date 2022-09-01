@@ -6,9 +6,14 @@
 //
 
 import OnflowNetwork
+import OSLog
 @preconcurrency import UserNotifications
 
-struct LocalNotifications: Sendable {
+private extension Logger {
+	static let asyncNotifications = Logger(subsystem: .bundleIdentifier, category: String(describing: AsyncLocalNotifications.self))
+}
+
+struct AsyncLocalNotifications: Sendable {
 	private init() {}
 	static let instance = Self()
 
@@ -24,25 +29,21 @@ struct LocalNotifications: Sendable {
 		}
 	}
 
-//	func resetNotificationPermissions() async -> UNAuthorizationStatus {
-//		UNAuthorizationStatus.notDetermined
-//	}
-
 	func currentAuthorizationSetting() async -> UNAuthorizationStatus {
 		let currentSettings = await notificationCenter.notificationSettings()
 		return currentSettings.authorizationStatus
 	}
 
-	func getNotificationsSettings() async {
+	func getNotificationsSettings() async -> UNNotificationSettings {
 		let settings = await notificationCenter.notificationSettings()
-		print("ℹ️ Notification settings: \(settings)")
+		return settings
 	}
 
 	func checkPendingNotifications() async {
 		let notificationRequests = await notificationCenter.pendingNotificationRequests()
 
 		for notification in notificationRequests {
-			print("> \(notification.identifier)")
+			Logger.asyncNotifications.info("🪵 > \(notification.identifier)")
 		}
 	}
 
@@ -54,7 +55,6 @@ struct LocalNotifications: Sendable {
 
 		var dateComponents = DateComponents()
 		dateComponents.calendar = .current
-		dateComponents.hour = 10
 
 		let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
 
@@ -71,7 +71,7 @@ struct LocalNotifications: Sendable {
 		do {
 			try await notificationCenter.add(createNotificationRequest(service))
 		} catch {
-			print("\(#function): \(error)")
+			Logger.asyncNotifications.error("🪵 \(error)")
 		}
 	}
 }
