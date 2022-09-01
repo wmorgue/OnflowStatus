@@ -15,9 +15,6 @@ struct SettingsView: View {
 	@StateObject
 	var localeLayer = LocaleLayer.instance
 
-//	@AppStorage("isNotificationEnabled")
-//	private var isToggled = false
-
 	var contacts: ContactsProtocol
 
 	init(model: SystemStatusViewModel, contacts: ContactsProtocol = TestFlightContact()) {
@@ -40,12 +37,6 @@ struct SettingsView: View {
 //					AllowNotificationSheet()
 //						.presentationDetents([.medium, .large])
 //				}
-
-//				Toggle("Enable Notifications", isOn: $model.isToggled)
-//					.onChange(of: model.isToggled) {
-//						Task { await model.tryRequest() }
-//					}
-
 				RegionPicker(
 					locale: $localeLayer.locale,
 					model: model,
@@ -114,10 +105,9 @@ fileprivate struct AllowNotificationSheet: View {
 
 	@Environment(\.dismiss)
 	private var closeNotificationSheet
-	private let localNotification = LocalNotifications.instance
+	private let localNotification = AsyncLocalNotifications.instance
 
 	var body: some View {
-//		NavigationLink("Notifications") {
 		VStack(spacing: 15) {
 			Text("Onflow Status")
 				.font(.title3.bold())
@@ -131,10 +121,9 @@ fileprivate struct AllowNotificationSheet: View {
 			Button {
 				Task {
 					// request notification permission
-					let instance = LocalNotifications.instance
-					try await instance.requestNotificationPermission()
+//					let instance = AsyncLocalNotifications.instance
+//					try await instance.requestNotificationPermission()
 					closeNotificationSheet()
-//					await instance.getNotificationsSettings()
 				}
 
 			} label: {
@@ -150,12 +139,9 @@ fileprivate struct AllowNotificationSheet: View {
 			}
 			Spacer()
 		}
-		.navigationBarTitle(Text(""), displayMode: .inline)
 		.padding()
 	}
 }
-
-// }
 
 fileprivate struct RegionPicker: View {
 
