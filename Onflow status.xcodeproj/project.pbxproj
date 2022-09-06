@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7300165C287C196D00B1C95D /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7300165B287C196D00B1C95D /* Closures.swift */; };
-		730675AF28BF4D5C00D09255 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730675AE28BF4D5C00D09255 /* LocalNotifications.swift */; };
+		730675AF28BF4D5C00D09255 /* AsyncLocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730675AE28BF4D5C00D09255 /* AsyncLocalNotifications.swift */; };
 		7307BE7C285CA1A60090E9FA /* Enum Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7307BE7B285CA1A60090E9FA /* Enum Implementation.swift */; };
 		730C43CD289BCCD000036D2D /* NavigationItemLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C43CC289BCCD000036D2D /* NavigationItemLabel.swift */; };
 		7311F833285B24C000EF174E /* OnflowStatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311F832285B24C000EF174E /* OnflowStatusApp.swift */; };
@@ -53,7 +53,7 @@
 
 /* Begin PBXFileReference section */
 		7300165B287C196D00B1C95D /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
-		730675AE28BF4D5C00D09255 /* LocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
+		730675AE28BF4D5C00D09255 /* AsyncLocalNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncLocalNotifications.swift; sourceTree = "<group>"; };
 		73068E29289D2ED000D7408A /* swift_format.zsh */ = {isa = PBXFileReference; lastKnownFileType = text; path = swift_format.zsh; sourceTree = "<group>"; };
 		7307BE7B285CA1A60090E9FA /* Enum Implementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum Implementation.swift"; sourceTree = "<group>"; };
 		730C43CC289BCCD000036D2D /* NavigationItemLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItemLabel.swift; sourceTree = "<group>"; };
@@ -113,12 +113,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		730675AD28BF4D4700D09255 /* LocalNotifications */ = {
+		730675AD28BF4D4700D09255 /* AsyncLocalNotifications */ = {
 			isa = PBXGroup;
 			children = (
-				730675AE28BF4D5C00D09255 /* LocalNotifications.swift */,
+				730675AE28BF4D5C00D09255 /* AsyncLocalNotifications.swift */,
 			);
-			path = LocalNotifications;
+			path = AsyncLocalNotifications;
 			sourceTree = "<group>";
 		};
 		730F9F12289A7409006B1B6A /* Packages */ = {
@@ -157,7 +157,7 @@
 				733116B02882DBFD00FEA3E9 /* Backport */,
 				73C7EC9528623460007D94B0 /* Extensions */,
 				73C83BEF28894DAC00E46260 /* Localizable.strings */,
-				730675AD28BF4D4700D09255 /* LocalNotifications */,
+				730675AD28BF4D4700D09255 /* AsyncLocalNotifications */,
 				730F9F12289A7409006B1B6A /* Packages */,
 				7311F838285B24C400EF174E /* Preview Content */,
 				738239962896735C003F293F /* Protocols */,
@@ -402,7 +402,7 @@
 				73E6E98B28A271F400659E31 /* NavigationBackport.swift in Sources */,
 				73C2D84F286EF3B3001899B7 /* Contact Implementation.swift in Sources */,
 				73A4A1DF286A18A80046499B /* SettingsView.swift in Sources */,
-				730675AF28BF4D5C00D09255 /* LocalNotifications.swift in Sources */,
+				730675AF28BF4D5C00D09255 /* AsyncLocalNotifications.swift in Sources */,
 				7300165C287C196D00B1C95D /* Closures.swift in Sources */,
 				73E65E12285B2FA00012AC0F /* MockDataServices.swift in Sources */,
 				7307BE7C285CA1A60090E9FA /* Enum Implementation.swift in Sources */,
