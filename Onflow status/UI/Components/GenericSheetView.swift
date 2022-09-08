@@ -38,11 +38,11 @@ struct GenericSheetView: View {
 			}
 			.navigationBarTitle(services.serviceName, displayMode: .inline)
 			.toolbar {
-//				ToolbarItem(placement: .navigationBarLeading) {
-//					if let redirectURL = services.redirectUrl {
-//						ShareLink(item: redirectURL)
-//					}
-//				}
+				ToolbarItem(placement: .navigationBarLeading) {
+					if let redirectURL = services.redirectUrl {
+						ShareLink(item: redirectURL)
+					}
+				}
 
 				ToolbarItem(placement: .navigationBarTrailing) {
 					closeSheetButton

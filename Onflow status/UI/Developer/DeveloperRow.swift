@@ -51,7 +51,6 @@ struct DeveloperRow: View {
 			}
 
 //			if let website = service.redirectUrl {
-//				 implement share website at context menu
 //				ShareLink(item: website, subject: Text("Onflow status")) {
 //					Label("Share the website", systemImage: "square.and.arrow.up")
 //				}
