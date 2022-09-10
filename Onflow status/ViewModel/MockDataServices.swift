@@ -15,7 +15,7 @@ struct MockStatusService: OnflowServiceProtocol {
 
 	var localeLayer: OnflowNetwork.LocaleLayer = .instance
 
-	/// Реквест на тестовый сервер
+	/// Request to Mock server
 	func performRequest(_ requestPath: OnflowNetwork.RequestPath) -> Get.Request<OnflowNetwork.SupportStatus> {
 		Request.get(requestPath.path + localeLayer.locale + RequestConstant.requestPathExtension)
 	}
