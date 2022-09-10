@@ -25,7 +25,6 @@
 		7393DBA028AEE61200E94950 /* system_status_ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E65E16285B33480012AC0F /* system_status_ru.json */; };
 		73950ACD2878D0DE00D975E5 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73950ACC2878D0DE00D975E5 /* Array.swift */; };
 		73A4A1DF286A18A80046499B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A4A1DE286A18A80046499B /* SettingsView.swift */; };
-		73C2D84F286EF3B3001899B7 /* Contact Implementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C2D84E286EF3B3001899B7 /* Contact Implementation.swift */; };
 		73C7EC9728623494007D94B0 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7EC9628623494007D94B0 /* LabelStyle.swift */; };
 		73C83BED28894DAC00E46260 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73C83BEF28894DAC00E46260 /* Localizable.strings */; };
 		73CB2113289A844F0081D0E6 /* OnflowNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 73CB2112289A844F0081D0E6 /* OnflowNetwork */; };
@@ -77,7 +76,6 @@
 		73823997289673BC003F293F /* ContactsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsProtocol.swift; sourceTree = "<group>"; };
 		73950ACC2878D0DE00D975E5 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		73A4A1DE286A18A80046499B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		73C2D84E286EF3B3001899B7 /* Contact Implementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact Implementation.swift"; sourceTree = "<group>"; };
 		73C7EC9628623494007D94B0 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
 		73C83BEE28894DAC00E46260 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73C83BF028894DB000E46260 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -151,16 +149,16 @@
 		7311F831285B24C000EF174E /* Onflow status */ = {
 			isa = PBXGroup;
 			children = (
+				7341CB3B28CC8CE400217EAD /* Localization */,
 				7345EB21287193CE005C5CA9 /* Onflow-status-Info.plist */,
 				7311F832285B24C000EF174E /* OnflowStatusApp.swift */,
 				7311F836285B24C400EF174E /* Assets.xcassets */,
 				733116B02882DBFD00FEA3E9 /* Backport */,
 				73C7EC9528623460007D94B0 /* Extensions */,
-				73C83BEF28894DAC00E46260 /* Localizable.strings */,
 				730675AD28BF4D4700D09255 /* AsyncLocalNotifications */,
 				730F9F12289A7409006B1B6A /* Packages */,
 				7311F838285B24C400EF174E /* Preview Content */,
-				738239962896735C003F293F /* Protocols */,
+				738239962896735C003F293F /* Impl + Protocols */,
 				73E65E13285B30800012AC0F /* UI */,
 				7311F847285B2CF100EF174E /* ViewModel */,
 			);
@@ -206,6 +204,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		7341CB3B28CC8CE400217EAD /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				73C83BEF28894DAC00E46260 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		734B76A2286493A40058BE97 /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,14 +221,13 @@
 			path = System;
 			sourceTree = "<group>";
 		};
-		738239962896735C003F293F /* Protocols */ = {
+		738239962896735C003F293F /* Impl + Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				73C2D84E286EF3B3001899B7 /* Contact Implementation.swift */,
 				7307BE7B285CA1A60090E9FA /* Enum Implementation.swift */,
 				73823997289673BC003F293F /* ContactsProtocol.swift */,
 			);
-			path = Protocols;
+			path = "Impl + Protocols";
 			sourceTree = "<group>";
 		};
 		73C7EC9528623460007D94B0 /* Extensions */ = {
@@ -400,7 +405,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73E6E98B28A271F400659E31 /* NavigationBackport.swift in Sources */,
-				73C2D84F286EF3B3001899B7 /* Contact Implementation.swift in Sources */,
 				73A4A1DF286A18A80046499B /* SettingsView.swift in Sources */,
 				730675AF28BF4D5C00D09255 /* AsyncLocalNotifications.swift in Sources */,
 				7300165C287C196D00B1C95D /* Closures.swift in Sources */,
