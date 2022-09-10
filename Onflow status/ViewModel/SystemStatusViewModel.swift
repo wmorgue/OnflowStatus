@@ -63,14 +63,6 @@ extension SystemStatusViewModel {
 			.count
 	}
 
-//	func badgeCounter(for service: [Services]) throws -> Int? {
-//		service
-//			.flatMap(\.events)
-//			.map { Date(timeIntervalSince1970: $0.epochStartDate / 1000) }
-//			.filter { Calendar.current.isDateInToday($0) }
-//			.count
-//	}
-
 	var dismissFilter: Void { isFiltered = false }
 
 	var supportEventsIsEmpty: Bool { systemData.flatMap(\.events).isEmpty }
