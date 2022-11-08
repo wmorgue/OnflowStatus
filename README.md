@@ -2,6 +2,8 @@
 
 Onflow status app that displays current System Status of  services and Developer Status.
 
+> Available in [TestFlight](https://testflight.apple.com/join/XDc6ZLRZ) 🚀
+
 ![E797059E-375D-4E7E-B1B2-7CEEF0F60B45](https://user-images.githubusercontent.com/24982084/181918114-873d2237-fb5d-49ce-8a6e-35abefa552af.png)
 
 Built it with `SwiftUI` and `async/await`.
