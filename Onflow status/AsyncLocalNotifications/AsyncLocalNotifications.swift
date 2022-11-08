@@ -10,7 +10,10 @@ import OSLog
 @preconcurrency import UserNotifications
 
 private extension Logger {
-	static let asyncNotifications = Logger(subsystem: .bundleIdentifier, category: String(describing: AsyncLocalNotifications.self))
+	static let asyncNotifications = Logger(
+		subsystem: .bundleIdentifier,
+		category: String(describing: AsyncLocalNotifications.self)
+	)
 }
 
 struct AsyncLocalNotifications: Sendable {

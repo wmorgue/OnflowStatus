@@ -4,7 +4,10 @@ import OSLog
 
 private extension Logger {
 	static var onflowNetwork: Logger {
-		Logger(subsystem: String(describing: OnflowServiceProtocol.self), category: String(describing: OnflowServiceProtocol.self))
+		Logger(
+			subsystem: String(describing: OnflowServiceProtocol.self),
+			category: String(describing: OnflowServiceProtocol.self)
+		)
 	}
 }
 

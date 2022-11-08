@@ -50,7 +50,7 @@ final class SystemStatusViewModel_Test: XCTestCase {
 	}
 
 	func test_SystemStatusViewModel_chooseAppIcon() async {
-		guard let viewModel = viewModel else { return }
+		guard let viewModel else { return }
 
 		// NOTE: - Open simulator to complete test
 		for icon in AppIcon.allCases {

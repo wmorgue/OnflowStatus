@@ -61,7 +61,7 @@ struct DeveloperRow: View {
 
 struct DeveloperRow_Previews: PreviewProvider {
 	static var previews: some View {
-		let previewMock = Services(serviceName: "Xcode Cloud", redirectUrl: "https://ya.ru", events: [])
+		let previewMock = Services(serviceName: "Xcode Cloud", redirectUrl: "https://developer.apple.com/xcode-cloud/", events: [])
 		DeveloperRow(previewMock)
 	}
 }

@@ -26,7 +26,7 @@ struct OnflowStatusApp: App {
 			 */
 
 			// Dependency Injection in nutshell
-			// Здесь нужно передавать SystemMockDataService & DeveloperMockDataService
+			// Just input SystemMockDataService & DeveloperMockDataService
 			NavigationTabView(
 				systemService: systemStatusService,
 				developerService: developerStatusService

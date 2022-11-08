@@ -16,7 +16,7 @@ extension String {
 		Bundle.main.bundleIdentifier ?? "ca.rossik.onflow-status"
 	}
 
-	// Unused for now, but maybe in future
+	// Unused for now, but maybe in the future
 	// static func relativeStartDate(from startDate: String, localeUS: String = "en_US") -> String {
 	// 	let strategy = Date.ParseStrategy(format: "\(month: .twoDigits)/\(day: .twoDigits)/\(year: .defaultDigits) \(hour: .twoDigits(clock: .twelveHour, hourCycle: .zeroBased)):\(minute: .twoDigits) PDT", locale: Locale(identifier: localeUS), timeZone: .current)
 	// 	guard let date = try? Date(startDate, strategy: strategy) else { return Date.now.formatted() }
