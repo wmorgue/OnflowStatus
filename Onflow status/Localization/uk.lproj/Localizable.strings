@@ -11,7 +11,7 @@
 "alert-networkIssue" = "Несправність у мережі";
 "alert-buttonCancel" = "Відміна";
 "compactViewText" = "Усі служби працюють у штатному режимі";
-"searchable-promptText" = "Введіть ім'я сервісу";
+"searchable-promptText" = "Пошук сервісу";
 
 // MARK: - Generic Sheet View
 "genericSheet-status" = "Статус";

@@ -11,7 +11,7 @@
 "alert-networkIssue" = "Network issue";
 "alert-buttonCancel" = "Cancel";
 "compactViewText" = "All services are operating normally";
-"searchable-promptText" = "Enter service name";
+"searchable-promptText" = "Search service name";
 
 // MARK: - Generic Sheet View
 "genericSheet-status" = "Status";
